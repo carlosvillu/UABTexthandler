@@ -1,0 +1,34 @@
+{
+  "name": "super-texthander",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "sui-bundler dev",
+    "deploy": "surge public/ -d https://text-handler.surge.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@s-ui/bundler": "3",
+    "@s-ui/lint": "2"
+  },
+  "dependencies": {
+    "@s-ui/component-peer-dependencies": "1",
+    "@s-ui/domain": "1.10.0",
+    "@s-ui/hoc": "1",
+    "@s-ui/i18n": "1",
+    "@s-ui/react-initial-props": "1",
+    "firebase": "5.0.4",
+    "material-ui": "0.20.0",
+    "reset-css": "3.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "sasslintConfig": "./node_modules/@s-ui/lint/sass-lint.yml"
+}

@@ -1,0 +1,12 @@
+.App {
+  position: relative;
+  &-toolbar {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+  }
+  &-container {
+    margin: 0 auto;
+    width: 66%;
+  }
+}

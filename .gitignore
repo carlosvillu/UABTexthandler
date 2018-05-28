@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+public/
+.DS_Store
+.URL
+diagrama.pdf
+node_modules
