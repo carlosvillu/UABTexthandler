@@ -6,14 +6,20 @@
   "main": "index.js",
   "scripts": {
     "start": "sui-bundler dev",
-    "deploy": "surge public/ -d https://text-handler.surge.sh"
+    "co": "sui-mono commit",
+    "deploy": "surge public/ -d https://text-handler.surge.sh",
+    "lint": "sui-lint js && sui-lint sass",
+    "precommit": "sui-precommit run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@s-ui/bundler": "3",
-    "@s-ui/lint": "2"
+    "@s-ui/lint": "2",
+    "@s-ui/mono": "1",
+    "@s-ui/precommit": "2",
+    "husky": "0.13.4"
   },
   "dependencies": {
     "@s-ui/component-peer-dependencies": "1",
@@ -24,6 +30,11 @@
     "firebase": "5.0.4",
     "material-ui": "0.20.0",
     "reset-css": "3.0.0"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": "@s-ui/mono/src/types"
+    }
   },
   "eslintConfig": {
     "extends": [
