@@ -7,10 +7,10 @@ import preproduction from './preproduction'
 console.log('\n\nENV:', process.env.NODE_ENV, '\n\n')
 
 const envConfig = {
-  'development': development,
-  'preproduction': preproduction,
-  'production': production,
-  'test': test
+  development: development,
+  preproduction: preproduction,
+  production: production,
+  test: test
 }
 
 export default class Config {
@@ -19,7 +19,7 @@ export default class Config {
    * @param {Object} deps
    * @param {String} deps.appName
    */
-  constructor () {
+  constructor() {
     this._config = {
       ...base,
       ...envConfig[process.env.NODE_ENV]
@@ -31,7 +31,7 @@ export default class Config {
    * @param {String} key
    * @return {*}
    */
-  get (key) {
+  get(key) {
     return this._config[key]
   }
 
@@ -41,7 +41,7 @@ export default class Config {
    * @param {*} value
    * @return {*}
    */
-  set (key, value) {
+  set(key, value) {
     this._config[key] = value
     return this
   }

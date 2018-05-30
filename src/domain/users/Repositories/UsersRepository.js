@@ -1,17 +1,17 @@
 export default class UsersRepository {
-  current () {
+  current() {
     throw Error('[UsersRepository#current] must be implemented')
   }
 
-  create () {
+  create() {
     throw Error('[UsersRepository#create] must be implemented')
   }
 
-  login () {
+  login() {
     throw Error('[UsersRepository#login] must be implemented')
   }
 
-  logout () {
+  logout() {
     throw Error('[UsersRepository#logout] must be implemented')
   }
 }
