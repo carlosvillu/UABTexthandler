@@ -23,12 +23,13 @@
   },
   "dependencies": {
     "@s-ui/component-peer-dependencies": "1",
-    "@s-ui/domain": "1.10.0",
+    "@s-ui/domain": "1",
     "@s-ui/hoc": "1",
     "@s-ui/i18n": "1",
     "@s-ui/react-initial-props": "1",
     "firebase": "5.0.4",
     "material-ui": "0.20.0",
+    "recompose": "0.27.1",
     "reset-css": "3.0.0"
   },
   "config": {
