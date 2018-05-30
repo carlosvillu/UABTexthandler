@@ -6,13 +6,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const App = ({children}, {i18n}) => (
   <MuiThemeProvider>
-    <div className='App'>
+    <div className="App">
       <AppBar
         title={i18n.t('APP_NAME')}
-        className='App-toolbar'
+        className="App-toolbar"
         showMenuIconButton={false}
-      />
-      <div className='App-container'>{children}</div>
+      />{' '}
+      <div className="App-container">{children}</div>
     </div>
   </MuiThemeProvider>
 )
