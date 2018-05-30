@@ -20,6 +20,8 @@ const loadSignupPage = loadPage(contextFactory, () =>
 )
 
 const requireAuth = async (nextState, replace, cb) => {
+  // eslint-disable-next-line
+  // debugger
   const user = await domain.get('current_users_use_case').execute()
   if (!user) {
     replace('/signin')
@@ -35,13 +37,28 @@ const redirectToHome = async (nextState, replace, cb) => {
   return cb()
 }
 
+const logout = async (nextState, replace, cb) => {
+  await domain.get('logout_users_use_case').execute()
+  replace('/signin')
+  return cb()
+}
+
 export default (
   <Router>
     <Route component={require('./components/App').default}>
-      <Route path='/'>
-        <IndexRoute getComponent={loadHomePage} />
-        <Route path='signin' getComponent={loadSigninPage} />
-        <Route path='signup' getComponent={loadSignupPage} />
+      <Route path="/">
+        <IndexRoute getComponent={loadHomePage} onEnter={requireAuth} />
+        <Route
+          path="signin"
+          getComponent={loadSigninPage}
+          onEnter={redirectToHome}
+        />
+        <Route
+          path="signup"
+          getComponent={loadSignupPage}
+          onEnter={redirectToHome}
+        />
+        <Route path="logout" onEnter={logout} />
       </Route>
     </Route>
   </Router>

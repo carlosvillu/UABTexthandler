@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import Router from 'react-router/lib/Router'
-import match from 'react-router/lib/match'
 import browserHistory from 'react-router/lib/browserHistory'
 import routes from './routes'
 
@@ -13,15 +12,9 @@ import contextFactory from './contextFactory'
 import './styles/index.scss'
 
 contextFactory(createClientContextFactoryParams()).then(context => {
-  match(
-    { routes, history: browserHistory },
-    (err, redirectLocation, renderProps) => {
-      if (err) {
-        console.error(err)
-      }
-
-      const App = withContext(context)(Router)
-      ReactDOM.render(<App {...renderProps} />, document.getElementById('app'))
-    }
+  const App = withContext(context)(Router)
+  ReactDOM.render(
+    <App routes={routes} history={browserHistory} />,
+    document.getElementById('app')
   )
 })
