@@ -11,7 +11,12 @@ export default compose(
   withState('statePassword', 'setStatePassword', ''),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
-    handlerButtonSubmit: ({domain, stateEmail, statePassword, router}) => async () => {
+    handlerButtonSubmit: ({
+      domain,
+      stateEmail,
+      statePassword,
+      router
+    }) => async () => {
       await domain
         .get('login_users_use_case')
         .execute({
