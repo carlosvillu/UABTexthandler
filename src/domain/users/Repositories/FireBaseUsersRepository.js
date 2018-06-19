@@ -16,11 +16,11 @@ export default class FireBaseUsersRepository extends UsersRepository {
       return false
     }
 
-    const {email, id} = (await firebase
+    const userDB = (await firebase
       .database()
       .ref(`/users/${user.uid}`)
       .once('value')).val()
-    return this._userEntityFactory({email, id})
+    return this._userEntityFactory(userDB)
   }
 
   async create({email, name, password} = {}) {
@@ -32,6 +32,7 @@ export default class FireBaseUsersRepository extends UsersRepository {
       .ref(`/users/${user.uid}`)
       .set({
         email,
+        name,
         id: user.uid
       })
 

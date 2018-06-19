@@ -1,10 +1,16 @@
-export default class CurrentUsersUseCase {
+import {streamify} from '@s-ui/decorators'
+
+@streamify('execute')
+class CurrentUsersUseCase {
   constructor({service} = {}) {
     this._service = service
   }
 
   async execute() {
     const userEntity = await this._service.execute()
+    // debugger // eslint-disable-line
     return userEntity && userEntity.toJSON()
   }
 }
+
+export default CurrentUsersUseCase

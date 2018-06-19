@@ -1,7 +1,9 @@
 import UsersRepositoriesFactory from '../Repositories/factory'
 
+import CreateUsersService from './CreateUsersService'
 import CurrentUsersService from './CurrentUsersService'
 import LoginUsersService from './LoginUsersService'
+import LogoutUsersService from './LogoutUsersService'
 
 export default class UsersServicesFactory {
   static currentUsersService = ({config}) =>
@@ -14,4 +16,14 @@ export default class UsersServicesFactory {
       repository: UsersRepositoriesFactory.fireBaseUsersRepository({config})
     })
   }
+
+  static createUsersService = ({config}) =>
+    new CreateUsersService({
+      repository: UsersRepositoriesFactory.fireBaseUsersRepository({config})
+    })
+
+  static logoutUsersService = ({config}) =>
+    new LogoutUsersService({
+      repository: UsersRepositoriesFactory.fireBaseUsersRepository({config})
+    })
 }

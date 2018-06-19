@@ -4,7 +4,6 @@ export default class LoginUsersUseCase {
   }
 
   async execute({email, password} = {}) {
-    debugger //eslint-disable-line
     const userEntity = await this._service.execute({email, password})
     return userEntity.toJSON()
   }
