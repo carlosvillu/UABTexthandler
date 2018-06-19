@@ -19,14 +19,25 @@ const loadSignupPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Signup" */ './pages/Signup')
 )
 
+const loadAdminTextPage = loadPage(contextFactory, () =>
+  import(/* webpackChunkName: "AdminText" */ './pages/AdminText')
+)
+
 const requireAuth = async (nextState, replace, cb) => {
-  // eslint-disable-next-line
-  // debugger
   const user = await domain.get('current_users_use_case').execute()
+  // debugger // eslint-disable-line
   if (!user) {
     replace('/signin')
   }
   return cb()
+}
+
+const requireAdmin = async (nextState, replace, cb) => {
+  const isAdmin = await domain.get('is_privileged_users_use_case').execute()
+  if (!isAdmin) {
+    replace('/')
+  }
+  cb()
 }
 
 const redirectToHome = async (nextState, replace, cb) => {
@@ -48,15 +59,18 @@ export default (
     <Route component={require('./components/App').default}>
       <Route path="/">
         <IndexRoute getComponent={loadHomePage} onEnter={requireAuth} />
+        <Route path="admin" onEnter={requireAdmin}>
+          <Route path="text" getComponent={loadAdminTextPage} />
+        </Route>
         <Route
-          path="signin"
           getComponent={loadSigninPage}
           onEnter={redirectToHome}
+          path="signin"
         />
         <Route
-          path="signup"
           getComponent={loadSignupPage}
           onEnter={redirectToHome}
+          path="signup"
         />
         <Route path="logout" onEnter={logout} />
       </Route>
