@@ -23,12 +23,14 @@
   },
   "dependencies": {
     "@s-ui/component-peer-dependencies": "1",
+    "@s-ui/decorators": "1",
     "@s-ui/domain": "1",
     "@s-ui/hoc": "1",
     "@s-ui/i18n": "1",
     "@s-ui/react-initial-props": "1",
     "firebase": "5.0.4",
     "material-ui": "0.20.0",
+    "react-table": "6.8.6",
     "recompose": "0.27.1",
     "reset-css": "3.0.0"
   },
@@ -36,6 +38,16 @@
     "validate-commit-msg": {
       "types": "@s-ui/mono/src/types"
     }
+  },
+  "sui-bundler": {
+    "vendor": [
+      "react",
+      "react-dom",
+      "material-ui",
+      "react-router",
+      "firebase",
+      "recompose"
+    ]
   },
   "eslintConfig": {
     "extends": [
