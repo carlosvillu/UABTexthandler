@@ -29,7 +29,7 @@ export default compose(
       evt.stopPropagation()
       evt.preventDefault()
       props.setStateOpenDialog(false)
-      const texts = await upload({
+      await upload({
         items: evt.dataTransfer.files,
         domain: props.domain
       })
@@ -45,7 +45,7 @@ export default compose(
       setStateOpenDialog(!stateOpenDialog),
     handleInputChange: props => async evt => {
       props.setStateOpenDialog(false)
-      const texts = await upload({
+      await upload({
         items: evt.target.files,
         domain: props.domain
       })
