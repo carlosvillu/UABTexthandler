@@ -1,27 +1,36 @@
-import React from 'react'
+import Signup from './component'
 import PropTypes from 'prop-types'
 
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
+import compose from 'recompose/compose'
+import withState from 'recompose/withState'
+import withHandlers from 'recompose/withHandlers'
+import getContext from 'recompose/getContext'
 
-const Signup = (_, {i18n}) => (
-  <div className="Signup">
-    <div className="Signup-form">
-      <h3 className="Signup-label">{i18n.t('SIGNUP')}</h3>
-      <TextField
-        className="Signup-input"
-        hintText={i18n.t('SIGNUP_USER_LABEL')}
-      />
-      <TextField
-        className="Signup-input"
-        hintText={i18n.t('SIGNUP_PASSWORD_LABEL')}
-        type="password"
-      />
-      <RaisedButton label={i18n.t('SIGNUP')} primary fullWidth />
-    </div>
-  </div>
-)
-
-Signup.contextTypes = {i18n: PropTypes.object}
-
-export default Signup
+export default compose(
+  withState('stateEmail', 'setStateEmail', ''),
+  withState('statePassword', 'setStatePassword', ''),
+  withState('stateName', 'setStateName', ''),
+  getContext({domain: PropTypes.object, i18n: PropTypes.object}),
+  withHandlers({
+    handlerButtonSubmit: ({
+      domain,
+      history,
+      router,
+      stateEmail,
+      stateName,
+      statePassword
+    }) => async () => {
+      const user = await domain
+        .get('create_users_use_case')
+        .execute({
+          email: stateEmail,
+          name: stateName,
+          password: statePassword
+        })
+        .catch(e => console.log(e))
+      if (user) {
+        router.push('/')
+      }
+    }
+  })
+)(Signup)
