@@ -1,12 +1,17 @@
 .App {
-  position: relative;
-  &-toolbar {
-    position: absolute !important;
-    top: 0;
-    left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &-content {
+    flex: 1 0 auto;
   }
-  &-container {
-    margin: 0 auto;
-    width: 66%;
+
+  &-toolbar {
+    position: sticky !important;
+  }
+
+  &-footer {
+    flex-shrink: 0;
   }
 }

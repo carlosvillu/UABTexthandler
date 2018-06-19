@@ -1,0 +1,26 @@
+.Uploader {
+  &-addbutton {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+  &-label {
+    padding: 15px;
+  }
+
+  &-paper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+  }
+
+  &-claim {
+    color: rgba(0, 0, 0, 0.298039);
+    margin-left: 5px;
+  }
+
+  &-input {
+    display: none;
+  }
+}
