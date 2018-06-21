@@ -17,7 +17,12 @@ const useCases = {
   logout_users_use_case: UsersUseCasesFactory.logoutUsersUseCase({config}),
 
   get_all_texts_use_case: TextsUseCasesFactory.getAllTextsUseCase({config}),
-  upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config})
+  upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),
+  get_next_evaluation_texts_use_case: TextsUseCasesFactory.getNextEvaluationTextsUseCase(
+    {
+      config
+    }
+  )
 }
 
 export default EntryPointFactory({config, useCases})

@@ -1,11 +1,14 @@
 import TextsRepository from './TextsRepository'
 
 export default class FireBaseTextsRepository extends TextsRepository {
-  constructor({config, textEntityFactory} = {}) {
+  constructor({config, textEntityFactory, pickRnd, shuffle, pipe} = {}) {
     super()
 
     this._config = config
     this._textEntityFactory = textEntityFactory
+    this._pickRnd = pickRnd
+    this._shuffle = shuffle
+    this._pipe = pipe
   }
 
   upload(textEntity) {
@@ -34,5 +37,13 @@ export default class FireBaseTextsRepository extends TextsRepository {
     const textsRef = refsManager.ref({path: '/texts'})
     const texts = (await textsRef.once('value')).val() || {}
     return Object.keys(texts).map(key => this._textEntityFactory(texts[key]))
+  }
+
+  async next() {
+    const texts = await this.all()
+
+    return this._pipe(this._shuffle, this._pickRnd)(
+      texts.filter(text => text.isEvaluable())
+    )
   }
 }

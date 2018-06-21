@@ -8,7 +8,6 @@ class CurrentUsersUseCase {
 
   async execute() {
     const userEntity = await this._service.execute()
-    // debugger // eslint-disable-line
     return userEntity && userEntity.toJSON()
   }
 }
