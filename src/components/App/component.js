@@ -13,7 +13,8 @@ export default class App extends React.PureComponent {
     domain: PropTypes.object,
     i18n: PropTypes.object,
     setStateUser: PropTypes.func,
-    stateUser: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
+    stateUser: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    ui: PropTypes.object
   }
 
   componentDidMount() {
@@ -41,12 +42,13 @@ export default class App extends React.PureComponent {
           <div className="App-content">
             <AppBar
               className="App-toolbar"
-              iconElementRight={IS_LOGGED ? <LoggedMenu /> : null}
-              showMenuIconButton={false}
+              showMenuIconButton={IS_LOGGED}
+              onLeftIconButtonClick={this.handlerClickLeftIcon}
               style={{position: 'sticky', top: 0, left: 0}}
               title={<Link to="/">{i18n.t('APP_NAME')}</Link>}
             />
             <div className="App-container">{children}</div>
+            {IS_LOGGED && <LoggedMenu />}
           </div>
           <div className="App-footer">
             <h3>Footer</h3>
@@ -54,5 +56,9 @@ export default class App extends React.PureComponent {
         </div>
       </MuiThemeProvider>
     )
+  }
+
+  handlerClickLeftIcon = () => {
+    this.props.ui.showMenu(true)
   }
 }

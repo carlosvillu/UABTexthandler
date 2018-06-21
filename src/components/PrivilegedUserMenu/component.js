@@ -11,7 +11,8 @@ export default class PrivilegedUserMenu extends React.PureComponent {
     domain: PropTypes.object,
     i18n: PropTypes.object,
     setStateIsPrivileged: PropTypes.func,
-    stateIsPrivileged: PropTypes.bool
+    stateIsPrivileged: PropTypes.bool,
+    ui: PropTypes.object
   }
 
   async componentDidMount() {
@@ -26,11 +27,19 @@ export default class PrivilegedUserMenu extends React.PureComponent {
     const {i18n, stateIsPrivileged} = this.props
     return stateIsPrivileged ? (
       <React.Fragment>
-        <Link className="PrivilegedUserMenu-link" to="/admin/text">
+        <Link
+          className="PrivilegedUserMenu-link"
+          onClick={this.handleClickLink}
+          to="/admin/text"
+        >
           <MenuItem primaryText={i18n.t('ADMIN_TEXTS')} />
         </Link>
         <Divider />
       </React.Fragment>
     ) : null
+  }
+
+  handleClickLink = () => {
+    this.props.ui.showMenu(false)
   }
 }

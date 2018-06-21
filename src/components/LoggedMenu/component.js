@@ -1,35 +1,51 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import IconButton from 'material-ui/IconButton'
-import IconMenu from 'material-ui/IconMenu'
+import AppBar from 'material-ui/AppBar'
 import MenuItem from 'material-ui/MenuItem'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import Drawer from 'material-ui/Drawer'
 
 import Link from 'react-router/lib/Link'
 
 import PrivilegedUserMenu from '../PrivilegedUserMenu'
 
-const LoggedMenu = ({i18n}) => (
-  <IconMenu
-    className="LoggedMenu"
-    iconButtonElement={
-      <IconButton>
-        <MoreVertIcon />
-      </IconButton>
-    }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-  >
-    <PrivilegedUserMenu />
-    <Link to="/logout" className="LoggedMenu-link">
-      <MenuItem primaryText={i18n.t('SIGNOUT')} />
-    </Link>
-  </IconMenu>
-)
+class LoggedMenu extends React.Component {
+  static propTypes = {
+    i18n: PropTypes.object,
+    ui: PropTypes.object
+  }
+  render() {
+    const {ui, i18n} = this.props
+    return (
+      <Drawer
+        docked={false}
+        onRequestChange={this.handleRequestChangeDrawer}
+        open={ui.state.showMenu}
+      >
+        <AppBar showMenuIconButton={false} />
+        <PrivilegedUserMenu />
+        <Link
+          to="/logout"
+          className="LoggedMenu-link"
+          onClick={this.handleClickLink}
+        >
+          <MenuItem primaryText={i18n.t('SIGNOUT')} />
+        </Link>
+      </Drawer>
+    )
+  }
 
-LoggedMenu.propTypes = {
-  i18n: PropTypes.object
+  handleClickLink = () => {
+    this.props.ui.showMenu(false)
+  }
+
+  handleClickIconMenu = () => {
+    this.props.ui.showMenu(true)
+  }
+
+  handleRequestChangeDrawer = open => {
+    this.props.ui.showMenu(open)
+  }
 }
 
 export default LoggedMenu
