@@ -2,6 +2,8 @@ module.exports = {
   ADMINTEXT_TITLE: 'Administrar textos',
   ADMIN_TEXTS: 'Administrar textos',
   APP_NAME: 'UABTexthandler',
+  HOME_QUESTIONS: 'Cuestionario',
+  HOME_TEXT: 'Texto',
   SIGNIN: 'Login',
   SIGNIN_PASSWORD_HINT: '123456',
   SIGNIN_PASSWORD_LABEL: 'contraseña',
