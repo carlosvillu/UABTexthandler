@@ -25,7 +25,6 @@ const loadAdminTextPage = loadPage(contextFactory, () =>
 
 const requireAuth = async (nextState, replace, cb) => {
   const user = await domain.get('current_users_use_case').execute()
-  // debugger // eslint-disable-line
   if (!user) {
     replace('/signin')
   }
