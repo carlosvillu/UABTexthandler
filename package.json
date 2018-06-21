@@ -32,7 +32,8 @@
     "material-ui": "0.20.0",
     "react-table": "6.8.6",
     "recompose": "0.27.1",
-    "reset-css": "3.0.0"
+    "reset-css": "3.0.0",
+    "unstated": "2.1.1"
   },
   "config": {
     "validate-commit-msg": {
