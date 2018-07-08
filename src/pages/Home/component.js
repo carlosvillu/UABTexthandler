@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import {Tabs, Tab} from 'material-ui/Tabs'
+// import {Tabs, Tab} from 'material-ui/Tabs'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 
@@ -34,14 +34,14 @@ class Home extends React.PureComponent {
   render() {
     const {
       handleChangeQuiz,
-      handleChangeTab,
+      // handleChangeTab,
       handleInitQuiz,
-      i18n,
-      stateTab,
+      // i18n,
+      // stateTab,
       stateText
     } = this.props
 
-    console.log(this.props.stateEvaluation)
+    // console.log(this.props.stateEvaluation)
 
     return (
       <div className="Home">
