@@ -2,12 +2,14 @@ import {streamify} from '@s-ui/decorators'
 
 @streamify('execute')
 class GetNextEvaluationTextsUseCase {
-  constructor({service} = {}) {
+  constructor({service, userEntityFactory} = {}) {
     this._service = service
+    this._userEntityFactory = userEntityFactory
   }
 
-  async execute() {
-    const text = await this._service.execute()
+  async execute({user} = {}) {
+    const userEntity = this._userEntityFactory(user)
+    const text = await this._service.execute({user: userEntity})
     return text.toJSON()
   }
 }

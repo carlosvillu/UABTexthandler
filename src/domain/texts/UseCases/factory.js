@@ -1,3 +1,4 @@
+import UsersEntitiesFactory from '../../users/Entities/factory'
 import TextsServicesFactory from '../Services/factory'
 
 import GetAllTextsUseCase from './GetAllTextsUseCase'
@@ -17,6 +18,7 @@ export default class TextsUseCasesFactory {
 
   static getNextEvaluationTextsUseCase = ({config}) =>
     new GetNextEvaluationTextsUseCase({
-      service: TextsServicesFactory.getNextEvaluationTextsService({config})
+      service: TextsServicesFactory.getNextEvaluationTextsService({config}),
+      userEntityFactory: UsersEntitiesFactory.userEntity
     })
 }

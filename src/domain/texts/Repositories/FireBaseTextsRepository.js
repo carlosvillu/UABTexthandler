@@ -39,11 +39,11 @@ export default class FireBaseTextsRepository extends TextsRepository {
     return Object.keys(texts).map(key => this._textEntityFactory(texts[key]))
   }
 
-  async next() {
+  async next({user}) {
     const texts = await this.all()
 
     return this._pipe(this._shuffle, this._pickRnd)(
-      texts.filter(text => text.isEvaluable())
+      texts.filter(text => text.isEvaluable({user}))
     )
   }
 }
