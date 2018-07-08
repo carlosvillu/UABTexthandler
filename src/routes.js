@@ -7,8 +7,23 @@ import contextFactory from './contextFactory'
 
 import domain from './domain/instance'
 
+import ReactHotLoader from 'react-hot-loader'
+
 const loadHomePage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Home" */ './pages/Home')
+)
+
+module.hot.accept(
+  './pages/Home',
+  () =>
+    ReactHotLoader.hasComponentsFrom('./pages/Home') && import('./pages/Home')
+)
+
+module.hot.accept(
+  './pages/AdminText',
+  () =>
+    ReactHotLoader.hasComponentsFrom('./pages/AdminText') &&
+    import('./pages/AdminText')
 )
 
 const loadSigninPage = loadPage(contextFactory, () =>
