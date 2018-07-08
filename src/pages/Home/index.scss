@@ -1,4 +1,15 @@
 .Home {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  width: 66%;
+
+  &-body {
+    display: flex;
+  }
+  &-buttons {
+    display: flex;
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+  }
 }
