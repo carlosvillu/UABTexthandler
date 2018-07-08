@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/bundler": "3",
+    "@s-ui/bundler": "beta",
     "@s-ui/lint": "2",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
