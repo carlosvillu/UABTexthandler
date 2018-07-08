@@ -5,14 +5,33 @@ import Paper from 'material-ui/Paper'
 
 class CanvasTexto extends React.PureComponent {
   static propTypes = {
-    text: PropTypes.string
+    children: PropTypes.string,
+    i18n: PropTypes.object,
+    student: PropTypes.number
   }
+  static defaultProps = {children: ''}
+
   render() {
-    const {text} = this.props
+    const {children, student, i18n} = this.props
     return (
       <div className="CanvasTexto">
         <Paper className="CanvasTexto-canvas" zDepth={1}>
-          {text}
+          <h2 className="CanvasTexto-student">
+            <span className="CanvasTexto-student">
+              {i18n.t('CANVASTEXTO_STUDENT')}:
+            </span>
+            {student}
+          </h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: children
+                .split(/\n/)
+                .reduce(
+                  (acc, paragraph) => (acc += paragraph + '</p><p>'),
+                  '<p>'
+                )
+            }}
+          />
         </Paper>
       </div>
     )
