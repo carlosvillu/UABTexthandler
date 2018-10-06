@@ -25,9 +25,9 @@ class CanvasTexto extends React.PureComponent {
           <div
             dangerouslySetInnerHTML={{
               __html: children
-                .split(/\n/)
+                .split(/\n\n/)
                 .reduce(
-                  (acc, paragraph) => (acc += paragraph + '</p><p>'),
+                  (acc, paragraph) => (acc += paragraph + '</p><br/><p>'),
                   '<p>'
                 )
             }}
