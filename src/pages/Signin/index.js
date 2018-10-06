@@ -23,7 +23,7 @@ export default compose(
           email: stateEmail,
           password: statePassword
         })
-        .catch(e => console.log(e))
+        .catch(e => console.log(e)) // eslint-disable-line
       router.push('/')
     }
   })

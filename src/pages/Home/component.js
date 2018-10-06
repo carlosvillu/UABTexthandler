@@ -15,11 +15,11 @@ class Home extends React.PureComponent {
   static propTypes = {
     domain: PropTypes.object,
     handleChangeQuiz: PropTypes.func,
-    handleChangeTab: PropTypes.func,
+    // handleChangeTab: PropTypes.func,
     handleInitQuiz: PropTypes.func,
-    i18n: PropTypes.object,
+    // i18n: PropTypes.object,
     setStateText: PropTypes.func,
-    stateTab: PropTypes.string,
+    // stateTab: PropTypes.string,
     stateText: PropTypes.object
   }
 

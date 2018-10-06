@@ -27,7 +27,7 @@ export default compose(
           name: stateName,
           password: statePassword
         })
-        .catch(e => console.log(e))
+        .catch(e => console.log(e)) // eslint-disable-line
       if (user) {
         router.push('/')
       }
