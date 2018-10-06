@@ -16,7 +16,6 @@ class Uploader extends React.PureComponent {
     handleDropPaper: PropTypes.func,
     handleInputChange: PropTypes.func,
     i18n: PropTypes.object,
-    setStateOpenDialog: PropTypes.func,
     stateOpenDialog: PropTypes.bool
   }
 
