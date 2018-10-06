@@ -1,0 +1,9 @@
+{
+  "name": "UAB TextHandler",
+  "short_name": "TextHandler",
+  "theme_color": "#398f46",
+  "background_color": "#398f46",
+  "display": "standalone",
+  "start_url": "/",
+  "splash_pages": null
+}
