@@ -5,20 +5,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sui-bundler dev",
+    "build": "sui-bundler build -C && cp -R ./statics/ ./public/ && cp ./public/index.html ./public/200.html",
     "co": "sui-mono commit",
-    "deploy": "surge public/ -d https://text-handler.surge.sh",
+    "deploy": "npm run build && surge public/ -d https://text-handler.surge.sh",
     "lint": "sui-lint js && sui-lint sass",
-    "precommit": "sui-precommit run"
+    "precommit": "sui-precommit run",
+    "start": "sui-bundler dev",
+    "test": "NODE_ENV=test sui-test b --src-pattern src/domain/**/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/bundler": "beta",
+    "@s-ui/bundler": "3",
     "@s-ui/lint": "2",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
+    "@s-ui/test": "1",
+    "chai": "4.1.2",
     "husky": "0.13.4"
   },
   "dependencies": {
@@ -41,6 +45,11 @@
     }
   },
   "sui-bundler": {
+    "offline": {
+      "whitelist": [
+        "::all::"
+      ]
+    },
     "vendor": [
       "react",
       "react-dom",
