@@ -13,19 +13,6 @@ const loadHomePage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Home" */ './pages/Home')
 )
 
-module.hot.accept(
-  './pages/Home',
-  () =>
-    ReactHotLoader.hasComponentsFrom('./pages/Home') && import('./pages/Home')
-)
-
-module.hot.accept(
-  './pages/AdminText',
-  () =>
-    ReactHotLoader.hasComponentsFrom('./pages/AdminText') &&
-    import('./pages/AdminText')
-)
-
 const loadSigninPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Signin" */ './pages/Signin')
 )
@@ -91,3 +78,18 @@ export default (
     </Route>
   </Router>
 )
+
+if (process.env.NODE_ENV !== 'production') {
+  module.hot.accept(
+    './pages/Home',
+    () =>
+      ReactHotLoader.hasComponentsFrom('./pages/Home') && import('./pages/Home')
+  )
+
+  module.hot.accept(
+    './pages/AdminText',
+    () =>
+      ReactHotLoader.hasComponentsFrom('./pages/AdminText') &&
+      import('./pages/AdminText')
+  )
+}
