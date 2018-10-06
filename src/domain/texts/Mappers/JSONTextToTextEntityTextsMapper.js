@@ -1,6 +1,7 @@
 export default class JSONTextToTextEntityTextsMapper {
-  constructor({textEntityFactory} = {}) {
+  constructor({textEntityFactory, normalizeMapper} = {}) {
     this._textEntityFactory = textEntityFactory
+    this._normalizeMapper = normalizeMapper
   }
   map = ({filename, body}) => {
     const [, school, level, room, student, time, gender] = filename.match(
@@ -13,7 +14,7 @@ export default class JSONTextToTextEntityTextsMapper {
       room: parseInt(room, 10),
       student: parseInt(student, 10),
       original: body,
-      normalize: body,
+      normalize: this._normalizeMapper.map(body),
       gender,
       time,
       evaluations: {}
