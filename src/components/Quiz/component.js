@@ -5,7 +5,7 @@ import Slider from 'material-ui/Slider'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 
-import Reason from '../Reason'
+import Reason from './Reason'
 import RadioButtonGroup from './RadioButtonGroup'
 import RangeInput from './RangeInput'
 
