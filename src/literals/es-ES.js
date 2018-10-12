@@ -20,6 +20,7 @@ module.exports = {
   QUIZ_SYNTHETIC: '¿Tiene resumen sintético?',
   RADIOBUTTONGROUP_RADIO_NO: 'No',
   RADIOBUTTONGROUP_RADIO_YES: 'Sí',
+  REASON_ADD_TYPE: 'Añadir otro tipo',
   REASON_EVIDENCES: 'Evidencias',
   REASON_EXAMPLE: 'Ejemplo',
   REASON_EXPERTS: 'Expertos',
