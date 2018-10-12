@@ -36,27 +36,27 @@ export default compose(
       return {...state, [action.field]: action.value}
     },
     {
-      introduction: false,
-      opinion: false,
+      introduction: null,
+      opinion: null,
       reasons: [
-        {justification: false, type: null},
-        {justification: false, type: null},
-        {justification: false, type: null}
+        {justification: null, type: null},
+        {justification: null, type: null},
+        {justification: null, type: null}
       ],
-      extensive: false,
-      synthetic: false,
-      otherOpinion: false,
-      opinionConector: false,
+      extensive: null,
+      synthetic: null,
+      otherOpinion: null,
+      opinionConector: null,
       reasonConectors: 0,
       reasonExplication: 0,
-      conclusion: false,
+      conclusion: null,
       otherConectors: 0,
-      quality: 1
+      freeText: ''
     }
   ),
   withHandlers({
-    handleChangeToggle: props => name => (evt, value) => {
-      props.dispatch({type: 'toggle', field: name, value}, props.onChange)
+    handleChangeSwitch: props => name => (evt, value) => {
+      props.dispatch({type: 'switch', field: name, value}, props.onChange)
     },
     handleChangeSlider: props => name => (evt, value) => {
       props.dispatch({type: 'slider', field: name, value}, props.onChange)
@@ -66,6 +66,12 @@ export default compose(
     },
     handleClickFlatButton: props => () => {
       props.dispatch({type: 'add_reason'}, props.onChange)
+    },
+    handleChangeTextArea: props => (evt, value) => {
+      props.dispatch(
+        {type: 'free_text', field: 'freeText', value},
+        props.onChange
+      )
     }
   })
 )(Quiz)

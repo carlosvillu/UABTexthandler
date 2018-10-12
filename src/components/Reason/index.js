@@ -11,11 +11,17 @@ export default compose(
   withReducer(
     'reason',
     'dispatch',
-    (state, action) => ({...state, [action.field]: action.value}),
+    (state, action) => {
+      const nextState = {...state, [action.field]: action.value}
+      if (nextState.justification === Reason.NO) {
+        return {...nextState, type: null}
+      }
+      return nextState
+    },
     ({justification, type}) => ({justification, type})
   ),
   withHandlers({
-    handleChangeToggle: props => (evt, value) => {
+    handleChangeSwitch: props => (evt, value) => {
       props.dispatch({field: 'justification', value}, props.onChange)
     },
     handleChangeSelect: props => (evt, index, value) => {
