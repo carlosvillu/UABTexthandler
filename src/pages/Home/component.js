@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-// import {Tabs, Tab} from 'material-ui/Tabs'
 import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 
@@ -15,11 +14,10 @@ class Home extends React.PureComponent {
   static propTypes = {
     domain: PropTypes.object,
     handleChangeQuiz: PropTypes.func,
-    // handleChangeTab: PropTypes.func,
+    handleClickFlatButton: PropTypes.func,
+    handleClickRaisedButton: PropTypes.func,
     handleInitQuiz: PropTypes.func,
-    // i18n: PropTypes.object,
     setStateText: PropTypes.func,
-    // stateTab: PropTypes.string,
     stateText: PropTypes.object
   }
 
@@ -34,14 +32,11 @@ class Home extends React.PureComponent {
   render() {
     const {
       handleChangeQuiz,
-      // handleChangeTab,
+      handleClickFlatButton,
+      handleClickRaisedButton,
       handleInitQuiz,
-      // i18n,
-      // stateTab,
       stateText
     } = this.props
-
-    // console.log(this.props.stateEvaluation)
 
     return (
       <div className="Home">
@@ -52,19 +47,14 @@ class Home extends React.PureComponent {
           </CanvasTexto>
           <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
         </div>
-        {/* <Tabs value={stateTab} onChange={handleChangeTab}>
-          <Tab label={i18n.t('HOME_TEXT')} value={Home.TEXT_TAB}>
-            <CanvasTexto student={stateText.student}>
-              {stateText.normalize}
-            </CanvasTexto>
-          </Tab>
-          <Tab label={i18n.t('HOME_QUESTIONS')} value={Home.QUESTIONS_TAB}>
-            <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
-          </Tab>
-        </Tabs> */}
         <div className="Home-buttons">
-          <FlatButton label="Saltar texto" />
-          <RaisedButton label="Guardar y seguir" primary style={{margin: 12}} />
+          <FlatButton label="Saltar texto" onClick={handleClickFlatButton} />
+          <RaisedButton
+            label="Guardar y seguir"
+            onClick={handleClickRaisedButton}
+            primary
+            style={{margin: 12}}
+          />
         </div>
       </div>
     )

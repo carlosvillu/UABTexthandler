@@ -9,15 +9,20 @@ import withHandlers from 'recompose/withHandlers'
 import {hot} from 'react-hot-loader'
 
 export default compose(
-  withState('stateTab', 'setStateTab', Home.QUESTIONS_TAB),
   withState('stateText', 'setStateText', {}),
   withState('stateEvaluation', 'setStateEvaluation'),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
-    handleChangeTab: props => tab => props.setStateTab(tab),
     handleInitQuiz: props => evaluation => props.setStateEvaluation(evaluation),
-    handleChangeQuiz: props => evaluation =>
+    handleChangeQuiz: props => evaluation => {
+      console.log(evaluation)
       props.setStateEvaluation(evaluation)
+    },
+    handleClickFlatButton: props => evt => {
+      props.router.push('/')
+      window.scrollTo(0, 0)
+    },
+    handleClickRaisedButton: props => evt => {}
   }),
   hot(module)
 )(Home)
