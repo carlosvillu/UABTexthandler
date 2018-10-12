@@ -13,6 +13,7 @@ class Reason extends React.PureComponent {
   static propTypes = {
     handleChangeSelect: PropTypes.func,
     handleChangeSwitch: PropTypes.func,
+    handleClickFlatButton: PropTypes.func,
     i18n: PropTypes.object,
     reason: PropTypes.object,
     title: PropTypes.string
@@ -21,6 +22,7 @@ class Reason extends React.PureComponent {
     const {
       handleChangeSelect,
       handleChangeSwitch,
+      handleClickFlatButton,
       i18n,
       reason,
       title
@@ -46,29 +48,38 @@ class Reason extends React.PureComponent {
             </RadioButtonGroup>
           </div>
           <div className="Reason-cell">
-            <SelectField
-              floatingLabelText={i18n.t('REASON_SELECT_LABEL')}
-              onChange={handleChangeSelect}
-              disabled={
-                !reason.justification || reason.justification === Reason.NO
-              }
-              value={reason.type}
-            >
-              <MenuItem value={null} primaryText="" />
-              <MenuItem
-                value="example"
-                primaryText={i18n.t('REASON_EXAMPLE')}
-              />
-              <MenuItem
-                value="experts"
-                primaryText={i18n.t('REASON_EXPERTS')}
-              />
-              <MenuItem
-                value="evidences"
-                primaryText={i18n.t('REASON_EVIDENCES')}
-              />
-              <MenuItem value="others" primaryText={i18n.t('REASON_OTHERS')} />
-            </SelectField>
+            {reason.types.map((type, index) => (
+              <SelectField
+                key={index} // I know it!
+                floatingLabelText={i18n.t('REASON_SELECT_LABEL')}
+                onChange={handleChangeSelect(index)}
+                disabled={
+                  !reason.justification || reason.justification === Reason.NO
+                }
+                value={reason.types[index]}
+              >
+                <MenuItem value={null} primaryText="" />
+                <MenuItem
+                  value="example"
+                  primaryText={i18n.t('REASON_EXAMPLE')}
+                />
+                <MenuItem
+                  value="experts"
+                  primaryText={i18n.t('REASON_EXPERTS')}
+                />
+                <MenuItem
+                  value="evidences"
+                  primaryText={i18n.t('REASON_EVIDENCES')}
+                />
+                <MenuItem
+                  value="others"
+                  primaryText={i18n.t('REASON_OTHERS')}
+                />
+              </SelectField>
+            ))}
+            <span className="Reason-button" onClick={handleClickFlatButton}>
+              {i18n.t('REASON_ADD_TYPE')}
+            </span>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default compose(
       ) {
         return {
           ...state,
-          reasons: [...state.reasons, {justification: false, type: null}]
+          reasons: [...state.reasons, {justification: false, types: [null]}]
         }
       }
 
@@ -39,9 +39,9 @@ export default compose(
       introduction: null,
       opinion: null,
       reasons: [
-        {justification: null, type: null},
-        {justification: null, type: null},
-        {justification: null, type: null}
+        {justification: null, types: [null]},
+        {justification: null, types: [null]},
+        {justification: null, types: [null]}
       ],
       extensive: null,
       synthetic: null,

@@ -12,20 +12,50 @@ export default compose(
     'reason',
     'dispatch',
     (state, action) => {
-      const nextState = {...state, [action.field]: action.value}
-      if (nextState.justification === Reason.NO) {
-        return {...nextState, type: null}
+      let nextState
+      if (action.field === 'types') {
+        nextState = {
+          ...state,
+          types: [
+            ...state.types.slice(0, action.index),
+            action.value,
+            ...state.types.slice(action.index + 1)
+          ]
+        }
       }
-      return nextState
+
+      if (action.field === 'justification') {
+        nextState = {...state, justification: action.value}
+      }
+
+      if (
+        state &&
+        state.justification === Reason.YES &&
+        action.type === 'add-type'
+      ) {
+        nextState = {...state, types: [...state.types, null]}
+      }
+
+      if (nextState && nextState.justification === Reason.NO) {
+        return {...nextState, types: [null]}
+      }
+
+      return nextState || state
     },
-    ({justification, type}) => ({justification, type})
+    ({justification, types}) => ({justification, types})
   ),
   withHandlers({
     handleChangeSwitch: props => (evt, value) => {
       props.dispatch({field: 'justification', value}, props.onChange)
     },
-    handleChangeSelect: props => (evt, index, value) => {
-      props.dispatch({field: 'type', value}, props.onChange)
+    handleChangeSelect: props => indexSelect => (evt, indexOption, value) => {
+      props.dispatch(
+        {field: 'types', value, index: indexSelect},
+        props.onChange
+      )
+    },
+    handleClickFlatButton: props => evt => {
+      props.dispatch({type: 'add-type'}, props.onChange)
     }
   })
 )(Reason)

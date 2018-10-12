@@ -21,8 +21,14 @@
   &-cell {
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 45%;
+  }
+
+  &-button {
+    margin-top: 15px;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 500px) {

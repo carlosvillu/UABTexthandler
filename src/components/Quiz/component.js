@@ -97,7 +97,7 @@ class Quiz extends React.PureComponent {
             key={index}
             onChange={handleChangeReason(index)}
             title={`${i18n.t('QUIZ_REASON')} ${index + 1}`}
-            type={reason.type}
+            types={reason.types}
           />
         ))}
         <Row>
