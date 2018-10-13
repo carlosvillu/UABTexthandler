@@ -4,7 +4,7 @@ import test from './test'
 import production from './production'
 import preproduction from './preproduction'
 
-console.log('\n\nENV:', process.env.NODE_ENV, '\n\n') // eslint-disable-line
+console.log('\n\nSTAGE:', process.env.STAGE, '\n\n') // eslint-disable-line
 
 const envConfig = {
   development: development,
