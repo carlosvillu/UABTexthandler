@@ -22,6 +22,7 @@ jobs:
         - NODE_ENV=production
         - STAGE=development
       script:
+        - npm install --only=dev --force-online
         - make deploy
     - stage: deploy PRO
       if: branch = master AND NOT type = pull_request
