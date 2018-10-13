@@ -18,7 +18,7 @@ export default compose(
       ) {
         return {
           ...state,
-          reasons: [...state.reasons, {justification: false, types: [null]}]
+          reasons: [...state.reasons, {justification: null, types: [null]}]
         }
       }
 
