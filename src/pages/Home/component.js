@@ -17,6 +17,7 @@ class Home extends React.PureComponent {
     handleClickFlatButton: PropTypes.func,
     handleClickRaisedButton: PropTypes.func,
     handleInitQuiz: PropTypes.func,
+    i18n: PropTypes.object,
     setStateText: PropTypes.func,
     stateText: PropTypes.object
   }
@@ -35,6 +36,7 @@ class Home extends React.PureComponent {
       handleClickFlatButton,
       handleClickRaisedButton,
       handleInitQuiz,
+      i18n,
       stateText
     } = this.props
 
@@ -42,20 +44,26 @@ class Home extends React.PureComponent {
       <div className="Home">
         <Helmet />
         <div className="Home-Body">
-          <CanvasTexto student={stateText.student}>
-            {stateText.normalize}
-          </CanvasTexto>
+          {stateText ? (
+            <CanvasTexto student={stateText.student}>
+              {stateText.normalize}
+            </CanvasTexto>
+          ) : (
+            <h2>{i18n.t('HOME_LOOKING_TEXTS')}</h2>
+          )}
           <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
         </div>
-        <div className="Home-buttons">
-          <FlatButton label="Saltar texto" onClick={handleClickFlatButton} />
-          <RaisedButton
-            label="Guardar y seguir"
-            onClick={handleClickRaisedButton}
-            primary
-            style={{margin: 12}}
-          />
-        </div>
+        {stateText && (
+          <div className="Home-buttons">
+            <FlatButton label="Saltar texto" onClick={handleClickFlatButton} />
+            <RaisedButton
+              label="Guardar y seguir"
+              onClick={handleClickRaisedButton}
+              primary
+              style={{margin: 12}}
+            />
+          </div>
+        )}
       </div>
     )
   }

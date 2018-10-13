@@ -9,7 +9,7 @@ import withHandlers from 'recompose/withHandlers'
 import {hot} from 'react-hot-loader'
 
 export default compose(
-  withState('stateText', 'setStateText', {}),
+  withState('stateText', 'setStateText'),
   withState('stateEvaluation', 'setStateEvaluation'),
   withState('stateErrors', 'setStateErrors'),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
@@ -27,10 +27,11 @@ export default compose(
       const {domain, stateText, stateEvaluation, i18n} = props
       try {
         const user = await domain.get('current_users_use_case').execute()
-        const text = await domain
+        await domain
           .get('save_evaluation_texts_use_case')
           .execute({user, evaluation: stateEvaluation, text: stateText})
-        console.log(`Text saved: ${text}`)
+        props.router.push('/')
+        window.scrollTo(0, 0)
       } catch (err) {
         window.alert(
           `${i18n.t('HOME_ALERT_ERROR_TITLE')}\n\n${JSON.stringify(
