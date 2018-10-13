@@ -44,7 +44,7 @@ class TableTexts extends React.PureComponent {
             {
               Header: i18n.t('TABLETEXT_EVALUATIONS'),
               id: 'evaluations',
-              accessor: text => (text.evaluations || []).length
+              accessor: text => Object.keys(text.evaluations || {}).length
             }
           ]}
           defaultPageSize={20}
