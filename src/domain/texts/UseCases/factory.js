@@ -1,9 +1,11 @@
 import UsersEntitiesFactory from '../../users/Entities/factory'
 import TextsServicesFactory from '../Services/factory'
+import TextsRequestsFactory from '../Requests/factory'
 
 import GetAllTextsUseCase from './GetAllTextsUseCase'
 import GetNextEvaluationTextsUseCase from './GetNextEvaluationTextsUseCase'
 import NormalizeTextsUseCase from './NormalizeTextsUseCase'
+import SaveEvaluationTextsUseCase from './SaveEvaluationTextsUseCase'
 import UploadTextsUseCase from './UploadTextsUseCase'
 
 export default class TextsUseCasesFactory {
@@ -21,6 +23,11 @@ export default class TextsUseCasesFactory {
   static normalizeTextsUseCase = ({config}) =>
     new NormalizeTextsUseCase({
       service: TextsServicesFactory.normalizeTextsService({config})
+    })
+
+  static saveEvaluationTextsUseCase = ({config}) =>
+    new SaveEvaluationTextsUseCase({
+      requestFactory: TextsRequestsFactory.evaluationTextsRequest
     })
 
   static uploadTextsUseCase = ({config}) =>
