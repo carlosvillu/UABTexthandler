@@ -1,3 +1,5 @@
+export const deepFlatten = arr =>
+  [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)))
 export const pickRnd = arr => arr[Math.floor(Math.random() * arr.length)]
 
 export const shuffle = ([...arr]) => {
