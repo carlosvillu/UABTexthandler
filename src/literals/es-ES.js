@@ -3,6 +3,7 @@ module.exports = {
   ADMIN_TEXTS: 'Administrar textos',
   APP_NAME: 'UABTexthandler',
   CANVASTEXTO_STUDENT: 'Estudiante',
+  HOME_ALERT_ERROR_TITLE: 'Algunos campos están incompletos',
   HOME_QUESTIONS: 'Cuestionario',
   HOME_TEXT: 'Texto',
   QUIZ_CONCLUSION: '¿Tiene conectores de conclusion?',
