@@ -1,6 +1,7 @@
 import UsersEntitiesFactory from '../../users/Entities/factory'
 import TextsServicesFactory from '../Services/factory'
 import TextsRequestsFactory from '../Requests/factory'
+import TextsEntitiesFactory from '../Entities/factory'
 
 import GetAllTextsUseCase from './GetAllTextsUseCase'
 import GetNextEvaluationTextsUseCase from './GetNextEvaluationTextsUseCase'
@@ -27,7 +28,10 @@ export default class TextsUseCasesFactory {
 
   static saveEvaluationTextsUseCase = ({config}) =>
     new SaveEvaluationTextsUseCase({
-      requestFactory: TextsRequestsFactory.evaluationTextsRequest
+      requestFactory: TextsRequestsFactory.evaluationTextsRequest,
+      userEntityFactory: UsersEntitiesFactory.userEntity,
+      textEntityFactory: TextsEntitiesFactory.textEntity,
+      service: TextsServicesFactory.saveEvaluationTextsService({config})
     })
 
   static uploadTextsUseCase = ({config}) =>

@@ -42,8 +42,33 @@ export default class FireBaseTextsRepository extends TextsRepository {
   async next({user}) {
     const texts = await this.all()
 
-    return this._pipe(this._shuffle, this._pickRnd)(
+    const nextText = this._pipe(this._shuffle, this._pickRnd)(
       texts.filter(text => text.isEvaluable({user}))
     )
+    return nextText
+  }
+
+  async saveEvaluation({evaluation, text, user}) {
+    const refsManager = this._config.get('refsManager')
+    const evaluationsRef = refsManager.ref({path: '/evaluations'})
+    const id = evaluationsRef.push().key
+    const addEvaluationPromise = refsManager
+      .ref({path: `/evaluations/${id}`})
+      .set({
+        ...evaluation.toJSON(),
+        textID: text.id(),
+        userID: user.id(),
+        createdAt: Date.now()
+      })
+    const updateTextsEvaluationsPromise = refsManager
+      .ref({path: `/texts/${text.id()}/evaluations`})
+      .update({[id]: user.id()})
+
+    const [evaluationDoc, textDoc] = await Promise.all([
+      addEvaluationPromise,
+      updateTextsEvaluationsPromise
+    ])
+
+    return {evaluationDoc, textDoc}
   }
 }

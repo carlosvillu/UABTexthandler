@@ -38,7 +38,6 @@ export default class EvaluationTextsRequest {
       notNull(evaluation)('conclusion'),
       notNull(evaluation)('extensive'),
       notNull(evaluation)('introduction'),
-      notNull(evaluation)('introduction'),
       notNull(evaluation)('opinion'),
       notNull(evaluation)('opinionConector'),
       notNull(evaluation)('otherOpinion'),
@@ -77,5 +76,22 @@ export default class EvaluationTextsRequest {
     this._conclusion = conclusion
     this._otherConectors = otherConectors
     this._freeText = freeText
+  }
+
+  toJSON() {
+    return {
+      introduction: this._introduction,
+      opinion: this._opinion,
+      reasons: this._reasons,
+      extensive: this._extensive,
+      synthetic: this._synthetic,
+      otherOpinion: this._otherOpinion,
+      opinionConector: this._opinionConector,
+      reasonConectors: this._reasonConectors,
+      reasonExplication: this._reasonExplication,
+      conclusion: this._conclusion,
+      otherConectors: this._otherConectors,
+      freeText: this._freeText
+    }
   }
 }

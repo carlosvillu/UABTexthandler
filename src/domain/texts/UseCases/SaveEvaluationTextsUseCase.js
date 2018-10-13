@@ -1,11 +1,23 @@
 class SaveEvaluationTextsUseCase {
-  constructor({requestFactory} = {}) {
+  constructor({
+    requestFactory,
+    userEntityFactory,
+    textEntityFactory,
+    service
+  } = {}) {
     this._requestFactory = requestFactory
+    this._userEntityFactory = userEntityFactory
+    this._textEntityFactory = textEntityFactory
+    this._service = service
   }
 
   async execute({user, evaluation, text}) {
-    const evaluationRequest = this._requestFactory(evaluation)
-    console.log(evaluationRequest)
+    const evaluationDoc = this._service.execute({
+      evaluation: this._requestFactory(evaluation),
+      text: this._textEntityFactory(text),
+      user: this._userEntityFactory(user)
+    })
+    console.log(evaluationDoc)
   }
 }
 

@@ -8,4 +8,8 @@ export default class TextsRepository {
   next() {
     throw Error('[TextsRepository#next] must be implemented')
   }
+
+  saveEvaluation() {
+    throw Error('[TextsRepository#saveEvaluation] must be implemented')
+  }
 }

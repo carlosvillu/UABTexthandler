@@ -10,7 +10,7 @@ class GetNextEvaluationTextsUseCase {
   async execute({user} = {}) {
     const userEntity = this._userEntityFactory(user)
     const text = await this._service.execute({user: userEntity})
-    return text.toJSON()
+    return text && text.toJSON()
   }
 }
 
