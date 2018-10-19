@@ -1,5 +1,6 @@
 module.exports = {
   ADMINTEXT_TITLE: 'Administrar textos',
+  ADMIN_EVALUATION: 'Administrar evaluaciones',
   ADMIN_TEXTS: 'Administrar textos',
   APP_NAME: 'UABTexthandler',
   CANVASTEXTO_STUDENT: 'Estudiante',
