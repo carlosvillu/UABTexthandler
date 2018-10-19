@@ -2,6 +2,7 @@ import {EntryPointFactory} from '@s-ui/domain'
 
 import UsersUseCasesFactory from './users/UseCases/factory'
 import TextsUseCasesFactory from './texts/UseCases/factory.js'
+import EvaluationsUseCasesFactory from './evaluations/UseCases/factory.js'
 
 import Config from './config'
 
@@ -28,7 +29,11 @@ const useCases = {
   save_evaluation_texts_use_case: TextsUseCasesFactory.saveEvaluationTextsUseCase(
     {config}
   ),
-  upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config})
+  upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),
+
+  get_stats_evaluations_use_case: EvaluationsUseCasesFactory.getStatsEvaluationsUseCase(
+    {config}
+  )
 }
 
 export default EntryPointFactory({config, useCases})

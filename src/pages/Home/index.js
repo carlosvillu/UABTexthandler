@@ -16,7 +16,7 @@ export default compose(
   withHandlers({
     handleInitQuiz: props => evaluation => props.setStateEvaluation(evaluation),
     handleChangeQuiz: props => evaluation => {
-      console.log(evaluation)
+      console.log(evaluation) // eslint-disable-line
       props.setStateEvaluation(evaluation)
     },
     handleClickFlatButton: props => evt => {
