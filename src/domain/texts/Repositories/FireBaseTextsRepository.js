@@ -20,6 +20,7 @@ export default class FireBaseTextsRepository extends TextsRepository {
       id,
       createdAt: Date.now()
     })
+
     return new Promise((resolve, reject) => {
       refsManager
         .ref({path: `/texts/${id}`})
@@ -56,8 +57,10 @@ export default class FireBaseTextsRepository extends TextsRepository {
       .ref({path: `/evaluations/${id}`})
       .set({
         ...evaluation.toJSON(),
-        textID: text.id(),
-        userID: user.id(),
+        idText: text.id(),
+        idFile: text.idFile(),
+        idUser: user.id(),
+        userEmail: user.email(),
         createdAt: Date.now()
       })
     const updateTextsEvaluationsPromise = refsManager

@@ -17,7 +17,7 @@ class SaveEvaluationTextsUseCase {
       text: this._textEntityFactory(text),
       user: this._userEntityFactory(user)
     })
-    console.log(evaluationDoc)
+    console.log(evaluationDoc) // eslint-disable-line
   }
 }
 

@@ -4,7 +4,8 @@ import test from './test'
 import production from './production'
 import preproduction from './preproduction'
 
-console.log('\n\nSTAGE:', process.env.STAGE, '\n\n') // eslint-disable-line
+const STAGE = process.env.STAGE || 'development'
+console.log('\n\nSTAGE:', STAGE, '\n\n') // eslint-disable-line
 
 const envConfig = {
   development: development,
@@ -22,7 +23,7 @@ export default class Config {
   constructor() {
     this._config = {
       ...base,
-      ...envConfig[process.env.NODE_ENV]
+      ...envConfig[STAGE]
     }
   }
 

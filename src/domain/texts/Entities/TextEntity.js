@@ -6,6 +6,10 @@ export default class TextEntity extends Entity {
     return this._id
   }
 
+  idFile() {
+    return this._idFile
+  }
+
   isEvaluable({user}) {
     return (
       !this._evaluations ||

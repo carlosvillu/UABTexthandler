@@ -4,6 +4,7 @@ export default class JSONTextToTextEntityTextsMapper {
     this._normalizeMapper = normalizeMapper
   }
   map = ({filename, body}) => {
+    const [idFile] = filename.split('.')
     const [, school, level, room, student, time, gender] = filename.match(
       /^(\d\d)(\d)(\d)(\d\d\d\d)(PRE|POST|MANT|S1|S2)-(OP|NA)/
     )
@@ -17,6 +18,7 @@ export default class JSONTextToTextEntityTextsMapper {
       normalize: this._normalizeMapper.map(body),
       gender,
       time,
+      idFile,
       evaluations: {}
     })
   }
