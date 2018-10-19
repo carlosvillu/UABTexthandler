@@ -5,7 +5,21 @@
 
   &-body {
     display: flex;
+    padding: $p-base;
+
+    &Canvas {
+      flex-grow: 1;
+      flex-basis: 50%;
+      padding: $p-base;
+    }
+
+    &Quiz {
+      flex-grow: 1;
+      flex-basis: 50%;
+      padding: $p-base;
+    }
   }
+
   &-buttons {
     display: flex;
       align-items: center;
