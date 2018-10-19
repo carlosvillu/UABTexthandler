@@ -25,6 +25,10 @@ const loadAdminTextPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "AdminText" */ './pages/AdminText')
 )
 
+const loadAdminEvaliationsPage = loadPage(contextFactory, () =>
+  import(/* webpackChunkName: "AdminText" */ './pages/AdminEvaluations')
+)
+
 const requireAuth = async (nextState, replace, cb) => {
   const user = await domain.get('current_users_use_case').execute()
   if (!user) {
@@ -62,6 +66,7 @@ export default (
         <IndexRoute getComponent={loadHomePage} onEnter={requireAuth} />
         <Route path="admin" onEnter={requireAdmin}>
           <Route path="text" getComponent={loadAdminTextPage} />
+          <Route path="evaluations" getComponent={loadAdminEvaliationsPage} />
         </Route>
         <Route
           getComponent={loadSigninPage}
@@ -91,5 +96,12 @@ if (process.env.NODE_ENV !== 'production') {
     () =>
       ReactHotLoader.hasComponentsFrom('./pages/AdminText') &&
       import('./pages/AdminText')
+  )
+
+  module.hot.accept(
+    './pages/AdminEvaluations',
+    () =>
+      ReactHotLoader.hasComponentsFrom('./pages/AdminEvaluations') &&
+      import('./pages/AdminEvaluations')
   )
 }
