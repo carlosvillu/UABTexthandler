@@ -45,7 +45,9 @@
     }
   },
   "sui-bundler": {
-    "env": ["STAGE"],
+    "env": [
+      "STAGE"
+    ],
     "offline": {
       "whitelist": [
         "::all::"
