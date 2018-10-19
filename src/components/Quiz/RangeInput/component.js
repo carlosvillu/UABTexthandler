@@ -18,7 +18,7 @@ RangeInput.propTypes = {
   label: PropTypes.string,
   hint: PropTypes.string,
   onChange: PropTypes.func,
-  value: PropTypes.number
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default RangeInput
