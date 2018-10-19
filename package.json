@@ -51,6 +51,12 @@
     "offline": {
       "whitelist": [
         "::all::"
+      ],
+      "runtime": [
+        {
+          "urlPattern": "fonts\\.googleapis\\.com",
+          "handler": "cacheFirst"
+        }
       ]
     },
     "vendor": [
