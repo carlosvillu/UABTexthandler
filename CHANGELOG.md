@@ -2,8 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.4.0"></a>
+# 1.4.0 (2018-10-21)
+
+
+### Features
+
+* **components:** add Downloader and TableEvaluations component ([1469897](https://github.com/carlosvillu/UABTexthandler/commit/1469897))
+* **literals:** add table evaluations literals ([84f2f6e](https://github.com/carlosvillu/UABTexthandler/commit/84f2f6e))
+* **pages:** add Donwloader to AdminEvaluations page ([05438bd](https://github.com/carlosvillu/UABTexthandler/commit/05438bd))
+* **styles:** add Downloader component´s style ([d9dd9c3](https://github.com/carlosvillu/UABTexthandler/commit/d9dd9c3))
+
+
+
 <a name="1.3.0"></a>
-# 1.3.0 (2018-10-21)
+# [1.3.0](https://github.com/carlosvillu/UABTexthandler/compare/1.2.0...1.3.0) (2018-10-21)
 
 
 ### Features
