@@ -1,4 +1,14 @@
+// Colors ---------------------------------------------------------------------
+$c-white: #ffffff;
+$c-background: #efefef;
+$c-border: #ccc;
+
 // Sizes ----------------------------------------------------------------------
 $size-base: 20px;
 $size-mini: $size-base / 2;
 $size-large: $size-base * 2;
+
+// Font-sizes -----------------------------------------------------------------
+$fz-base: 1em;
+$fz-large: $fz-base * 1.2;
+$fz-xxlarge: $fz-base * 2;
