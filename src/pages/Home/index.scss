@@ -4,6 +4,7 @@
   margin: 0 auto;
 
   &-body {
+    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
     display: flex;
     padding: $size-base;
 
