@@ -2,8 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.3.0"></a>
+# 1.3.0 (2018-10-21)
+
+
+### Features
+
+* **components:** improve form layout ([1005a6e](https://github.com/carlosvillu/UABTexthandler/commit/1005a6e))
+* **pages:** fix padding ([92ab979](https://github.com/carlosvillu/UABTexthandler/commit/92ab979))
+* **pages:** improve home style ([15905f1](https://github.com/carlosvillu/UABTexthandler/commit/15905f1))
+* **styles:** add new vars ([ff9846c](https://github.com/carlosvillu/UABTexthandler/commit/ff9846c))
+
+
+
 <a name="1.2.0"></a>
-# 1.2.0 (2018-10-21)
+# [1.2.0](https://github.com/carlosvillu/UABTexthandler/compare/1.1.0...1.2.0) (2018-10-21)
 
 
 ### Bug Fixes
