@@ -1,25 +1,13 @@
 .Quiz {
-  display: flex;
-  flex-direction: column;
-
-  &-row:nth-child(odd),
-  .Reason:nth-child(odd) {
-    background-color: gainsboro;
-  }
-
   &-row {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: 1px solid gainsboro;
-    padding: $size-mini;
+    border-bottom: 1px solid $c-border;
+    padding: $size-base;
   }
 
   &-cell {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 45%;
+    flex-basis: 50%;
+    flex-grow: 1;
   }
 }
 

@@ -1,0 +1,15 @@
+.RadioButtonGroup {
+  &-title {
+    font-size: $fz-base;
+    margin-bottom: $fz-base / 2;
+  }
+
+  &-container {
+    display: flex;
+  }
+
+
+  &-radiobutton {
+    flex: 1 0 50%;
+  }
+}

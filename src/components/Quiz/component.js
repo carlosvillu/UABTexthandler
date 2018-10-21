@@ -13,12 +13,8 @@ const Row = ({children, fullWidth = false}) => {
   const [first, last] = React.Children.toArray(children)
   return (
     <div className="Quiz-row">
-      <div className="Quiz-cell" style={{width: fullWidth ? '100%' : '45%'}}>
-        {first}
-      </div>
-      <div className="Quiz-cell" style={{width: fullWidth ? '0%' : '45%'}}>
-        {last}
-      </div>
+      <div className="Quiz-cell">{first}</div>
+      {!fullWidth && <div className="Quiz-cell">{last}</div>}
     </div>
   )
 }
@@ -40,6 +36,7 @@ const EvaluationSlider = ({value, onChange, label, min = 0, max = 10}) => {
     </div>
   )
 }
+
 EvaluationSlider.propTypes = {
   label: PropTypes.string,
   max: PropTypes.number,
@@ -93,6 +90,7 @@ class Quiz extends React.PureComponent {
         </Row>
         {evaluation.reasons.map((reason, index) => (
           <Reason
+            isLast={evaluation.reasons.length === index + 1}
             justification={reason.justification}
             key={index}
             onChange={handleChangeReason(index)}
@@ -152,6 +150,7 @@ class Quiz extends React.PureComponent {
             onChange={handleChangeSwitch('conclusion')}
           />
           <RangeInput
+            style={{marginTop: '-18px'}}
             label={i18n.t('QUIZ_OTHER_CONECTORS')}
             onChange={handleChangeSlider('otherConectors')}
             value={evaluation.otherConectors}
