@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+import cx from 'classnames'
 
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+
+import style from './style'
 
 class Reason extends React.PureComponent {
   static YES = 'YES'
@@ -15,6 +18,7 @@ class Reason extends React.PureComponent {
     handleChangeSwitch: PropTypes.func,
     handleClickFlatButton: PropTypes.func,
     i18n: PropTypes.object,
+    isLast: PropTypes.bool,
     reason: PropTypes.object,
     title: PropTypes.string
   }
@@ -24,32 +28,40 @@ class Reason extends React.PureComponent {
       handleChangeSwitch,
       handleClickFlatButton,
       i18n,
+      isLast,
       reason,
       title
     } = this.props
+
+    const reasonClassName = cx('Reason', {'is-last': isLast})
+
     return (
-      <div className="Reason">
-        <h2 className="Reason-title">{title}</h2>
+      <div className={reasonClassName}>
+        <h3 className="Reason-title">{title}</h3>
         <div className="Reason-row">
-          <div className="Reason-cell">
+          <div className="Reason-radiobuttons">
             <RadioButtonGroup
+              className="Reason-radiobuttons-group"
               defaultSelected="not_light"
               name="shipSpeed"
               onChange={handleChangeSwitch}
             >
               <RadioButton
+                style={style.RadioButton}
                 value={Reason.YES}
                 label={i18n.t('REASON_RADIO_YES')}
               />
               <RadioButton
+                style={style.RadioButton}
                 value={Reason.NO}
                 label={i18n.t('REASON_RADIO_NO')}
               />
             </RadioButtonGroup>
           </div>
-          <div className="Reason-cell">
+          <div className="Reason-selects">
             {reason.types.map((type, index) => (
               <SelectField
+                style={style.SelectField}
                 key={index} // I know it!
                 floatingLabelText={i18n.t('REASON_SELECT_LABEL')}
                 onChange={handleChangeSelect(index)}
@@ -77,9 +89,9 @@ class Reason extends React.PureComponent {
                 />
               </SelectField>
             ))}
-            <span className="Reason-button" onClick={handleClickFlatButton}>
+            <a className="Reason-button" onClick={handleClickFlatButton}>
               {i18n.t('REASON_ADD_TYPE')}
-            </span>
+            </a>
           </div>
         </div>
       </div>

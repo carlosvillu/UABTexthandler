@@ -44,26 +44,33 @@ class Home extends React.PureComponent {
       <div className="Home">
         <Helmet />
         <div className="Home-Body">
-          {stateText ? (
-            <CanvasTexto student={stateText.student}>
-              {stateText.normalize}
-            </CanvasTexto>
-          ) : (
-            <h2>{i18n.t('HOME_LOOKING_TEXTS')}</h2>
-          )}
-          <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
-        </div>
-        {stateText && (
-          <div className="Home-buttons">
-            <FlatButton label="Saltar texto" onClick={handleClickFlatButton} />
-            <RaisedButton
-              label="Guardar y seguir"
-              onClick={handleClickRaisedButton}
-              primary
-              style={{margin: 12}}
-            />
+          <div className="Home-BodyCanvas">
+            {stateText ? (
+              <CanvasTexto student={stateText.student}>
+                {stateText.normalize}
+              </CanvasTexto>
+            ) : (
+              <h2>{i18n.t('HOME_LOOKING_TEXTS')}</h2>
+            )}
           </div>
-        )}
+          <div className="Home-BodyQuiz">
+            <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
+            {stateText && (
+              <div className="Home-buttons">
+                <FlatButton
+                  label="Saltar texto"
+                  onClick={handleClickFlatButton}
+                />
+                <RaisedButton
+                  label="Guardar y seguir"
+                  onClick={handleClickRaisedButton}
+                  primary
+                  style={{margin: 12}}
+                />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     )
   }

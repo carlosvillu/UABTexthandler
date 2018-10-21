@@ -45,7 +45,11 @@ export default class App extends React.PureComponent {
               showMenuIconButton={IS_LOGGED}
               onLeftIconButtonClick={this.handlerClickLeftIcon}
               style={{position: 'sticky', top: 0, left: 0}}
-              title={<Link to="/">{i18n.t('APP_NAME')}</Link>}
+              title={
+                <Link to="/" className="Logo">
+                  {i18n.t('APP_NAME')}
+                </Link>
+              }
             />
             <div className="App-container">{children}</div>
             {IS_LOGGED && <LoggedMenu />}

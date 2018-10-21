@@ -1,6 +1,13 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, Roboto, 'Open Sans', sans-serif;
 }

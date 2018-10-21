@@ -4,12 +4,24 @@
   margin: 0 auto;
 
   &-body {
+    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
     display: flex;
+    padding: $size-base;
+
+    &Canvas,
+    &Quiz {
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: 50%;
+
+      padding: $size-base;
+      padding: $size-base $size-base 0 $size-base;
+    }
   }
+
   &-buttons {
+    align-items: center;
     display: flex;
-      align-items: center;
-      display: flex;
-      justify-content: flex-end;
+    justify-content: flex-end;
   }
 }

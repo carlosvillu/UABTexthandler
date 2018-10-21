@@ -1,34 +1,37 @@
 .Reason {
-  display: flex;
-  flex-direction: column;
+  padding: $size-base;
 
-  &-row:nth-child(odd) {
-    background-color: gainsboro;
-  }
-
-  &-title {
-    padding: 0 10px;
+  &:not(.is-last) {
+    border-bottom: 1px solid $c-border;
   }
 
   &-row {
     display: flex;
-    width: 100%;
     justify-content: space-between;
-    border-bottom: 1px solid gainsboro;
-    padding: 10px;
   }
 
-  &-cell {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 45%;
+  &-title {
+    font-size: $fz-base;
+    margin-bottom: $fz-base / 2;
+  }
+
+
+  &-radiobuttons {
+    flex-basis: 50%;
+
+    &-group {
+      display: flex;
+    }
+  }
+
+  &-selects {
+    flex-basis: 50%;
   }
 
   &-button {
-    margin-top: 15px;
+    margin-top: $size-base * -1;
     cursor: pointer;
+    display: block;
   }
 
   @media screen and (max-width: 500px) {
