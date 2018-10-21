@@ -55,19 +55,22 @@ class Home extends React.PureComponent {
           </div>
           <div className="Home-BodyQuiz">
             <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
+            {stateText && (
+              <div className="Home-buttons">
+                <FlatButton
+                  label="Saltar texto"
+                  onClick={handleClickFlatButton}
+                />
+                <RaisedButton
+                  label="Guardar y seguir"
+                  onClick={handleClickRaisedButton}
+                  primary
+                  style={{margin: 12}}
+                />
+              </div>
+            )}
           </div>
         </div>
-        {stateText && (
-          <div className="Home-buttons">
-            <FlatButton label="Saltar texto" onClick={handleClickFlatButton} />
-            <RaisedButton
-              label="Guardar y seguir"
-              onClick={handleClickRaisedButton}
-              primary
-              style={{margin: 12}}
-            />
-          </div>
-        )}
       </div>
     )
   }
