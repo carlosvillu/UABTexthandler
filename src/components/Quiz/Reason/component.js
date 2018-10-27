@@ -9,7 +9,7 @@ import MenuItem from 'material-ui/MenuItem'
 
 import style from './style'
 
-class Reason extends React.PureComponent {
+class Reason extends React.Component {
   static YES = 'YES'
   static NO = 'NO'
 
@@ -22,6 +22,7 @@ class Reason extends React.PureComponent {
     reason: PropTypes.object,
     title: PropTypes.string
   }
+
   render() {
     const {
       handleChangeSelect,

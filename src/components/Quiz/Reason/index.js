@@ -5,8 +5,10 @@ import compose from 'recompose/compose'
 import getContext from 'recompose/getContext'
 import withReducer from 'recompose/withReducer'
 import withHandlers from 'recompose/withHandlers'
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys'
 
 export default compose(
+  onlyUpdateForKeys(['justification', 'types']),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withReducer(
     'reason',
