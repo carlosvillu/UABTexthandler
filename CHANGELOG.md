@@ -2,8 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.6.0"></a>
+# 1.6.0 (2018-10-27)
+
+
+### Features
+
+* **components:** handle click donwload button ([b508652](https://github.com/carlosvillu/UABTexthandler/commit/b508652))
+* **components:** update texts in realtime ([2760e53](https://github.com/carlosvillu/UABTexthandler/commit/2760e53))
+* **domain:** stremify GetStatsEvaluations ([63c8889](https://github.com/carlosvillu/UABTexthandler/commit/63c8889))
+
+
+
 <a name="1.5.0"></a>
-# 1.5.0 (2018-10-27)
+# [1.5.0](https://github.com/carlosvillu/UABTexthandler/compare/1.4.0...1.5.0) (2018-10-27)
 
 
 ### Features
