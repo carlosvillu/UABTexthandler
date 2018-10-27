@@ -3,7 +3,6 @@
     <meta charset="utf-8">
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   </head>
   <body>
     <div id='app'>
@@ -11,4 +10,16 @@
       <p>Loading javascript...</p>
     </div>
   </body>
+  <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Roboto:300,400,500' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
 </html>
