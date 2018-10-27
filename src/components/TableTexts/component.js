@@ -4,31 +4,32 @@ import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
 
 class TableTexts extends React.PureComponent {
-  static propTypes = {i18n: PropTypes.object, domain: PropTypes.object}
-  state = {texts: []}
+  static propTypes = {
+    stateTexts: PropTypes.array,
+    setStateTexts: PropTypes.func,
+    i18n: PropTypes.object,
+    domain: PropTypes.object
+  }
   async componentDidMount() {
-    const texts = await this.props.domain
-      .get('get_all_texts_use_case')
-      .execute()
+    const {domain, setStateTexts} = this.props
+    const texts = await domain.get('get_all_texts_use_case').execute()
     if (texts.length) {
-      this.setState({texts})
+      setStateTexts(texts)
     }
-    // this.uploadTextsUseCase$ = this.props.domain
-    //   .get('upload_texts_use_case')
-    //   .$.execute.subscribe(({params, result}) => {
-    //     this.setState(state => ({
-    //       texts: [...state.texts, result]
-    //     }))
-    //   })
+    this.uploadTextsUseCase$ = domain
+      .get('upload_texts_use_case')
+      .$.execute.subscribe(({params, result}) => {
+        setStateTexts([...this.props.stateTexts, result])
+      })
   }
 
   componentWillUnmount() {
-    // this.uploadTextsUseCase$.dispose()
+    this.uploadTextsUseCase$.dispose()
   }
 
   render() {
-    const {i18n} = this.props
-    const {texts} = this.state
+    const {i18n, stateTexts: texts} = this.props
+
     return (
       <div className="TableTexts">
         <ReactTable
