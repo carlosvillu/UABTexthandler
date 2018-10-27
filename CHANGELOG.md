@@ -2,8 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.5.0"></a>
+# 1.5.0 (2018-10-27)
+
+
+### Features
+
+* **components:** improve performance ([a72737c](https://github.com/carlosvillu/UABTexthandler/commit/a72737c))
+* **META:** lazy load font ([3e9e593](https://github.com/carlosvillu/UABTexthandler/commit/3e9e593))
+
+
+
 <a name="1.4.0"></a>
-# 1.4.0 (2018-10-21)
+# [1.4.0](https://github.com/carlosvillu/UABTexthandler/compare/1.3.0...1.4.0) (2018-10-21)
 
 
 ### Features
