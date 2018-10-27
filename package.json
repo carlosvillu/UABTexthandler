@@ -56,6 +56,10 @@
         {
           "urlPattern": "fonts\\.googleapis\\.com",
           "handler": "cacheFirst"
+        },
+        {
+          "urlPattern": "ajax\\.googleapis\\.com",
+          "handler": "cacheFirst"
         }
       ]
     },
