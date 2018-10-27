@@ -5,15 +5,33 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import GetApp from 'material-ui/svg-icons/action/get-app'
 
 export default class Downloader extends React.PureComponent {
-  static propTypes = {handleClickFlatButon: PropTypes.func}
+  static propTypes = {
+    domain: PropTypes.object,
+    handleClickFlatButton: PropTypes.func,
+    setStateEvaluations: PropTypes.func
+  }
+
+  componentDidMount() {
+    const {setStateEvaluations, domain} = this.props
+    this.getStatsEvaluationsUseCase$ = domain
+      .get('get_stats_evaluations_use_case')
+      .$.execute.subscribe(({params, result}) => {
+        setStateEvaluations(result)
+      })
+  }
+
+  componentWillUnmount() {
+    this.getStatsEvaluationsUseCase$.dispose()
+  }
+
   render() {
-    const {handleClickFlatButon} = this.props
+    const {handleClickFlatButton} = this.props
 
     return (
       <div className="Downloader">
         <FloatingActionButton
           className="Downloader-downloadbutton"
-          onClick={handleClickFlatButon}
+          onClick={handleClickFlatButton}
         >
           <GetApp />
         </FloatingActionButton>
