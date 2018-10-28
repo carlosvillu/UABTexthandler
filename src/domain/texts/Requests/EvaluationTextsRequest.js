@@ -32,6 +32,20 @@ const mandatoryTypeOfReason = evaluation => errors =>
     })
   ])
 
+const onlyOneTypeOpinion = evaluation => errors => {
+  const numberYES = ['extensive', 'synthetic', 'otherOpinion'].reduce(
+    (acc, key) => {
+      if (evaluation[key] === 'YES') {
+        return (acc = acc + 1)
+      }
+      return acc
+    },
+    0
+  )
+
+  return numberYES > 1 ? [...errors, `Only one opinion`] : errors
+}
+
 export default class EvaluationTextsRequest {
   static validate = ({evaluation, evaluationTextsErrorFactory}) => {
     const errors = pipe(
@@ -42,6 +56,7 @@ export default class EvaluationTextsRequest {
       notNull(evaluation)('opinionConector'),
       notNull(evaluation)('otherOpinion'),
       notNull(evaluation)('synthetic'),
+      onlyOneTypeOpinion(evaluation),
       notNullReasons(evaluation),
       mandatoryTypeOfReason(evaluation)
     )([]).filter(Boolean)
