@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.7.0"></a>
+# 1.7.0 (2018-10-28)
+
+
+### Features
+
+* **domain:** only one resume per evaluation ([64eae9d](https://github.com/carlosvillu/UABTexthandler/commit/64eae9d))
+
+
+
 <a name="1.6.0"></a>
-# 1.6.0 (2018-10-27)
+# [1.6.0](https://github.com/carlosvillu/UABTexthandler/compare/1.5.0...1.6.0) (2018-10-27)
 
 
 ### Features
