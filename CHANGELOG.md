@@ -2,8 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.8.0"></a>
+# 1.8.0 (2019-04-02)
+
+
+### Features
+
+* **components:** remove RHL ([afcf744](https://github.com/carlosvillu/UABTexthandler/commit/afcf744))
+* **pages:** remove RHL ([d4f923f](https://github.com/carlosvillu/UABTexthandler/commit/d4f923f))
+* **Root:** remove RHL ([fc93aad](https://github.com/carlosvillu/UABTexthandler/commit/fc93aad))
+
+
+
 <a name="1.7.0"></a>
-# 1.7.0 (2018-10-28)
+# [1.7.0](https://github.com/carlosvillu/UABTexthandler/compare/1.6.0...1.7.0) (2018-10-28)
 
 
 ### Features
