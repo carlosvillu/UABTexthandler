@@ -6,8 +6,6 @@ import getContext from 'recompose/getContext'
 import withState from 'recompose/withState'
 import withHandlers from 'recompose/withHandlers'
 
-import {hot} from 'react-hot-loader'
-
 export default compose(
   withState('stateText', 'setStateText'),
   withState('stateEvaluation', 'setStateEvaluation'),
@@ -40,6 +38,5 @@ export default compose(
         )
       }
     }
-  }),
-  hot(module)
+  })
 )(Home)
