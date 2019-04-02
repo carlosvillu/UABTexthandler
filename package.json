@@ -4,6 +4,9 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "bin": {
+    "super-texthandler": "./bin/super-texthandler.js"
+  },
   "scripts": {
     "build": "sui-bundler build -C && cp -R ./statics/ ./public/ && cp ./public/index.html ./public/200.html",
     "co": "sui-mono commit",
@@ -17,21 +20,29 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@s-ui/bundler": "3",
+    "@s-ui/bundler": "5",
     "@s-ui/lint": "2",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
-    "@s-ui/test": "1",
+    "@s-ui/test": "2",
     "chai": "4.1.2",
     "husky": "0.13.4"
   },
   "dependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/plugin-proposal-export-default-from": "7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "7.4.3",
+    "@babel/register": "7.4.0",
     "@s-ui/component-peer-dependencies": "1",
     "@s-ui/decorators": "1",
     "@s-ui/domain": "1",
     "@s-ui/hoc": "1",
     "@s-ui/i18n": "1",
     "@s-ui/react-initial-props": "1",
+    "babel-plugin-dynamic-import-node": "2.2.0",
+    "commander": "2.19.0",
+    "fast-glob": "2.2.6",
     "firebase": "5.0.4",
     "material-ui": "0.20.0",
     "react-table": "6.8.6",
