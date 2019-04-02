@@ -7,8 +7,6 @@ import contextFactory from './contextFactory'
 
 import domain from './domain/instance'
 
-import ReactHotLoader from 'react-hot-loader'
-
 const loadHomePage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Home" */ './pages/Home')
 )
@@ -83,25 +81,3 @@ export default (
     </Route>
   </Router>
 )
-
-if (process.env.NODE_ENV !== 'production') {
-  module.hot.accept(
-    './pages/Home',
-    () =>
-      ReactHotLoader.hasComponentsFrom('./pages/Home') && import('./pages/Home')
-  )
-
-  module.hot.accept(
-    './pages/AdminText',
-    () =>
-      ReactHotLoader.hasComponentsFrom('./pages/AdminText') &&
-      import('./pages/AdminText')
-  )
-
-  module.hot.accept(
-    './pages/AdminEvaluations',
-    () =>
-      ReactHotLoader.hasComponentsFrom('./pages/AdminEvaluations') &&
-      import('./pages/AdminEvaluations')
-  )
-}
