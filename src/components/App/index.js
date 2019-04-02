@@ -9,10 +9,7 @@ import getContext from 'recompose/getContext'
 import {UI} from '../../state'
 import {Subscribe} from 'unstated'
 
-import {hot} from 'react-hot-loader'
-
 export default compose(
   withState('stateUser', 'setStateUser', false),
-  getContext({domain: PropTypes.object, i18n: PropTypes.object}),
-  hot(module)
+  getContext({domain: PropTypes.object, i18n: PropTypes.object})
 )(props => <Subscribe to={[UI]}>{ui => <App {...props} ui={ui} />}</Subscribe>)
