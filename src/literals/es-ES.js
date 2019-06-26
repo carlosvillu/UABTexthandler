@@ -8,6 +8,8 @@ module.exports = {
   HOME_LOOKING_TEXTS: 'Buscando texto para evaluar',
   HOME_QUESTIONS: 'Cuestionario',
   HOME_TEXT: 'Texto',
+  LOGGED_MENU_QUALITY_EVALUATION: 'Evaluar calidad',
+  LOGGED_MENU_STRUCTURE_EVALUATION: 'Evaluar estructura',
   QUIZ_CONCLUSION: '¿Tiene conectores de conclusion?',
   QUIZ_EXTENSIVE: '¿Tiene resumen extensivo?',
   QUIZ_FREE_TEXT_HINT: '(opcional)',
