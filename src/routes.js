@@ -11,6 +11,10 @@ const loadHomePage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Home" */ './pages/Home')
 )
 
+const loadQualityPage = loadPage(contextFactory, () =>
+  import(/* webpackChunkName: "Quality" */ './pages/Quality')
+)
+
 const loadSigninPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "Signin" */ './pages/Signin')
 )
@@ -62,6 +66,11 @@ export default (
     <Route component={require('./components/App').default}>
       <Route path="/">
         <IndexRoute getComponent={loadHomePage} onEnter={requireAuth} />
+        <Route
+          getComponent={loadQualityPage}
+          onEnter={requireAuth}
+          path="quality"
+        />
         <Route path="admin" onEnter={requireAdmin}>
           <Route path="text" getComponent={loadAdminTextPage} />
           <Route path="evaluations" getComponent={loadAdminEvaliationsPage} />
