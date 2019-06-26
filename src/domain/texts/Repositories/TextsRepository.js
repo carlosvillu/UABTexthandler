@@ -9,7 +9,7 @@ export default class TextsRepository {
     throw Error('[TextsRepository#next] must be implemented')
   }
 
-  saveEvaluation() {
+  saveEvaluationStructure() {
     throw Error('[TextsRepository#saveEvaluation] must be implemented')
   }
 }

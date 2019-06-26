@@ -8,9 +8,9 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     this._evaluationEntityFactory = evaluationsEntityFactory
   }
 
-  async all() {
+  async allStructure() {
     const refsManager = this._config.get('refsManager')
-    const evaluationsRef = refsManager.ref({path: '/evaluations'})
+    const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const evaluations = (await evaluationsRef.once('value')).val() || {}
     return Object.keys(evaluations).map(key =>
       this._evaluationEntityFactory(evaluations[key])

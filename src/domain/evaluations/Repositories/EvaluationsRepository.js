@@ -1,5 +1,5 @@
 export default class EvaluationsRepository {
-  all() {
+  allStructure() {
     throw Error('[EvaluationsRepository#all] must be implemented')
   }
 }

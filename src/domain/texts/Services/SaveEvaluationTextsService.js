@@ -4,7 +4,7 @@ class SaveEvaluationTextsService {
   }
 
   execute({evaluation, text, user}) {
-    return this._repository.saveEvaluation({evaluation, text, user})
+    return this._repository.saveEvaluationStructure({evaluation, text, user})
   }
 }
 

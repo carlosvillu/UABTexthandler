@@ -49,12 +49,12 @@ export default class FireBaseTextsRepository extends TextsRepository {
     return nextText
   }
 
-  async saveEvaluation({evaluation, text, user}) {
+  async saveEvaluationStructure({evaluation, text, user}) {
     const refsManager = this._config.get('refsManager')
-    const evaluationsRef = refsManager.ref({path: '/evaluations'})
+    const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const id = evaluationsRef.push().key
     const addEvaluationPromise = refsManager
-      .ref({path: `/evaluations/${id}`})
+      .ref({path: `/evaluations/structure/${id}`})
       .set({
         ...evaluation.toJSON(),
         idText: text.id(),
@@ -64,7 +64,7 @@ export default class FireBaseTextsRepository extends TextsRepository {
         createdAt: Date.now()
       })
     const updateTextsEvaluationsPromise = refsManager
-      .ref({path: `/texts/${text.id()}/evaluations`})
+      .ref({path: `/texts/${text.id()}/evaluations/structure`})
       .update({[id]: user.id()})
 
     const [evaluationDoc, textDoc] = await Promise.all([

@@ -5,7 +5,7 @@ class GetStatsEvaluationsService {
   }
 
   async execute() {
-    const evaluationsList = await this._repository.all()
+    const evaluationsList = await this._repository.allStructure()
     return this._mapper.map(evaluationsList)
   }
 }
