@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import FlatButton from 'material-ui/FlatButton'
 
 import CanvasTexto from '../../components/CanvasTexto'
-import Quiz from '../../components/Quiz'
+import StructureQuiz from '../../components/StructureQuiz'
 
 class Home extends React.PureComponent {
   static TEXT_TAB = 'text'
@@ -54,7 +54,10 @@ class Home extends React.PureComponent {
             )}
           </div>
           <div className="Home-BodyQuiz">
-            <Quiz onInit={handleInitQuiz} onChange={handleChangeQuiz} />
+            <StructureQuiz
+              onInit={handleInitQuiz}
+              onChange={handleChangeQuiz}
+            />
             {stateText && (
               <div className="Home-buttons">
                 <FlatButton

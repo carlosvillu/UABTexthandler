@@ -1,7 +1,38 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Quality = () => {
-  return <h1>Hello Quality Evaluation</h1>
+import LayoutEvaluation from '../../components/LayoutEvaluation'
+
+class Quality extends React.Component {
+  static propTypes = {
+    domain: PropTypes.object,
+    handleClickSkipButton: PropTypes.func,
+    setStateText: PropTypes.func,
+    stateText: PropTypes.object
+  }
+
+  async componentDidMount() {
+    const user = await this.props.domain.get('current_users_use_case').execute()
+    const text = await this.props.domain
+      .get('get_next_evaluation_texts_use_case')
+      .execute({user})
+    this.props.setStateText(text)
+  }
+
+  render() {
+    const {stateText, handleClickSkipButton} = this.props
+    return (
+      <LayoutEvaluation text={stateText}>
+        <LayoutEvaluation.Canvas />
+        <LayoutEvaluation.Quiz
+          onClickSave={() => console.log('SAVE')}
+          onClickSkip={handleClickSkipButton}
+        >
+          <h1>Quiz!!!</h1>
+        </LayoutEvaluation.Quiz>
+      </LayoutEvaluation>
+    )
+  }
 }
 
 export default Quality
