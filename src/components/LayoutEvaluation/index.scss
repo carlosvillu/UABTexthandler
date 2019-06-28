@@ -1,0 +1,16 @@
+@import './Canvas/index';
+@import './Quiz/index';
+
+.LayoutEvaluation {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &-Body {
+    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
+    display: flex;
+    padding: $size-base;
+  }
+}
+
+
