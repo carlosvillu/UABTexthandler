@@ -1,3 +1,5 @@
 .QualityQuiz {
-  display: flex;
+  &-Row {
+    margin-bottom: $size-mini;
+  }
 }
