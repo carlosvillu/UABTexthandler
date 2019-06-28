@@ -7,30 +7,50 @@ import QualityQuiz from '../../components/QualityQuiz'
 class Quality extends React.Component {
   static propTypes = {
     domain: PropTypes.object,
+    handleClickSaveButton: PropTypes.func,
     handleClickSkipButton: PropTypes.func,
+    handleChangeQuality: PropTypes.func,
+    setStateGrade: PropTypes.object,
     setStateText: PropTypes.func,
+    stateGrade: PropTypes.number,
     stateText: PropTypes.object
   }
 
-  async componentDidMount() {
-    const user = await this.props.domain.get('current_users_use_case').execute()
-    const text = await this.props.domain
-      .get('get_next_evaluation_texts_use_case')
-      .execute({user})
-    this.props.setStateText(text)
+  async componentDidMount() {}
+
+  async componentDidUpdate(prevProps) {
+    if (this.props.stateGrade !== prevProps.stateGrade) {
+      this.props.setStateText(null)
+      const user = await this.props.domain
+        .get('current_users_use_case')
+        .execute()
+      const text = await this.props.domain
+        .get('get_next_evaluation_texts_use_case')
+        .execute({user, grade: this.props.stateGrade})
+      this.props.setStateText(text)
+    }
   }
 
   render() {
-    const {stateText, handleClickSkipButton} = this.props
+    const {
+      handleChangeQuality,
+      handleClickSaveButton,
+      handleClickSkipButton,
+      setStateGrade,
+      stateText
+    } = this.props
+
     return (
       <LayoutEvaluation text={stateText}>
         <LayoutEvaluation.Canvas />
         <LayoutEvaluation.Quiz
-          onClickSave={() => console.log('SAVE')}
+          onClickSave={handleClickSaveButton}
           onClickSkip={handleClickSkipButton}
         >
           <QualityQuiz
-            onChangeGrade={grade => console.log(`NEXT GRADE ${grade}`)}
+            onChangeGrade={setStateGrade}
+            onChangeQuality={handleChangeQuality}
+            active={Boolean(stateText)}
           />
         </LayoutEvaluation.Quiz>
       </LayoutEvaluation>

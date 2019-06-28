@@ -26,7 +26,7 @@ export default compose(
       try {
         const user = await domain.get('current_users_use_case').execute()
         await domain
-          .get('save_evaluation_texts_use_case')
+          .get('save_structure_evaluation_texts_use_case')
           .execute({user, evaluation: stateEvaluation, text: stateText})
         props.router.push('/')
         window.scrollTo(0, 0)
