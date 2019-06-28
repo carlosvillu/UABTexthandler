@@ -10,6 +10,15 @@ export default class TextEntity extends Entity {
     return this._idFile
   }
 
+  isLevel({level}) {
+    // an empty level means ANY level it is OK
+    if (level.isEmpty()) {
+      return true
+    }
+
+    return level.value() === this._level
+  }
+
   isEvaluable({user}) {
     return (
       !this._evaluations ||

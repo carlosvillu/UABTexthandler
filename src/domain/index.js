@@ -26,7 +26,7 @@ const useCases = {
   normalize_texts_use_case: TextsUseCasesFactory.normalizeTextsUseCase({
     config
   }),
-  save_evaluation_texts_use_case: TextsUseCasesFactory.saveEvaluationTextsUseCase(
+  save_structure_evaluation_texts_use_case: TextsUseCasesFactory.saveStructureEvaluationTextsUseCase(
     {config}
   ),
   upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),

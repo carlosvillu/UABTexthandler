@@ -3,8 +3,8 @@ class GetNextEvaluationTextsService {
     this._repository = repository
   }
 
-  execute({user}) {
-    return this._repository.next({user})
+  execute({user, level}) {
+    return this._repository.next({user, level})
   }
 }
 

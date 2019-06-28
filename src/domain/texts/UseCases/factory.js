@@ -1,12 +1,14 @@
 import UsersEntitiesFactory from '../../users/Entities/factory'
-import TextsServicesFactory from '../Services/factory'
-import TextsRequestsFactory from '../Requests/factory'
+
 import TextsEntitiesFactory from '../Entities/factory'
+import TextsRequestsFactory from '../Requests/factory'
+import TextsServicesFactory from '../Services/factory'
+import TextsValueObjectsFactory from '../ValueObjects/factory'
 
 import GetAllTextsUseCase from './GetAllTextsUseCase'
 import GetNextEvaluationTextsUseCase from './GetNextEvaluationTextsUseCase'
 import NormalizeTextsUseCase from './NormalizeTextsUseCase'
-import SaveEvaluationTextsUseCase from './SaveEvaluationTextsUseCase'
+import SaveStructureEvaluationTextsUseCase from './SaveStructureEvaluationTextsUseCase'
 import UploadTextsUseCase from './UploadTextsUseCase'
 
 export default class TextsUseCasesFactory {
@@ -17,6 +19,7 @@ export default class TextsUseCasesFactory {
 
   static getNextEvaluationTextsUseCase = ({config}) =>
     new GetNextEvaluationTextsUseCase({
+      levelValueObjectFactory: TextsValueObjectsFactory.levelValueObject,
       service: TextsServicesFactory.getNextEvaluationTextsService({config}),
       userEntityFactory: UsersEntitiesFactory.userEntity
     })
@@ -26,12 +29,14 @@ export default class TextsUseCasesFactory {
       service: TextsServicesFactory.normalizeTextsService({config})
     })
 
-  static saveEvaluationTextsUseCase = ({config}) =>
-    new SaveEvaluationTextsUseCase({
+  static saveStructureEvaluationTextsUseCase = ({config}) =>
+    new SaveStructureEvaluationTextsUseCase({
       requestFactory: TextsRequestsFactory.evaluationTextsRequest,
       userEntityFactory: UsersEntitiesFactory.userEntity,
       textEntityFactory: TextsEntitiesFactory.textEntity,
-      service: TextsServicesFactory.saveEvaluationTextsService({config})
+      service: TextsServicesFactory.saveStructureEvaluationTextsService({
+        config
+      })
     })
 
   static uploadTextsUseCase = ({config}) =>
