@@ -1,13 +1,14 @@
-@import "~react-table/react-table.css";
+@import '~react-table/react-table.css';
 
-@import "../components/App/index";
-@import "../components/CanvasTexto/index";
-@import "../components/Downloader/index";
-@import "../components/LoggedMenu/index";
-@import "../components/PrivilegedUserMenu/index";
-@import "../components/Quiz/RadioButtonGroup/index";
-@import "../components/Quiz/Reason/index";
-@import "../components/Quiz/index";
-@import "../components/TableEvaluations/index";
-@import "../components/TableTexts/index";
-@import "../components/Uploader/index";
+@import '../components/App/index';
+@import '../components/CanvasTexto/index';
+@import '../components/Downloader/index';
+@import '../components/LayoutEvaluation/index';
+@import '../components/LoggedMenu/index';
+@import '../components/PrivilegedUserMenu/index';
+@import '../components/StructureQuiz/RadioButtonGroup/index';
+@import '../components/StructureQuiz/Reason/index';
+@import '../components/StructureQuiz/index';
+@import '../components/TableEvaluations/index';
+@import '../components/TableTexts/index';
+@import '../components/Uploader/index';
