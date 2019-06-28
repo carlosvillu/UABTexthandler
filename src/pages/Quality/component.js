@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import LayoutEvaluation from '../../components/LayoutEvaluation'
+import QualityQuiz from '../../components/QualityQuiz'
 
 class Quality extends React.Component {
   static propTypes = {
@@ -28,7 +29,9 @@ class Quality extends React.Component {
           onClickSave={() => console.log('SAVE')}
           onClickSkip={handleClickSkipButton}
         >
-          <h1>Quiz!!!</h1>
+          <QualityQuiz
+            onChangeGrade={grade => console.log(`NEXT GRADE ${grade}`)}
+          />
         </LayoutEvaluation.Quiz>
       </LayoutEvaluation>
     )
