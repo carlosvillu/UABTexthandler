@@ -3,6 +3,6 @@ export default {
   GRADES: {
     SECOND_PRIMARY: 2,
     FOURTH_PRIMARY: 4,
-    SECOND_ESO: 5
+    SECOND_ESO: 8
   }
 }
