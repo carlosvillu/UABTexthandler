@@ -1,6 +1,6 @@
 import Entity from '@s-ui/domain/lib/Entity'
 
-export default class EvaluationEntity extends Entity {
+export default class StructureEvaluationEntity extends Entity {
   evaluator() {
     return this._userEmail
   }
@@ -51,25 +51,37 @@ export default class EvaluationEntity extends Entity {
 
   numberOfExpEvidencie() {
     return this._reasons.filter(
-      r => r.justification === 'YES' && r.types.some(t => t === 'evidences')
+      r =>
+        r.justification === 'YES' &&
+        r.types &&
+        r.types.some(t => t === 'evidences')
     ).length
   }
 
   numberOfExpExample() {
     return this._reasons.filter(
-      r => r.justification === 'YES' && r.types.some(t => t === 'example')
+      r =>
+        r.justification === 'YES' &&
+        r.types &&
+        r.types.some(t => t === 'example')
     ).length
   }
 
   numberOfExpExpert() {
     return this._reasons.filter(
-      r => r.justification === 'YES' && r.types.some(t => t === 'experts')
+      r =>
+        r.justification === 'YES' &&
+        r.types &&
+        r.types.some(t => t === 'experts')
     ).length
   }
 
   numberOfExpOther() {
     return this._reasons.filter(
-      r => r.justification === 'YES' && r.types.some(t => t === 'others')
+      r =>
+        r.justification === 'YES' &&
+        r.types &&
+        r.types.some(t => t === 'others')
     ).length
   }
 }

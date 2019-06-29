@@ -8,6 +8,7 @@ import TextsValueObjectsFactory from '../ValueObjects/factory'
 import GetAllTextsUseCase from './GetAllTextsUseCase'
 import GetNextEvaluationTextsUseCase from './GetNextEvaluationTextsUseCase'
 import NormalizeTextsUseCase from './NormalizeTextsUseCase'
+import SaveQualityEvaluationTextsUseCase from './SaveQualityEvaluationTextsUseCase'
 import SaveStructureEvaluationTextsUseCase from './SaveStructureEvaluationTextsUseCase'
 import UploadTextsUseCase from './UploadTextsUseCase'
 
@@ -19,6 +20,8 @@ export default class TextsUseCasesFactory {
 
   static getNextEvaluationTextsUseCase = ({config}) =>
     new GetNextEvaluationTextsUseCase({
+      typeEvaluationValueObjectFactory:
+        TextsValueObjectsFactory.typeEvaluationValueObject,
       levelValueObjectFactory: TextsValueObjectsFactory.levelValueObject,
       service: TextsServicesFactory.getNextEvaluationTextsService({config}),
       userEntityFactory: UsersEntitiesFactory.userEntity
@@ -27,6 +30,16 @@ export default class TextsUseCasesFactory {
   static normalizeTextsUseCase = ({config}) =>
     new NormalizeTextsUseCase({
       service: TextsServicesFactory.normalizeTextsService({config})
+    })
+
+  static saveQualityEvaluationTextsUseCase = ({config}) =>
+    new SaveQualityEvaluationTextsUseCase({
+      qualityValueObjectFactory: TextsValueObjectsFactory.qualityValueObject,
+      userEntityFactory: UsersEntitiesFactory.userEntity,
+      textEntityFactory: TextsEntitiesFactory.textEntity,
+      service: TextsServicesFactory.saveQualityEvaluationTextsService({
+        config
+      })
     })
 
   static saveStructureEvaluationTextsUseCase = ({config}) =>

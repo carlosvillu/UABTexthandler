@@ -19,13 +19,23 @@ export default class TextEntity extends Entity {
     return level.value() === this._level
   }
 
-  isEvaluable({user}) {
+  isEvaluable({user, type: typeVO}) {
+    if (!typeVO.isValid()) {
+      return false
+    }
+
+    if (!this._evaluations) {
+      return true
+    }
+
+    const evaluationsByType = this._evaluations[typeVO.value()]
+
     return (
-      !this._evaluations ||
-      (Object.keys(this._evaluations).length <
+      !evaluationsByType ||
+      (Object.keys(evaluationsByType).length <
         TextEntity.MAX_EVALUATIONS_BY_TEXT &&
-        !Object.keys(this._evaluations).some(
-          id => user.id() === this._evaluations[id]
+        !Object.keys(evaluationsByType).some(
+          id => user.id() === evaluationsByType[id]
         ))
     )
   }

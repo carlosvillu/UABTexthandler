@@ -14,23 +14,23 @@ const notNullReasons = evaluation => errors =>
     )
   ])
 
-const mandatoryTypeOfReason = evaluation => errors =>
-  deepFlatten([
-    ...errors,
-    ...evaluation.reasons.map((reason, index) => {
-      const {justification} = reason
-      const [first] = reason.types
-
-      // Magic String, maybe I have to refactor and put this in the config :(
-      if (!justification || justification === 'NO') {
-        return false
-      }
-
-      return justification === 'YES' && first != null // And more magics strings
-        ? false
-        : `Type reason #${index + 1}`
-    })
-  ])
+// const mandatoryTypeOfReason = evaluation => errors =>
+//   deepFlatten([
+//     ...errors,
+//     ...evaluation.reasons.map((reason, index) => {
+//       const {justification} = reason
+//       const [first] = reason.types
+//
+//       // Magic String, maybe I have to refactor and put this in the config :(
+//       if (!justification || justification === 'NO') {
+//         return false
+//       }
+//
+//       return justification === 'YES' && first != null // And more magics strings
+//         ? false
+//         : `Type reason #${index + 1}`
+//     })
+//   ])
 
 const onlyOneTypeOpinion = evaluation => errors => {
   const numberYES = ['extensive', 'synthetic', 'otherOpinion'].reduce(
@@ -57,12 +57,12 @@ export default class EvaluationTextsRequest {
       notNull(evaluation)('otherOpinion'),
       notNull(evaluation)('synthetic'),
       onlyOneTypeOpinion(evaluation),
-      notNullReasons(evaluation),
-      mandatoryTypeOfReason(evaluation)
+      notNullReasons(evaluation)
+      // mandatoryTypeOfReason(evaluation)
     )([]).filter(Boolean)
 
     if (errors.length) {
-      throw evaluationTextsErrorFactory(errors)
+      throw evaluationTextsErrorFactory({errors})
     }
   }
   constructor({

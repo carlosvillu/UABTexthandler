@@ -1,7 +1,7 @@
 import {streamify} from '@s-ui/decorators'
 
 @streamify('execute')
-class GetStatsEvaluationsUseCase {
+class GetStatsStructureEvaluationsUseCase {
   constructor({service} = {}) {
     this._service = service
   }
@@ -11,4 +11,4 @@ class GetStatsEvaluationsUseCase {
   }
 }
 
-export default GetStatsEvaluationsUseCase
+export default GetStatsStructureEvaluationsUseCase

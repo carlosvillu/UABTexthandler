@@ -26,12 +26,15 @@ const useCases = {
   normalize_texts_use_case: TextsUseCasesFactory.normalizeTextsUseCase({
     config
   }),
+  save_quality_evaluation_texts_use_case: TextsUseCasesFactory.saveQualityEvaluationTextsUseCase(
+    {config}
+  ),
   save_structure_evaluation_texts_use_case: TextsUseCasesFactory.saveStructureEvaluationTextsUseCase(
     {config}
   ),
   upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),
 
-  get_stats_evaluations_use_case: EvaluationsUseCasesFactory.getStatsEvaluationsUseCase(
+  get_stats_structure_evaluations_use_case: EvaluationsUseCasesFactory.getStatsStructureEvaluationsUseCase(
     {config}
   )
 }

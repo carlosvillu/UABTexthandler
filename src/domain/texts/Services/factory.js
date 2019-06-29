@@ -4,6 +4,7 @@ import TextsMappersFactory from '../Mappers/factory'
 import GetAllTextsService from './GetAllTextsService'
 import GetNextEvaluationTextsService from './GetNextEvaluationTextsService'
 import NormalizeTextsService from './NormalizeTextsService'
+import SaveQualityEvaluationTextsService from './SaveQualityEvaluationTextsService'
 import SaveStructureEvaluationTextsService from './SaveStructureEvaluationTextsService'
 import UploadTextsService from './UploadTextsService'
 
@@ -21,6 +22,11 @@ export default class TextsServicesFactory {
   static normalizeTextsService = ({config}) =>
     new NormalizeTextsService({
       mapper: TextsMappersFactory.planTextToPlainTextNormalizedMapper({config})
+    })
+
+  static saveQualityEvaluationTextsService = ({config}) =>
+    new SaveQualityEvaluationTextsService({
+      repository: TextsRepositoriesFactory.fireBaseTextsRepository({config})
     })
 
   static saveStructureEvaluationTextsService = ({config}) =>

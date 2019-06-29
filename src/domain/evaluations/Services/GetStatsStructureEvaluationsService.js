@@ -1,4 +1,4 @@
-class GetStatsEvaluationsService {
+class GetStatsStructureEvaluationsService {
   constructor({repository, mapper} = {}) {
     this._repository = repository
     this._mapper = mapper
@@ -10,4 +10,4 @@ class GetStatsEvaluationsService {
   }
 }
 
-export default GetStatsEvaluationsService
+export default GetStatsStructureEvaluationsService

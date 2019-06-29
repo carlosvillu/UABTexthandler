@@ -1,5 +1,6 @@
-import EvaluationEntity from './EvaluationEntity'
+import StructureEvaluationEntity from './StructureEvaluationEntity'
 
 export default class EvaluationsEntitiesFactory {
-  static evaluationEntity = evaluation => new EvaluationEntity(evaluation)
+  static structureEvaluationEntity = evaluation =>
+    new StructureEvaluationEntity(evaluation)
 }

@@ -1,11 +1,11 @@
 import EvaluationsRepository from './EvaluationsRepository'
 
 export default class FireBaseEvaluationsRepository extends EvaluationsRepository {
-  constructor({config, evaluationsEntityFactory} = {}) {
+  constructor({config, structureEvaluationsEntityFactory} = {}) {
     super()
 
     this._config = config
-    this._evaluationEntityFactory = evaluationsEntityFactory
+    this._structureEvaluationsEntityFactory = structureEvaluationsEntityFactory
   }
 
   async allStructure() {
@@ -13,7 +13,7 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const evaluations = (await evaluationsRef.once('value')).val() || {}
     return Object.keys(evaluations).map(key =>
-      this._evaluationEntityFactory(evaluations[key])
+      this._structureEvaluationsEntityFactory(evaluations[key])
     )
   }
 }

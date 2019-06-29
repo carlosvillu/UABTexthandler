@@ -1,5 +1,6 @@
-import StatsValueObject from './StatsValueObject'
+import StructureStatsValueObject from './StructureStatsValueObject'
 
 export default class ValueObjectsEvaluationsFactory {
-  static statsValueObject = stats => new StatsValueObject(stats)
+  static structureStatsValueObject = stats =>
+    new StructureStatsValueObject(stats)
 }

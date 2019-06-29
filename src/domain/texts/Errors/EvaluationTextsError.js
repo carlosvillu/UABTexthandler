@@ -1,13 +1,10 @@
-class ExtendableError extends Error {
-  constructor(message) {
-    super(JSON.stringify(message))
-    Object.setPrototypeOf(this, ExtendableError.prototype)
-    this.name = this.constructor.name
+export default class EvaluationTextsError extends Error {
+  constructor({errors}) {
+    super()
+    this._errors = errors
   }
 
-  toJSON() {
-    return {errors: JSON.parse(this.message)}
+  errors() {
+    return this._errors
   }
 }
-
-export default class EvaluationTextsError extends ExtendableError {}

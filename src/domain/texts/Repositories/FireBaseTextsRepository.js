@@ -40,18 +40,19 @@ export default class FireBaseTextsRepository extends TextsRepository {
     return Object.keys(texts).map(key => this._textEntityFactory(texts[key]))
   }
 
-  async next({user, level}) {
+  async next({user, level, type}) {
     const texts = await this.all()
 
     const nextText = this._pipe(this._shuffle, this._pickRnd)(
       texts
-        .filter(text => text.isEvaluable({user}))
+        .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
     )
     return nextText
   }
 
   async saveEvaluationStructure({evaluation, text, user}) {
+    // TODO: Mode this part to the evaluation context
     const refsManager = this._config.get('refsManager')
     const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const id = evaluationsRef.push().key
@@ -67,6 +68,33 @@ export default class FireBaseTextsRepository extends TextsRepository {
       })
     const updateTextsEvaluationsPromise = refsManager
       .ref({path: `/texts/${text.id()}/evaluations/structure`})
+      .update({[id]: user.id()})
+
+    const [evaluationDoc, textDoc] = await Promise.all([
+      addEvaluationPromise,
+      updateTextsEvaluationsPromise
+    ])
+
+    return {evaluationDoc, textDoc}
+  }
+
+  async saveEvaluationQuality({quality, text, user}) {
+    // TODO: Mode this part to the evaluation context
+    const refsManager = this._config.get('refsManager')
+    const evaluationsRef = refsManager.ref({path: '/evaluations/quality'})
+    const id = evaluationsRef.push().key
+    const addEvaluationPromise = refsManager
+      .ref({path: `/evaluations/quality/${id}`})
+      .set({
+        ...quality.toJSON(),
+        idText: text.id(),
+        idFile: text.idFile(),
+        idUser: user.id(),
+        userEmail: user.email(),
+        createdAt: Date.now()
+      })
+    const updateTextsEvaluationsPromise = refsManager
+      .ref({path: `/texts/${text.id()}/evaluations/quality`})
       .update({[id]: user.id()})
 
     const [evaluationDoc, textDoc] = await Promise.all([
