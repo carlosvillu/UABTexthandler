@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import ReactTable from 'react-table'
 
-class TableEvaluations extends React.PureComponent {
+class TableStructureEvaluations extends React.PureComponent {
   static propTypes = {
     domain: PropTypes.object,
     i18n: PropTypes.object,
@@ -14,7 +14,7 @@ class TableEvaluations extends React.PureComponent {
   async componentDidMount() {
     const {setStateEvaluations, domain} = this.props
     setStateEvaluations(
-      await domain.get('get_stats_evaluations_use_case').execute()
+      await domain.get('get_stats_structure_evaluations_use_case').execute()
     )
   }
 
@@ -24,7 +24,7 @@ class TableEvaluations extends React.PureComponent {
     const {i18n, stateEvaluations} = this.props
 
     return (
-      <div className="TableEvaluations">
+      <div className="TableStructureEvaluations">
         <ReactTable
           data={stateEvaluations}
           columns={[
@@ -93,4 +93,4 @@ class TableEvaluations extends React.PureComponent {
   }
 }
 
-export default TableEvaluations
+export default TableStructureEvaluations

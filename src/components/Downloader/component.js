@@ -13,15 +13,15 @@ export default class Downloader extends React.PureComponent {
 
   componentDidMount() {
     const {setStateEvaluations, domain} = this.props
-    this.getStatsEvaluationsUseCase$ = domain
-      .get('get_stats_evaluations_use_case')
+    this.getStatsStructureEvaluationsUseCase$ = domain
+      .get('get_stats_structure_evaluations_use_case')
       .$.execute.subscribe(({params, result}) => {
         setStateEvaluations(result)
       })
   }
 
   componentWillUnmount() {
-    this.getStatsEvaluationsUseCase$.dispose()
+    this.getStatsStructureEvaluationsUseCase$.dispose()
   }
 
   render() {
