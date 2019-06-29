@@ -26,7 +26,7 @@ class Home extends React.PureComponent {
     const user = await this.props.domain.get('current_users_use_case').execute()
     const text = await this.props.domain
       .get('get_next_evaluation_texts_use_case')
-      .execute({user})
+      .execute({user, type: 'structure'})
     this.props.setStateText(text)
   }
 

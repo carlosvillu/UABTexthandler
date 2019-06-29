@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Downloader from '../../components/Downloader'
-import TableEvaluations from '../../components/TableEvaluations'
+import TableStructureEvaluations from '../../components/TableStructureEvaluations'
 
 const AdminEvaluations = ({i18n}) => (
   <div className="AdminEvaluations">
-    <TableEvaluations />
+    <TableStructureEvaluations />
     <Downloader />
   </div>
 )

@@ -26,7 +26,7 @@ class Quality extends React.Component {
         .execute()
       const text = await this.props.domain
         .get('get_next_evaluation_texts_use_case')
-        .execute({user, grade: this.props.stateGrade})
+        .execute({user, grade: this.props.stateGrade, type: 'quality'})
       this.props.setStateText(text)
     }
   }

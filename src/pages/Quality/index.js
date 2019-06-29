@@ -8,6 +8,7 @@ import withHandlers from 'recompose/withHandlers'
 
 export default compose(
   withState('stateText', 'setStateText'),
+  withState('stateQuality', 'setStateQuality'),
   withState('stateGrade', 'setStateGrade'),
   getContext({domain: PropTypes.object}),
   withHandlers({
@@ -15,12 +16,16 @@ export default compose(
       props.router.push('/quality')
       window.scrollTo(0, 0)
     },
-    handleClickSaveButton: props => evt => {
+    handleClickSaveButton: props => async evt => {
+      const user = await props.domain.get('current_users_use_case').execute()
+      await props.domain
+        .get('save_quality_evaluation_texts_use_case')
+        .execute({text: props.stateText, quality: props.stateQuality, user})
       props.router.push('/quality')
       window.scrollTo(0, 0)
     },
     handleChangeQuality: props => quality => {
-      console.log(`Next Quality: ${quality}`) // eslint-disable-line
+      props.setStateQuality(quality)
     }
   })
 )(Quality)

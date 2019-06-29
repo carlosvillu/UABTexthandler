@@ -32,9 +32,7 @@ export default compose(
         window.scrollTo(0, 0)
       } catch (err) {
         window.alert(
-          `${i18n.t('HOME_ALERT_ERROR_TITLE')}\n\n${JSON.stringify(
-            err.toJSON().errors.join(', ')
-          )}`
+          `${i18n.t('HOME_ALERT_ERROR_TITLE')}\n\n${err.errors().join(', ')}`
         )
       }
     }
