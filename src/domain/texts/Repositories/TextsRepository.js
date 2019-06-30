@@ -16,4 +16,8 @@ export default class TextsRepository {
   saveEvaluationQuality() {
     throw Error('[TextsRepository#saveEvaluationQuality] must be implemented')
   }
+
+  updatePrompt() {
+    throw Error('[TextsRepository#updatePrompupdatePrompt] must be implemented')
+  }
 }

@@ -11,7 +11,7 @@ export default class PlanTextToPlainTextNormalizedMapper {
   }
 
   replaceSpaceDotNewLine(src) {
-    return src.replace(/\s?\.\n/g, ' ')
+    return src.replace(/\s\.\n/g, ' ')
   }
 
   replaceQuestionMark(src) {

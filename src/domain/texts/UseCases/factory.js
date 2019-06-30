@@ -10,6 +10,7 @@ import GetNextEvaluationTextsUseCase from './GetNextEvaluationTextsUseCase'
 import NormalizeTextsUseCase from './NormalizeTextsUseCase'
 import SaveQualityEvaluationTextsUseCase from './SaveQualityEvaluationTextsUseCase'
 import SaveStructureEvaluationTextsUseCase from './SaveStructureEvaluationTextsUseCase'
+import UploadPromptTextsUseCase from './UploadPromptTextsUseCase'
 import UploadTextsUseCase from './UploadTextsUseCase'
 
 export default class TextsUseCasesFactory {
@@ -50,6 +51,12 @@ export default class TextsUseCasesFactory {
       service: TextsServicesFactory.saveStructureEvaluationTextsService({
         config
       })
+    })
+
+  static uploadPromptTextsUseCase = ({config}) =>
+    new UploadPromptTextsUseCase({
+      service: TextsServicesFactory.uploadPromptTextsService({config}),
+      textEntityFactory: TextsEntitiesFactory.textEntity
     })
 
   static uploadTextsUseCase = ({config}) =>

@@ -6,6 +6,10 @@ export default class TextEntity extends Entity {
     return this._id
   }
 
+  prompt() {
+    return this._prompt
+  }
+
   idFile() {
     return this._idFile
   }

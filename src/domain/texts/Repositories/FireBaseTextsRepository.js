@@ -104,4 +104,21 @@ export default class FireBaseTextsRepository extends TextsRepository {
 
     return {evaluationDoc, textDoc}
   }
+
+  async updatePrompt({text}) {
+    const refsManager = this._config.get('refsManager')
+    const doc =
+      (await refsManager
+        .ref({path: '/texts'})
+        .orderByChild('idFile')
+        .equalTo(text.idFile())
+        .once('value')).val() || {}
+
+    if (Object.keys(doc).length) {
+      const [id] = Object.keys(doc)
+      await refsManager
+        .ref({path: `/texts/${id}`})
+        .update({prompt: text.prompt()})
+    }
+  }
 }

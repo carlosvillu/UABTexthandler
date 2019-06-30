@@ -33,6 +33,9 @@ const useCases = {
     {config}
   ),
   upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),
+  upload_prompt_texts_use_case: TextsUseCasesFactory.uploadPromptTextsUseCase({
+    config
+  }),
 
   get_stats_structure_evaluations_use_case: EvaluationsUseCasesFactory.getStatsStructureEvaluationsUseCase(
     {config}

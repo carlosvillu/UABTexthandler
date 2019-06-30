@@ -7,6 +7,7 @@ import NormalizeTextsService from './NormalizeTextsService'
 import SaveQualityEvaluationTextsService from './SaveQualityEvaluationTextsService'
 import SaveStructureEvaluationTextsService from './SaveStructureEvaluationTextsService'
 import UploadTextsService from './UploadTextsService'
+import UploadPromptTextsService from './UploadPromptTextsService'
 
 export default class TextsServicesFactory {
   static getAllTextsService = ({config}) =>
@@ -31,6 +32,11 @@ export default class TextsServicesFactory {
 
   static saveStructureEvaluationTextsService = ({config}) =>
     new SaveStructureEvaluationTextsService({
+      repository: TextsRepositoriesFactory.fireBaseTextsRepository({config})
+    })
+
+  static uploadPromptTextsService = ({config}) =>
+    new UploadPromptTextsService({
       repository: TextsRepositoriesFactory.fireBaseTextsRepository({config})
     })
 
