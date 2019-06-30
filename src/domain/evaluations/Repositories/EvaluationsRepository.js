@@ -1,5 +1,9 @@
 export default class EvaluationsRepository {
   allStructure() {
-    throw Error('[EvaluationsRepository#all] must be implemented')
+    throw Error('[EvaluationsRepository#allStructure] must be implemented')
+  }
+
+  allQuality() {
+    throw Error('[EvaluationsRepository#allQuality] must be implemented')
   }
 }

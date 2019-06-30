@@ -6,7 +6,11 @@ export default class EvaluationsRepositoriesFactory {
   static fireBaseEvaluationsRepository = ({config}) =>
     new FireBaseEvaluationsRepository({
       config,
-      structureEvaluationsEntityFactory:
+
+      qualityEvaluationEntityFactory:
+        EvaluationsEntitiesFactory.qualityEvaluationEntity,
+
+      structureEvaluationEntityFactory:
         EvaluationsEntitiesFactory.structureEvaluationEntity
     })
 }

@@ -36,6 +36,9 @@ const useCases = {
 
   get_stats_structure_evaluations_use_case: EvaluationsUseCasesFactory.getStatsStructureEvaluationsUseCase(
     {config}
+  ),
+  get_stats_quality_evaluations_use_case: EvaluationsUseCasesFactory.getStatsQualityEvaluationsUseCase(
+    {config}
   )
 }
 
