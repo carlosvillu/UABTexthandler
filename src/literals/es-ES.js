@@ -90,7 +90,8 @@ module.exports = {
   TABLE_QUALITY_EVALUATION_ID_FILE: 'ID Fichero',
   TABLE_QUALITY_EVALUATION_QUALITY: 'Calidad',
   TABLE_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas',
-  UPLOADER_CLAIM: 'Arrastra ficheros aquí o clíca',
+  UPLOADER_CLAIM: 'Arrastra textos aquí o clíca',
+  UPLOADER_PROMPT: 'Arrastra consignas aquí o clíca',
   UPLOADER_TITLE_MODAL: 'Agregar',
   UPLOADTEXT_TITLE: 'Subir textos para normalizar'
 }
