@@ -16,7 +16,18 @@ class Quality extends React.Component {
     stateText: PropTypes.object
   }
 
-  async componentDidMount() {}
+  async componentDidMount() {
+    if (this.props.stateGrade) {
+      this.props.setStateText(null)
+      const user = await this.props.domain
+        .get('current_users_use_case')
+        .execute()
+      const text = await this.props.domain
+        .get('get_next_evaluation_texts_use_case')
+        .execute({user, grade: this.props.stateGrade, type: 'quality'})
+      this.props.setStateText(text)
+    }
+  }
 
   async componentDidUpdate(prevProps) {
     if (this.props.stateGrade !== prevProps.stateGrade) {
@@ -37,6 +48,7 @@ class Quality extends React.Component {
       handleClickSaveButton,
       handleClickSkipButton,
       setStateGrade,
+      stateGrade,
       stateText
     } = this.props
 
@@ -51,6 +63,7 @@ class Quality extends React.Component {
             onChangeGrade={setStateGrade}
             onChangeQuality={handleChangeQuality}
             active={Boolean(stateText)}
+            grade={stateGrade}
           />
         </LayoutEvaluation.Quiz>
       </LayoutEvaluation>
