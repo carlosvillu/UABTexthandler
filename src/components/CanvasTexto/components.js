@@ -5,19 +5,20 @@ class CanvasTexto extends React.PureComponent {
   static propTypes = {
     children: PropTypes.string,
     i18n: PropTypes.object,
+    prompt: PropTypes.string,
     student: PropTypes.number
   }
   static defaultProps = {children: ''}
 
   render() {
-    const {children, student, i18n} = this.props
+    const {children, student, i18n, prompt} = this.props
     return (
       <div className="CanvasTexto">
         <h2 className="CanvasTexto-student">
           <span className="CanvasTexto-student">
             {i18n.t('CANVASTEXTO_STUDENT')}:
           </span>
-          {student}
+          {student} <span className="CanvasTexto-prompt">({prompt})</span>
         </h2>
         <div
           dangerouslySetInnerHTML={{

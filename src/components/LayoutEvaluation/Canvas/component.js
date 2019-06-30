@@ -7,7 +7,9 @@ const Canvas = ({text, i18n}) => {
   return (
     <div className="LayoutEvaluation-BodyCanvas">
       {text ? (
-        <CanvasTexto student={text.student}>{text.normalize}</CanvasTexto>
+        <CanvasTexto student={text.student} prompt={text.prompt}>
+          {text.normalize}
+        </CanvasTexto>
       ) : (
         <h2>{i18n.t('LAYOUT_EVALUATION_CANVAS_LOOKING_TEXTS')}</h2>
       )}
@@ -18,8 +20,9 @@ const Canvas = ({text, i18n}) => {
 Canvas.propTypes = {
   i18n: PropTypes.object,
   text: PropTypes.shape({
-    student: PropTypes.string,
-    normalize: PropTypes.string
+    normalize: PropTypes.string,
+    prompt: PropTypes.string,
+    student: PropTypes.string
   })
 }
 

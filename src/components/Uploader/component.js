@@ -12,9 +12,12 @@ class Uploader extends React.PureComponent {
   static propTypes = {
     handleClickFlatButon: PropTypes.func,
     handleDialogClose: PropTypes.func,
-    handleDragOverPaper: PropTypes.func,
-    handleDropPaper: PropTypes.func,
-    handleInputChange: PropTypes.func,
+    handleDropPaperTexts: PropTypes.func,
+    handleDropPaperPrompts: PropTypes.func,
+    handleInputChangeTexts: PropTypes.func,
+    handleInputChangePrompts: PropTypes.func,
+    handleDragOverPaperTexts: PropTypes.func,
+    handleDragOverPaperPrompts: PropTypes.func,
     i18n: PropTypes.object,
     stateOpenDialog: PropTypes.bool
   }
@@ -23,9 +26,12 @@ class Uploader extends React.PureComponent {
     const {
       handleClickFlatButon,
       handleDialogClose,
-      handleDragOverPaper,
-      handleDropPaper,
-      handleInputChange,
+      handleDropPaperTexts,
+      handleDropPaperPrompts,
+      handleInputChangeTexts,
+      handleInputChangePrompts,
+      handleDragOverPaperTexts,
+      handleDragOverPaperPrompts,
       i18n,
       stateOpenDialog
     } = this.props
@@ -39,6 +45,7 @@ class Uploader extends React.PureComponent {
         </FloatingActionButton>
         <Dialog
           title={i18n.t('UPLOADER_TITLE_MODAL')}
+          className="Uploader-dialog"
           actions={
             [] || [
               <FlatButton
@@ -58,24 +65,44 @@ class Uploader extends React.PureComponent {
           open={stateOpenDialog}
           onRequestClose={handleDialogClose}
         >
-          <label className="Uploader-label" htmlFor="upload">
-            <Paper
-              onDrop={handleDropPaper}
-              onDragOver={handleDragOverPaper}
-              className="Uploader-paper"
-            >
-              <FileUpload />
-              <p className="Uploader-claim">{i18n.t('UPLOADER_CLAIM')}</p>
-            </Paper>
-          </label>
-          <input
-            accept=".txt"
-            className="Uploader-input"
-            id="upload"
-            multiple
-            onChange={handleInputChange}
-            type="file"
-          />
+          <div className="Uploader-buttons">
+            <label className="Uploader-label" htmlFor="upload">
+              <Paper
+                onDrop={handleDropPaperTexts}
+                onDragOver={handleDragOverPaperTexts}
+                className="Uploader-paper"
+              >
+                <FileUpload />
+                <p className="Uploader-claim">{i18n.t('UPLOADER_CLAIM')}</p>
+              </Paper>
+            </label>
+            <input
+              accept="text/*"
+              className="Uploader-input"
+              id="upload"
+              multiple
+              onChange={handleInputChangeTexts}
+              type="file"
+            />
+            <label className="Uploader-label" htmlFor="prompt">
+              <Paper
+                onDrop={handleDropPaperPrompts}
+                onDragOver={handleDragOverPaperPrompts}
+                className="Uploader-paper"
+              >
+                <FileUpload />
+                <p className="Uploader-claim">{i18n.t('UPLOADER_PROMPT')}</p>
+              </Paper>
+            </label>
+            <input
+              accept="text/*"
+              className="Uploader-input"
+              id="prompt"
+              multiple
+              onChange={handleInputChangePrompts}
+              type="file"
+            />
+          </div>
         </Dialog>
       </div>
     )

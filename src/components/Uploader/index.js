@@ -8,7 +8,7 @@ import getContext from 'recompose/getContext'
 
 import {reader} from './reader'
 
-const upload = async ({items = [], domain}) => {
+const uploadTexts = async ({items = [], domain}) => {
   const files = Array.from(items)
   const bodies = await Promise.all(files.map(reader))
   return Promise.all(
@@ -21,20 +21,44 @@ const upload = async ({items = [], domain}) => {
   )
 }
 
+const uploadPrompts = async ({items = [], domain}) => {
+  const files = Array.from(items)
+  const [body] = await Promise.all(files.map(reader))
+  const [, ...prompts] = body.split('\n')
+  prompts.map(line => {
+    const [filename, prompt] = line.split(',')
+    domain.get('upload_prompt_texts_use_case').execute({filename, prompt})
+  })
+}
+
 export default compose(
   withState('stateOpenDialog', 'setStateOpenDialog', false),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
-    handleDropPaper: props => async evt => {
+    handleDropPaperTexts: props => async evt => {
       evt.stopPropagation()
       evt.preventDefault()
       props.setStateOpenDialog(false)
-      await upload({
+      await uploadTexts({
         items: evt.dataTransfer.files,
         domain: props.domain
       })
     },
-    handleDragOverPaper: props => evt => {
+    handleDropPaperPrompts: props => async evt => {
+      evt.stopPropagation()
+      evt.preventDefault()
+      props.setStateOpenDialog(false)
+      await uploadPrompts({
+        items: evt.dataTransfer.files,
+        domain: props.domain
+      })
+    },
+    handleDragOverPaperTexts: props => evt => {
+      evt.stopPropagation()
+      evt.preventDefault()
+      evt.dataTransfer.dropEffect = 'copy'
+    },
+    handleDragOverPaperPrompts: props => evt => {
       evt.stopPropagation()
       evt.preventDefault()
       evt.dataTransfer.dropEffect = 'copy'
@@ -43,9 +67,16 @@ export default compose(
       setStateOpenDialog(true),
     handleDialogClose: ({stateOpenDialog, setStateOpenDialog}) => () =>
       setStateOpenDialog(!stateOpenDialog),
-    handleInputChange: props => async evt => {
+    handleInputChangeTexts: props => async evt => {
       props.setStateOpenDialog(false)
-      await upload({
+      await uploadTexts({
+        items: evt.target.files,
+        domain: props.domain
+      })
+    },
+    handleInputChangePrompts: props => async evt => {
+      props.setStateOpenDialog(false)
+      await uploadPrompts({
         items: evt.target.files,
         domain: props.domain
       })
