@@ -1,26 +1,26 @@
 .Home {
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  height: 100vh;
+  justify-content: center;
 
-  &-Body {
-    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
+  &-Buttons {
     display: flex;
-    padding: $size-base;
-
-    &Canvas,
-    &Quiz {
-      flex-basis: 50%;
-      flex-grow: 1;
-      flex-shrink: 0;
-
-      padding: $size-base $size-base 0;
-    }
+    justify-content: center;
+    width: 100%;
   }
 
-  &-buttons {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
+  &-Button {
+    margin: 0 $size-large;
+    padding: $size-large;
+    background-color: $c-background;
+    border: 1px solid $c-border;
+    border-radius: $size-xxs;
+    cursor: pointer;
+  }
+
+  &-Link {
+    text-decoration: none;
+    color: $c-black;
   }
 }
