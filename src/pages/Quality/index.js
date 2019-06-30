@@ -14,7 +14,7 @@ export default compose(
     'setStateGrade',
     props => (props.location.state ? props.location.state.grade : null)
   ),
-  getContext({domain: PropTypes.object}),
+  getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
     handleClickSkipButton: props => evt => {
       props.router.push({
@@ -35,7 +35,7 @@ export default compose(
         })
         window.scrollTo(0, 0)
       } catch (e) {
-        window.alert('Qualiy not valid')
+        window.alert(props.i18n.t('QUALITY_ERROR_MSG'))
       }
     },
     handleChangeQuality: props => quality => {

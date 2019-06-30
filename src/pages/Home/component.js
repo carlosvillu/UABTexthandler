@@ -6,16 +6,12 @@ import Link from 'react-router/lib/Link'
 const Home = ({i18n}) => (
   <div className="Home">
     <div className="Home-Buttons">
-      <div className="Home-Button">
-        <Link to="/quality" className="Home-Link">
-          {i18n.t('HOME_BUTTON_QUALITY')}
-        </Link>
-      </div>
-      <div className="Home-Button">
-        <Link to="/structure" className="Home-Link">
-          {i18n.t('HOME_BUTTON_STRUCTURE')}
-        </Link>
-      </div>
+      <Link to="/quality" className="Home-Link">
+        <div className="Home-Button">{i18n.t('HOME_BUTTON_QUALITY')}</div>
+      </Link>
+      <Link to="/structure" className="Home-Link">
+        <div className="Home-Button">{i18n.t('HOME_BUTTON_STRUCTURE')}</div>
+      </Link>
     </div>
   </div>
 )
