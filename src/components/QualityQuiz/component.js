@@ -12,7 +12,7 @@ const QualityQuiz = ({
   form,
   handleChangeQuality,
   handleChangeSelect,
-  i18n
+  i18n // eslint-disable-line
 }) => {
   const {grade, quality} = form
   const {SECOND_ESO, SECOND_PRIMARY, FOURTH_PRIMARY} = domain

@@ -29,7 +29,7 @@ export default compose(
           return state
       }
     },
-    props => ({grade: null, quality: null})
+    props => ({grade: props.grade, quality: null})
   ),
   withHandlers({
     handleChangeSelect: props => (evt, indexOption, value) => {
