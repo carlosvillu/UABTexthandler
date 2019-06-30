@@ -10,14 +10,20 @@ import withState from 'recompose/withState'
 import getContext from 'recompose/getContext'
 
 export default compose(
-  withState('stateEvaluations', 'setStateEvaluations', []),
+  withState('stateStructureEvaluations', 'setStateStructureEvaluations', []),
+  withState('stateQualityEvaluations', 'setStateQualityEvaluations', []),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
     handleClickFlatButton: props => evt => {
-      const csv = fromEvaluationsToCSV(props.stateEvaluations)
+      const csvStructure = fromEvaluationsToCSV(props.stateStructureEvaluations)
+      const csvQuality = fromEvaluationsToCSV(props.stateQualityEvaluations)
       saveFile(
-        new window.Blob([csv], {type: 'text/csv;charset=utf-8'}),
-        'evaluations.csv'
+        new window.Blob([csvStructure], {type: 'text/csv;charset=utf-8'}),
+        'evaluations_structure.csv'
+      )
+      saveFile(
+        new window.Blob([csvQuality], {type: 'text/csv;charset=utf-8'}),
+        'evaluations_quality.csv'
       )
     }
   })

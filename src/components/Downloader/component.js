@@ -8,20 +8,31 @@ export default class Downloader extends React.PureComponent {
   static propTypes = {
     domain: PropTypes.object,
     handleClickFlatButton: PropTypes.func,
-    setStateEvaluations: PropTypes.func
+    setStateQualityEvaluations: PropTypes.func,
+    setStateStructureEvaluations: PropTypes.func
   }
 
   componentDidMount() {
-    const {setStateEvaluations, domain} = this.props
+    const {
+      setStateStructureEvaluations,
+      setStateQualityEvaluations,
+      domain
+    } = this.props
     this.getStatsStructureEvaluationsUseCase$ = domain
       .get('get_stats_structure_evaluations_use_case')
       .$.execute.subscribe(({params, result}) => {
-        setStateEvaluations(result)
+        setStateStructureEvaluations(result)
+      })
+    this.getStatsQualityEvaluationsUseCase$ = domain
+      .get('get_stats_quality_evaluations_use_case')
+      .$.execute.subscribe(({params, result}) => {
+        setStateQualityEvaluations(result)
       })
   }
 
   componentWillUnmount() {
     this.getStatsStructureEvaluationsUseCase$.dispose()
+    this.getStatsQualityEvaluationsUseCase$.dispose()
   }
 
   render() {

@@ -4,11 +4,17 @@ import PropTypes from 'prop-types'
 import ReactTable from 'react-table'
 
 class TableStructureEvaluations extends React.PureComponent {
+  static defaultProps = {
+    tip: true
+  }
+
   static propTypes = {
     domain: PropTypes.object,
     i18n: PropTypes.object,
     setStateEvaluations: PropTypes.func,
-    stateEvaluations: PropTypes.array
+    stateEvaluations: PropTypes.array,
+    tip: PropTypes.bool,
+    title: PropTypes.string
   }
 
   async componentDidMount() {
@@ -21,10 +27,11 @@ class TableStructureEvaluations extends React.PureComponent {
   componentWillUnmount() {}
 
   render() {
-    const {i18n, stateEvaluations} = this.props
+    const {i18n, stateEvaluations, title, tip} = this.props
 
     return (
       <div className="TableStructureEvaluations">
+        <h2 className="TableStructureEvaluations-Title">{title}</h2>
         <ReactTable
           data={stateEvaluations}
           columns={[
@@ -86,7 +93,7 @@ class TableStructureEvaluations extends React.PureComponent {
         />
         <br />
         <div style={{textAlign: 'center'}}>
-          <em>{i18n.t('TABLETEXTS_TIP')}</em>
+          {tip && <em>{i18n.t('TABLETEXTS_TIP')}</em>}
         </div>
       </div>
     )
