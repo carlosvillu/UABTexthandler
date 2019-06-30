@@ -9,7 +9,6 @@ export default class GetStatsQualityEvaluationsService extends Service {
 
   async execute() {
     const qualityEvaluationEntities = await this._repository.allQuality()
-    debugger // eslint-disable-line
     return qualityEvaluationEntities.map(this._mapper.map)
   }
 }

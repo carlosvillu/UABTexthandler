@@ -11,13 +11,12 @@ class SaveQualityEvaluationTextsUseCase {
     this._userEntityFactory = userEntityFactory
   }
 
-  async execute({user, quality, text}) {
-    const evaluationDoc = this._service.execute({
+  execute({user, quality, text}) {
+    return this._service.execute({
       quality: this._qualityValueObjectFactory({quality}),
       text: this._textEntityFactory(text),
       user: this._userEntityFactory(user)
     })
-    console.log(evaluationDoc) // eslint-disable-line
   }
 }
 
