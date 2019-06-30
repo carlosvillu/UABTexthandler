@@ -17,6 +17,7 @@ module.exports = {
   LAYOUT_EVALUATION_QUIZ_BUTTON_SKIP: 'Saltar texto',
   LOGGED_MENU_QUALITY_EVALUATION: 'Evaluar calidad',
   LOGGED_MENU_STRUCTURE_EVALUATION: 'Evaluar estructura',
+  QUALITY_ERROR_MSG: 'Calidad no valida',
   QUALITY_QUIZ_NUMBER_SELECTR_LABEL: 'Calidad del texto',
   QUALITY_QUIZ_OPTION_FOURTH_PRIMARY: 'Cuarto de primaria',
   QUALITY_QUIZ_OPTION_SECOND_ESO: 'Segundo de la ESO',
