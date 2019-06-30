@@ -24,7 +24,11 @@ class LoggedMenu extends React.Component {
       >
         <AppBar showMenuIconButton={false} />
         <PrivilegedUserMenu />
-        <Link to="/" className="LoggedMenu-link" onClick={this.handleClickLink}>
+        <Link
+          to="/structure"
+          className="LoggedMenu-link"
+          onClick={this.handleClickLink}
+        >
           <MenuItem primaryText={i18n.t('LOGGED_MENU_STRUCTURE_EVALUATION')} />
         </Link>
         <Link
