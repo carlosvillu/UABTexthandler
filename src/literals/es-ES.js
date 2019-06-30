@@ -7,6 +7,8 @@ module.exports = {
   APP_NAME: 'UABTexthandler',
   CANVASTEXTO_STUDENT: 'Estudiante',
   HOME_ALERT_ERROR_TITLE: 'Algunos campos están incompletos',
+  HOME_BUTTON_QUALITY: 'Evaluar calidad',
+  HOME_BUTTON_STRUCTURE: 'Evaluar estructura',
   HOME_LOOKING_TEXTS: 'Buscando texto para evaluar',
   HOME_QUESTIONS: 'Cuestionario',
   HOME_TEXT: 'Texto',
