@@ -1,6 +1,8 @@
 module.exports = {
   ADMINTEXT_TITLE: 'Administrar textos',
   ADMIN_EVALUATION: 'Administrar evaluaciones',
+  ADMIN_EVALUATIONS_QUALITY_TITLE: 'Evaluaciones de calidad',
+  ADMIN_EVALUATIONS_STUCTURE_TITLE: 'Evaluaciones de estructura',
   ADMIN_TEXTS: 'Administrar textos',
   APP_NAME: 'UABTexthandler',
   CANVASTEXTO_STUDENT: 'Estudiante',
@@ -81,6 +83,10 @@ module.exports = {
   TABLETEXTS_TIME: 'Periodo',
   TABLETEXTS_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas',
   TABLETEXT_EVALUATIONS: 'Evaluaciones',
+  TABLE_QUALITY_EVALUATION_EVALUATOR: 'evaluador',
+  TABLE_QUALITY_EVALUATION_ID_FILE: 'ID Fichero',
+  TABLE_QUALITY_EVALUATION_QUALITY: 'Calidad',
+  TABLE_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas',
   UPLOADER_CLAIM: 'Arrastra ficheros aquí o clíca',
   UPLOADER_TITLE_MODAL: 'Agregar',
   UPLOADTEXT_TITLE: 'Subir textos para normalizar'
