@@ -16,7 +16,14 @@ export default compose(
   ),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
-    handleClickSkipButton: props => evt => {
+    handleClickSkipButton: props => async evt => {
+      try {
+        await props.domain
+          .get('skip_evaluations_use_case')
+          .execute({text: props.stateText, type: 'quality'})
+      } catch (err) {
+        window.alert(props.i18n('QUALITY_ERROR_SKIP_TEXT_MSG'))
+      }
       props.router.push({
         pathname: '/quality',
         state: {grade: props.stateGrade}
