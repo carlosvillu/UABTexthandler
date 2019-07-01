@@ -11,24 +11,26 @@
 
   &-List {
     display: flex;
-    justify-content: space-evenly;
-    max-width: 300px;
+    justify-content: center; 
   }
 
   &-Item {
     background: $c-white;
     border-radius: $size-xxs;
-    display: flex;
+    display: block;
+    flex-basis: 15%;
     font-size: $fz-xxlarge;
-    padding: $size-xxs;
+    margin: 4px;
+    padding: 12px;
+    text-align: center;
 
     &:hover {
-      background: $c-border;
+      background: $c-primary;
       cursor: pointer;
     }
 
     &--selected {
-      background: $c-border;
+      background: $c-light-selected;
     }
   }
 }

@@ -1,10 +1,7 @@
 .LayoutEvaluation {
   &-BodyCanvas {
-    flex-basis: 50%;
-    flex-grow: 1;
-    flex-shrink: 0;
-
-    padding: $size-base $size-base 0;
+    flex: 1 0 50%;
+    padding: $size-large;
   }
 }
 

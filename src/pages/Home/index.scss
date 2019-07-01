@@ -1,5 +1,7 @@
 .Home {
   align-items: center;
+  background: url('/login-bg.jpg') no-repeat left center;
+  background-size: cover;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -11,16 +13,21 @@
   }
 
   &-Button {
-    margin: 0 $size-large;
-    padding: $size-large;
     background-color: $c-background;
     border: 1px solid $c-border;
     border-radius: $size-xxs;
     cursor: pointer;
+    padding: 24px 48px;
+
+    &:hover {
+      background-color: $c-light-primary;
+    }
   }
 
   &-Link {
-    text-decoration: none;
     color: $c-black;
+    font-size: 24px;
+    margin: 32px;
+    text-decoration: none;
   }
 }
