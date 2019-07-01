@@ -4,12 +4,12 @@
 .LayoutEvaluation {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 
   &-Body {
-    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
+    background: linear-gradient(to top, $c-white, $c-white 0%, $c-light-primary 100%, $c-background);
     display: flex;
-    padding: $size-base;
+    height: calc(100vh - 104px);
+    padding: 0;
   }
 }
 

@@ -1,9 +1,8 @@
 .LayoutEvaluation {
   &-BodyQuiz {
-    flex-basis: 50%;
-    flex-grow: 1;
-    flex-shrink: 0;
-
+    box-shadow: 1px 0px 5px lightgrey;
+    background: $c-light-primary;
+    flex: 1 0 50%;
     padding: $size-base $size-base 0;
   }
 

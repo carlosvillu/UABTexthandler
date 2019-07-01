@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
-class CanvasTexto extends React.PureComponent {
+class CanvasTexto extends PureComponent {
   static propTypes = {
     children: PropTypes.string,
     i18n: PropTypes.object,
@@ -12,15 +12,18 @@ class CanvasTexto extends React.PureComponent {
 
   render() {
     const {children, student, i18n, prompt} = this.props
+    const noQuotesPrompt = prompt.replace('"', '')
     return (
       <div className="CanvasTexto">
         <h2 className="CanvasTexto-student">
           <span className="CanvasTexto-student">
             {i18n.t('CANVASTEXTO_STUDENT')}:
           </span>
-          {student} <span className="CanvasTexto-prompt">({prompt})</span>
+          <span className="CanvasTexto-number">{student}</span>
+          <span className="CanvasTexto-prompt">{noQuotesPrompt}</span>
         </h2>
         <div
+          className="CanvasTexto-content"
           dangerouslySetInnerHTML={{
             __html: children
               .split(/\n\n/)
