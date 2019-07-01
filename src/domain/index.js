@@ -42,7 +42,11 @@ const useCases = {
   ),
   get_stats_quality_evaluations_use_case: EvaluationsUseCasesFactory.getStatsQualityEvaluationsUseCase(
     {config}
-  )
+  ),
+
+  skip_evaluations_use_case: EvaluationsUseCasesFactory.skipEvaluationsUseCase({
+    config
+  })
 }
 
 export default EntryPointFactory({config, useCases})

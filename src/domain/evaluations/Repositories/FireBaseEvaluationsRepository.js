@@ -33,4 +33,18 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
       })
     )
   }
+
+  async skip({text, type}) {
+    const refsManager = this._config.get('refsManager')
+    const skipTextRef = refsManager.ref({
+      path: `/skips/${text.id()}`
+    })
+    const entry = (await skipTextRef.once('value')).val() || {}
+
+    await skipTextRef.set({
+      ...entry,
+      idFile: text.idFile(),
+      [type.value()]: (entry[type.value()] || 0) + 1
+    })
+  }
 }
