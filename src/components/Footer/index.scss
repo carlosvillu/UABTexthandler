@@ -1,0 +1,10 @@
+.App-footer {
+  background-color: darken($c-primary, 20%);
+  color: white;
+  padding: 12px 24px;
+
+  &-links {
+    color: $c-light-primary;
+    text-decoration: none;
+  }
+}

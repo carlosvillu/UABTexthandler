@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import Link from 'react-router/lib/Link'
 import LoggedMenu from '../LoggedMenu'
+import {Footer} from '../Footer'
 
 export default class App extends React.PureComponent {
   static propTypes = {
@@ -54,9 +55,7 @@ export default class App extends React.PureComponent {
             <div className="App-container">{children}</div>
             {IS_LOGGED && <LoggedMenu />}
           </div>
-          <div className="App-footer">
-            <h3>Footer</h3>
-          </div>
+          <Footer />
         </div>
       </MuiThemeProvider>
     )
