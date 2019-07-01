@@ -1,0 +1,34 @@
+.NumberSelector {
+  margin-top: $size-base;
+
+  &--hidden {
+    display: none;
+  }
+
+  &-Title {
+    margin-bottom: $size-mini;
+  }
+
+  &-List {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 300px;
+  }
+
+  &-Item {
+    background: $c-white;
+    border-radius: $size-xxs;
+    display: flex;
+    font-size: $fz-xxlarge;
+    padding: $size-xxs;
+
+    &:hover {
+      background: $c-border;
+      cursor: pointer;
+    }
+
+    &--selected {
+      background: $c-border;
+    }
+  }
+}

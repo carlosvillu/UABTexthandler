@@ -1,4 +1,5 @@
 // Colors ---------------------------------------------------------------------
+$c-black: #000000;
 $c-white: #ffffff;
 $c-background: #efefef;
 $c-border: #ccc;
@@ -6,6 +7,7 @@ $c-border: #ccc;
 // Sizes ----------------------------------------------------------------------
 $size-base: 20px;
 $size-mini: $size-base / 2;
+$size-xxs: $size-base / 4;
 $size-large: $size-base * 2;
 
 // Font-sizes -----------------------------------------------------------------

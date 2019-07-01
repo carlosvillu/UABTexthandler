@@ -1,10 +1,14 @@
 import StatsValueObjectsFactory from '../ValueObjects/factory'
 
-import EvaluationEntityListToStatsValueObjectMapper from './EvaluationEntityListToStatsValueObjectMapper'
+import QualityEvaluationEntityListToStatsValueObjectMapper from './QualityEvaluationEntityListToStatsValueObjectMapper'
+import StructureEvaluationEntityListToStatsValueObjectMapper from './StructureEvaluationEntityListToStatsValueObjectMapper'
 
 export default class EvaluationsMappersFactory {
-  static evaluationEntityListToStatsValueObjectMapper = () =>
-    new EvaluationEntityListToStatsValueObjectMapper({
+  static qualityEvaluationEntityListToStatsValueObjectMapper = () =>
+    new QualityEvaluationEntityListToStatsValueObjectMapper()
+
+  static structureEvaluationEntityListToStatsValueObjectMapper = () =>
+    new StructureEvaluationEntityListToStatsValueObjectMapper({
       statsValueObjectFactory: StatsValueObjectsFactory.statsValueObject
     })
 }

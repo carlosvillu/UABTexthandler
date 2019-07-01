@@ -1,4 +1,4 @@
-class SaveEvaluationTextsUseCase {
+class SaveStructureEvaluationTextsUseCase {
   constructor({
     requestFactory,
     userEntityFactory,
@@ -21,4 +21,4 @@ class SaveEvaluationTextsUseCase {
   }
 }
 
-export default SaveEvaluationTextsUseCase
+export default SaveStructureEvaluationTextsUseCase

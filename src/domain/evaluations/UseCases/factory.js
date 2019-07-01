@@ -1,10 +1,20 @@
 import EvaluationsServicesFactory from '../Services/factory'
 
-import GetStatsEvaluationsUseCase from './GetStatsEvaluationsUseCase'
+import GetStatsQualityEvaluationsUseCase from './GetStatsQualityEvaluationsUseCase'
+import GetStatsStructureEvaluationsUseCase from './GetStatsStructureEvaluationsUseCase'
 
 export default class EvaluationsUseCasesFactory {
-  static getStatsEvaluationsUseCase = ({config}) =>
-    new GetStatsEvaluationsUseCase({
-      service: EvaluationsServicesFactory.getStatsEvaluationsService({config})
+  static getStatsQualityEvaluationsUseCase = ({config}) =>
+    new GetStatsQualityEvaluationsUseCase({
+      service: EvaluationsServicesFactory.getStatsQualityEvaluationsService({
+        config
+      })
+    })
+
+  static getStatsStructureEvaluationsUseCase = ({config}) =>
+    new GetStatsStructureEvaluationsUseCase({
+      service: EvaluationsServicesFactory.getStatsStructureEvaluationsService({
+        config
+      })
     })
 }

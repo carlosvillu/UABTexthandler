@@ -1,12 +1,23 @@
 import EvaluationsMappersFactory from '../Mappers/factory'
 import EvaluationsRepositoriesFactory from '../Repositories/factory'
 
-import GetStatsEvaluationsService from './GetStatsEvaluationsService'
+import GetStatsQualityEvaluationsService from './GetStatsQualityEvaluationsService'
+import GetStatsStructureEvaluationsService from './GetStatsStructureEvaluationsService'
 
 export default class EvaluationsServicesFactory {
-  static getStatsEvaluationsService = ({config}) =>
-    new GetStatsEvaluationsService({
-      mapper: EvaluationsMappersFactory.evaluationEntityListToStatsValueObjectMapper(
+  static getStatsQualityEvaluationsService = ({config}) =>
+    new GetStatsQualityEvaluationsService({
+      mapper: EvaluationsMappersFactory.qualityEvaluationEntityListToStatsValueObjectMapper(
+        {config}
+      ),
+      repository: EvaluationsRepositoriesFactory.fireBaseEvaluationsRepository({
+        config
+      })
+    })
+
+  static getStatsStructureEvaluationsService = ({config}) =>
+    new GetStatsStructureEvaluationsService({
+      mapper: EvaluationsMappersFactory.structureEvaluationEntityListToStatsValueObjectMapper(
         {config}
       ),
       repository: EvaluationsRepositoriesFactory.fireBaseEvaluationsRepository({

@@ -1,4 +1,4 @@
-class SaveEvaluationTextsService {
+class SaveStructureEvaluationTextsService {
   constructor({repository, mapper} = {}) {
     this._repository = repository
   }
@@ -8,4 +8,4 @@ class SaveEvaluationTextsService {
   }
 }
 
-export default SaveEvaluationTextsService
+export default SaveStructureEvaluationTextsService

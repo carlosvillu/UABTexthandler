@@ -1,14 +1,14 @@
 import {streamify} from '@s-ui/decorators'
+import {UseCase} from '@s-ui/domain'
 
 @streamify('execute')
-class GetStatsEvaluationsUseCase {
+export default class GetStatsQualityEvaluationsUseCase extends UseCase {
   constructor({service} = {}) {
+    super()
     this._service = service
   }
 
-  async execute() {
+  execute() {
     return this._service.execute()
   }
 }
-
-export default GetStatsEvaluationsUseCase

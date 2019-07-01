@@ -10,6 +10,14 @@ export default class TextsRepository {
   }
 
   saveEvaluationStructure() {
-    throw Error('[TextsRepository#saveEvaluation] must be implemented')
+    throw Error('[TextsRepository#saveEvaluationStructure] must be implemented')
+  }
+
+  saveEvaluationQuality() {
+    throw Error('[TextsRepository#saveEvaluationQuality] must be implemented')
+  }
+
+  updatePrompt() {
+    throw Error('[TextsRepository#updatePrompupdatePrompt] must be implemented')
   }
 }

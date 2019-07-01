@@ -12,9 +12,9 @@ import RangeInput from './RangeInput'
 const Row = ({children, fullWidth = false}) => {
   const [first, last] = React.Children.toArray(children)
   return (
-    <div className="Quiz-row">
-      <div className="Quiz-cell">{first}</div>
-      {!fullWidth && <div className="Quiz-cell">{last}</div>}
+    <div className="StructureQuiz-row">
+      <div className="StructureQuiz-cell">{first}</div>
+      {!fullWidth && <div className="StructureQuiz-cell">{last}</div>}
     </div>
   )
 }
@@ -45,7 +45,7 @@ EvaluationSlider.propTypes = {
   value: PropTypes.number
 }
 
-class Quiz extends React.PureComponent {
+class StructureQuiz extends React.PureComponent {
   static MAX_REASONS = 20
   static propTypes = {
     evaluation: PropTypes.object,
@@ -75,7 +75,7 @@ class Quiz extends React.PureComponent {
     } = this.props
 
     return (
-      <div className="Quiz">
+      <div className="StructureQuiz">
         <Row>
           <RadioButtonGroup
             name="introduction"
@@ -100,7 +100,7 @@ class Quiz extends React.PureComponent {
         ))}
         <Row>
           <FlatButton
-            disabled={evaluation.reasons.length === Quiz.MAX_REASONS}
+            disabled={evaluation.reasons.length === StructureQuiz.MAX_REASONS}
             label="Add Reason"
             primary
             onClick={handleClickFlatButton}
@@ -173,4 +173,4 @@ class Quiz extends React.PureComponent {
   }
 }
 
-export default Quiz
+export default StructureQuiz

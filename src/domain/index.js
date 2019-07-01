@@ -26,12 +26,21 @@ const useCases = {
   normalize_texts_use_case: TextsUseCasesFactory.normalizeTextsUseCase({
     config
   }),
-  save_evaluation_texts_use_case: TextsUseCasesFactory.saveEvaluationTextsUseCase(
+  save_quality_evaluation_texts_use_case: TextsUseCasesFactory.saveQualityEvaluationTextsUseCase(
+    {config}
+  ),
+  save_structure_evaluation_texts_use_case: TextsUseCasesFactory.saveStructureEvaluationTextsUseCase(
     {config}
   ),
   upload_texts_use_case: TextsUseCasesFactory.uploadTextsUseCase({config}),
+  upload_prompt_texts_use_case: TextsUseCasesFactory.uploadPromptTextsUseCase({
+    config
+  }),
 
-  get_stats_evaluations_use_case: EvaluationsUseCasesFactory.getStatsEvaluationsUseCase(
+  get_stats_structure_evaluations_use_case: EvaluationsUseCasesFactory.getStatsStructureEvaluationsUseCase(
+    {config}
+  ),
+  get_stats_quality_evaluations_use_case: EvaluationsUseCasesFactory.getStatsQualityEvaluationsUseCase(
     {config}
   )
 }

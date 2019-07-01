@@ -2,11 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Downloader from '../../components/Downloader'
-import TableEvaluations from '../../components/TableEvaluations'
+import TableStructureEvaluations from '../../components/TableStructureEvaluations'
+import TableQualityEvaluations from '../../components/TableQualityEvaluations'
 
 const AdminEvaluations = ({i18n}) => (
   <div className="AdminEvaluations">
-    <TableEvaluations />
+    <TableStructureEvaluations
+      tip={false}
+      title={i18n.t('ADMIN_EVALUATIONS_STUCTURE_TITLE')}
+    />
+    <TableQualityEvaluations
+      title={i18n.t('ADMIN_EVALUATIONS_QUALITY_TITLE')}
+    />
     <Downloader />
   </div>
 )
