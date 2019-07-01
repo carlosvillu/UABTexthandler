@@ -17,8 +17,17 @@ export default compose(
       console.log(evaluation) // eslint-disable-line
       props.setStateEvaluation(evaluation)
     },
-    handleClickFlatButton: props => evt => {
-      props.router.push('/structure')
+    handleClickFlatButton: props => async evt => {
+      try {
+        await props.domain
+          .get('skip_evaluations_use_case')
+          .execute({text: props.stateText, type: 'structure'})
+      } catch (err) {
+        window.alert(props.i18n('STRUCTURE_ERROR_SKIP_TEXT_MSG'))
+      }
+      props.router.push({
+        pathname: '/structure'
+      })
       window.scrollTo(0, 0)
     },
     handleClickRaisedButton: props => async evt => {

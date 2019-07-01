@@ -55,6 +55,28 @@ run:
 }
 ```
 
+```
+{
+  "rules": {
+    "texts": {
+      ".indexOn": ["idFile"],
+      ".read": "auth.uid != null",
+      ".write": "auth.uid != null"
+    },
+    "evaluations": {
+      ".read": "auth.uid != null",
+      ".write": "auth.uid != null"
+    },
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+    }
+  }
+}
+```
+
 ## Commands:
 
 ```
