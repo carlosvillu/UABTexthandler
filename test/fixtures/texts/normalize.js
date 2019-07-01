@@ -26,9 +26,11 @@ Fer bons textos d'opinió amb totes les seves parts.
 
 Jo crec que sí, perquè los nens juguin un poc.
 
-La primera raó és que los nens se cansarán de tanto treballar También tienen que jugar una estonerita per divertir-se.
+La primera raó és que los nens se cansarán de tanto treballar.
+También tienen que jugar una estonerita per divertir-se.
 
-La segona raó, también si salen al pati, no se avorriran molt También querrán jugar al futbol, etc.
+La segona raó, también si salen al pati, no se avorriran molt.
+También querrán jugar al futbol, etc.
 
 La tercera raón, también pueden tener ganas de jugar, i también querrán jugar al pati porque estarán molt cansat.
 

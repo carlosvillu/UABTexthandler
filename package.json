@@ -13,7 +13,8 @@
     "deploy": "npm run build && surge public/ -d https://text-handler.surge.sh",
     "lint": "sui-lint js && sui-lint sass",
     "precommit": "sui-precommit run",
-    "start": "sui-bundler dev"
+    "start": "sui-bundler dev",
+    "test": "npx sui-test server"
   },
   "keywords": [],
   "author": "",
