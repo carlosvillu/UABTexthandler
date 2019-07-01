@@ -2,8 +2,66 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.10.0"></a>
+# 1.10.0 (2019-07-01)
+
+
+### Features
+
+* **components:** add grade selector ([82ab779](https://github.com/carlosvillu/UABTexthandler/commit/82ab779))
+* **components:** add link in the menu for the new page ([0fc9a5d](https://github.com/carlosvillu/UABTexthandler/commit/0fc9a5d))
+* **components:** add NumberSelector component ([6931717](https://github.com/carlosvillu/UABTexthandler/commit/6931717))
+* **components:** add uploader for prompt csv ([7cfbcac](https://github.com/carlosvillu/UABTexthandler/commit/7cfbcac))
+* **components:** create new LayoutEvaluation ([18e4827](https://github.com/carlosvillu/UABTexthandler/commit/18e4827))
+* **components:** create QualityEvaluations table ([bcf7cd4](https://github.com/carlosvillu/UABTexthandler/commit/bcf7cd4))
+* **components:** qualityQuiz component now is fully controlled ([e997668](https://github.com/carlosvillu/UABTexthandler/commit/e997668))
+* **components:** using the rename use case for get stats ([6b71afd](https://github.com/carlosvillu/UABTexthandler/commit/6b71afd))
+* **domain:** create get_stats_quality_evaluations_use_case ([ecf0114](https://github.com/carlosvillu/UABTexthandler/commit/ecf0114))
+* **domain:** create QualityTextsError ([727acfc](https://github.com/carlosvillu/UABTexthandler/commit/727acfc))
+* **domain:** created update prompt use case ([141e21c](https://github.com/carlosvillu/UABTexthandler/commit/141e21c))
+* **domain:** new kind of evaluation \`structure\` ([9b19fb2](https://github.com/carlosvillu/UABTexthandler/commit/9b19fb2))
+* **domain:** remove debugger ([08adf62](https://github.com/carlosvillu/UABTexthandler/commit/08adf62))
+* **domain:** save quality evaluation ([f071d12](https://github.com/carlosvillu/UABTexthandler/commit/f071d12))
+* **domain:** save skipped texts by type ([f460f77](https://github.com/carlosvillu/UABTexthandler/commit/f460f77))
+* **domain:** sECOND_ESO is 8 ([b2bc5b7](https://github.com/carlosvillu/UABTexthandler/commit/b2bc5b7))
+* **domain:** valide QualityValueObject ([3a2c169](https://github.com/carlosvillu/UABTexthandler/commit/3a2c169))
+* **domain:** you can use the level to filter the next text ([fc113f2](https://github.com/carlosvillu/UABTexthandler/commit/fc113f2))
+* **literals:** add home page literlas ([b8711cb](https://github.com/carlosvillu/UABTexthandler/commit/b8711cb))
+* **literals:** add literals for catalans ([9fd5ee8](https://github.com/carlosvillu/UABTexthandler/commit/9fd5ee8))
+* **literals:** add literals for new menu entries ([f86e5e1](https://github.com/carlosvillu/UABTexthandler/commit/f86e5e1))
+* **literals:** add literals in catalan ([afd5c90](https://github.com/carlosvillu/UABTexthandler/commit/afd5c90))
+* **literals:** add new literal for number selector label ([004dedb](https://github.com/carlosvillu/UABTexthandler/commit/004dedb))
+* **literals:** add new literals ([9c2bffa](https://github.com/carlosvillu/UABTexthandler/commit/9c2bffa))
+* **literals:** add prompt literal ([f11ecca](https://github.com/carlosvillu/UABTexthandler/commit/f11ecca))
+* **literals:** add QualityQuiz literals ([7775747](https://github.com/carlosvillu/UABTexthandler/commit/7775747))
+* **literals:** add table literals ([7283a7d](https://github.com/carlosvillu/UABTexthandler/commit/7283a7d))
+* **literals:** literal for error in quality evaluation ([04dade4](https://github.com/carlosvillu/UABTexthandler/commit/04dade4))
+* **pages:** add prompt text ([ce82593](https://github.com/carlosvillu/UABTexthandler/commit/ce82593))
+* **pages:** add QualityQuiz component ([122c163](https://github.com/carlosvillu/UABTexthandler/commit/122c163))
+* **pages:** add QualityTable to the page ([2301b65](https://github.com/carlosvillu/UABTexthandler/commit/2301b65))
+* **pages:** all button is clickable ([f06f0d2](https://github.com/carlosvillu/UABTexthandler/commit/f06f0d2))
+* **pages:** create frist version of the quality page ([c5634e8](https://github.com/carlosvillu/UABTexthandler/commit/c5634e8))
+* **pages:** create Quality page ([2c55df5](https://github.com/carlosvillu/UABTexthandler/commit/2c55df5))
+* **pages:** create Structure page ([46231b0](https://github.com/carlosvillu/UABTexthandler/commit/46231b0))
+* **pages:** home page with two buttons ([94652c2](https://github.com/carlosvillu/UABTexthandler/commit/94652c2))
+* **pages:** link the number selector with the page ([30848ac](https://github.com/carlosvillu/UABTexthandler/commit/30848ac))
+* **pages:** select next text by type ([98e5e45](https://github.com/carlosvillu/UABTexthandler/commit/98e5e45))
+* **pages:** try to save the texts as skipped ([79f9f64](https://github.com/carlosvillu/UABTexthandler/commit/79f9f64))
+* **pages:** use as fully controlled the QualityQuiz component ([ac36d89](https://github.com/carlosvillu/UABTexthandler/commit/ac36d89))
+* **Root:** add Structure Page route ([685024f](https://github.com/carlosvillu/UABTexthandler/commit/685024f))
+* **Root:** catalan is the default lang ([2a7fcfd](https://github.com/carlosvillu/UABTexthandler/commit/2a7fcfd))
+* **Root:** create quality route ([cbabddf](https://github.com/carlosvillu/UABTexthandler/commit/cbabddf))
+* **styles:** add new c-black color and home page styles ([4ffcc47](https://github.com/carlosvillu/UABTexthandler/commit/4ffcc47))
+* **styles:** add new styles ([851ac78](https://github.com/carlosvillu/UABTexthandler/commit/851ac78))
+* **styles:** add NumberSelector´s styles ([6273b50](https://github.com/carlosvillu/UABTexthandler/commit/6273b50))
+* **styles:** add QualityQuiz styles ([639273e](https://github.com/carlosvillu/UABTexthandler/commit/639273e))
+* **styles:** add table styles ([7774d91](https://github.com/carlosvillu/UABTexthandler/commit/7774d91))
+* **styles:** using the rename component ([3406230](https://github.com/carlosvillu/UABTexthandler/commit/3406230))
+
+
+
 <a name="1.8.0"></a>
-# 1.8.0 (2019-04-02)
+# [1.8.0](https://github.com/carlosvillu/UABTexthandler/compare/1.7.0...1.8.0) (2019-04-02)
 
 
 ### Features
