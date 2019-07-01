@@ -23,7 +23,7 @@ run:
 - [x] We need two different tables to store the evaluations: one for the structure evaluations and one of the quality evaluations
 - [x] In the structure evaluation screen, the type of explanation drop-down menu is an optional field
 - [x] Add, for both evaluation types, the prompt that was given
-- [ ] make a third type of table that stores the IDs of texts that have been skipped (saltados); there should be one table for skipped-quality texts and one for skipped-structure texts
+- [x] make a third type of table that stores the IDs of texts that have been skipped (saltados); there should be one table for skipped-quality texts and one for skipped-structure texts
 
 ## Low pri
 - [ ] in the tables of skipped texts,  make it possible to click on the text's ID and show the evaluation screen for that text
