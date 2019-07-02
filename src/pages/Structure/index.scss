@@ -4,17 +4,21 @@
   margin: 0 auto;
 
   &-Body {
-    background: linear-gradient(to right, $c-white, $c-white 50%, $c-background 50%, $c-background);
+    background: linear-gradient(to bottom, $c-white, $c-white 0%, $c-light-secondary 200%, $c-background);
     display: flex;
-    padding: $size-base;
+    min-height: calc(100vh - 104px);
+    padding: 0;
 
-    &Canvas,
+    &Canvas {
+      flex: 1 1 50%;
+      padding: $size-large;
+    }
+    
     &Quiz {
-      flex-basis: 50%;
-      flex-grow: 1;
-      flex-shrink: 0;
-
-      padding: $size-base $size-base 0;
+      background: $c-bg-structure-quiz;
+      box-shadow: 1px 0 5px lightgrey;
+      flex: 1 0 50%;
+      padding: $size-large;
     }
   }
 
