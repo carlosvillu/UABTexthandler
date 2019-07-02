@@ -18,11 +18,12 @@ class LoggedMenu extends React.Component {
     const {ui, i18n} = this.props
     return (
       <Drawer
+        className="LoggedMenu"
         docked={false}
         onRequestChange={this.handleRequestChangeDrawer}
         open={ui.state.showMenu}
       >
-        <AppBar showMenuIconButton={false} />
+        <AppBar showMenuIconButton={false} className="LoggedMenu-topbar" />
         <PrivilegedUserMenu />
         <Link
           to="/structure"
