@@ -7,6 +7,9 @@ export default class EvaluationsRepositoriesFactory {
     new FireBaseEvaluationsRepository({
       config,
 
+      skipEvaluationEntityFactory:
+        EvaluationsEntitiesFactory.skipEvaluationEntity,
+
       qualityEvaluationEntityFactory:
         EvaluationsEntitiesFactory.qualityEvaluationEntity,
 
