@@ -3,7 +3,7 @@
   background: url('/login-bg.jpg') no-repeat left center;
   background-size: cover;
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 104px);
   justify-content: center;
 
   &-Buttons {
