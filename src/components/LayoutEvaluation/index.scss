@@ -6,9 +6,9 @@
   flex-direction: column;
 
   &-Body {
-    background: linear-gradient(to top, $c-white, $c-white 0%, $c-light-primary 100%, $c-background);
+    background: linear-gradient(to bottom, $c-white, $c-white 0%, $c-light-secondary 200%, $c-background);
     display: flex;
-    height: calc(100vh - 104px);
+    min-height: calc(100vh - 104px);
     padding: 0;
   }
 }

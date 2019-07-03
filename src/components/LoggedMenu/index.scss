@@ -1,4 +1,8 @@
 .LoggedMenu {
+  &-topbar {
+    background-color: $c-bg-topbar !important;
+  }
+
   &-link {
     text-decoration: none;
   }
