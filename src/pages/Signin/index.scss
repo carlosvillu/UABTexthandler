@@ -1,12 +1,18 @@
 .Signin {
-  display: flex;
   align-items: center;
+  background: url('/register-bg.jpg') no-repeat right bottom;
+  background-size: cover;
+  display: flex;
+  min-height: calc(100vh - 100px);
   justify-content: center;
-  height: 100%;
 
   &-form {
+    background: white;
+    box-shadow: 5px 5px 10px lightgrey;
     display: flex;
     flex-direction: column;
+    margin-left: -50%;
+    padding: 32px;
   }
 
   &-label {
@@ -19,6 +25,6 @@
 
   &-signup {
     text-decoration: none;
-    margin-top: 5px;
+    margin-top: 24px;
   }
 }

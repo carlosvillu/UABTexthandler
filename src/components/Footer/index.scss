@@ -1,6 +1,7 @@
 .App-footer {
-  background-color: darken($c-primary, 20%);
+  background-color: $c-bg-footer;
   color: white;
+  font-size: 12px;
   padding: 12px 24px;
 
   &-links {
