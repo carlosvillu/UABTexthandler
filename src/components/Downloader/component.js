@@ -9,14 +9,16 @@ export default class Downloader extends React.PureComponent {
     domain: PropTypes.object,
     handleClickFlatButton: PropTypes.func,
     setStateQualityEvaluations: PropTypes.func,
+    setStateSkipsEvaluations: PropTypes.func,
     setStateStructureEvaluations: PropTypes.func
   }
 
   componentDidMount() {
     const {
-      setStateStructureEvaluations,
+      domain,
       setStateQualityEvaluations,
-      domain
+      setStateSkipsEvaluations,
+      setStateStructureEvaluations
     } = this.props
     this.getStatsStructureEvaluationsUseCase$ = domain
       .get('get_stats_structure_evaluations_use_case')
@@ -28,11 +30,17 @@ export default class Downloader extends React.PureComponent {
       .$.execute.subscribe(({params, result}) => {
         setStateQualityEvaluations(result)
       })
+    this.getStatsSkipsEvaluationsUseCase$ = domain
+      .get('get_stats_skipped_evaluations_use_case')
+      .$.execute.subscribe(({params, result}) => {
+        setStateSkipsEvaluations(result)
+      })
   }
 
   componentWillUnmount() {
     this.getStatsStructureEvaluationsUseCase$.dispose()
     this.getStatsQualityEvaluationsUseCase$.dispose()
+    this.getStatsSkipsEvaluationsUseCase$.dispose()
   }
 
   render() {

@@ -4,12 +4,14 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
   constructor({
     config,
     qualityEvaluationEntityFactory,
+    skipEvaluationEntityFactory,
     structureEvaluationEntityFactory
   } = {}) {
     super()
 
     this._config = config
     this._qualityEvaluationEntityFactory = qualityEvaluationEntityFactory
+    this._skipEvaluationEntityFactory = skipEvaluationEntityFactory
     this._structureEvaluationEntityFactory = structureEvaluationEntityFactory
   }
 
@@ -32,6 +34,15 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
         evaluator: evaluations[key].userEmail
       })
     )
+  }
+
+  async allSkips() {
+    const refsManager = this._config.get('refsManager')
+    const skipsRef = refsManager.ref({path: '/skips'})
+    const skips = (await skipsRef.once('value')).val() || {}
+    return Object.entries(skips).map(([id, doc]) => {
+      return this._skipEvaluationEntityFactory({...doc, id})
+    })
   }
 
   async skip({text, type}) {

@@ -43,6 +43,9 @@ const useCases = {
   get_stats_quality_evaluations_use_case: EvaluationsUseCasesFactory.getStatsQualityEvaluationsUseCase(
     {config}
   ),
+  get_stats_skipped_evaluations_use_case: EvaluationsUseCasesFactory.getStatsSkippedEvaluationsUseCase(
+    {config}
+  ),
 
   skip_evaluations_use_case: EvaluationsUseCasesFactory.skipEvaluationsUseCase({
     config

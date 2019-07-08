@@ -27,12 +27,16 @@ run:
 
 ## Low pri
 - [ ] in the tables of skipped texts,  make it possible to click on the text's ID and show the evaluation screen for that text
-- [ ] In the evaluation screen, leave text in the left fixed if you scroll up or down on the right
+- [ ] In the evaluation screen, in the structure evaluation, leave text in the left fixed if you scroll up or down on the right
 - [ ] in the quality evaluation screen, add anchor texts for each level, accessible always
 - [ ] In the structure evaluation, add downloadable manual
 
+### estructura
+- [ ] In questions that require a number for an answer, DO NOT LET the number be negative
 
-##Schema:
+
+
+## Schema:
 ```
 {
   "rules": {

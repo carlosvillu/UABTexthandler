@@ -7,6 +7,10 @@ export default class EvaluationsRepository {
     throw Error('[EvaluationsRepository#allQuality] must be implemented')
   }
 
+  allSkips() {
+    throw Error('[EvaluationsRepository#allSkips] must be implemented')
+  }
+
   skip() {
     throw Error('[EvaluationsRepository#skip] must be implemented')
   }
