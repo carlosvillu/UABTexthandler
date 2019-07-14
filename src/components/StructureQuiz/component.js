@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import Slider from 'material-ui/Slider'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
+import SelectField from 'material-ui/SelectField'
+import MenuItem from 'material-ui/MenuItem'
 
 import Reason from './Reason'
 import RadioButtonGroup from './RadioButtonGroup'
@@ -47,9 +49,12 @@ EvaluationSlider.propTypes = {
 
 class StructureQuiz extends React.PureComponent {
   static MAX_REASONS = 20
+  static YES = 'YES'
+  static NO = 'NO'
   static propTypes = {
     evaluation: PropTypes.object,
     handleChangeReason: PropTypes.func,
+    handleChangeSelect: PropTypes.func,
     handleChangeSlider: PropTypes.func,
     handleChangeSwitch: PropTypes.func,
     handleChangeTextArea: PropTypes.func,
@@ -67,6 +72,7 @@ class StructureQuiz extends React.PureComponent {
     const {
       evaluation,
       handleChangeReason,
+      handleChangeSelect,
       handleChangeSlider,
       handleChangeSwitch,
       handleChangeTextArea,
@@ -109,27 +115,41 @@ class StructureQuiz extends React.PureComponent {
         </Row>
         <Row>
           <RadioButtonGroup
-            name="extensive"
-            label={i18n.t('QUIZ_EXTENSIVE')}
-            onChange={handleChangeSwitch('extensive')}
+            name="endConclusion"
+            label={i18n.t('QUIZ_END_CONCLUSION')}
+            onChange={handleChangeSwitch('endConclusion')}
           />
-          <RadioButtonGroup
-            name="synthetic"
-            label={i18n.t('QUIZ_SYNTHETIC')}
-            onChange={handleChangeSwitch('synthetic')}
-          />
+          <SelectField
+            floatingLabelText={i18n.t('QUIZ_END_TYPE_CONCLUSION')}
+            onChange={handleChangeSelect('endTypeConclusion')}
+            disabled={
+              !evaluation.endConclusion ||
+              evaluation.endConclusion === StructureQuiz.NO
+            }
+            value={evaluation.endTypeConclusion}
+          >
+            <MenuItem value={null} primaryText="" />
+            <MenuItem
+              value="extensive"
+              primaryText={i18n.t('QUIZ_EXTENSIVE')}
+            />
+            <MenuItem
+              value="synthetic"
+              primaryText={i18n.t('QUIZ_SYNTHETIC')}
+            />
+            <MenuItem
+              value="thesis_rep"
+              primaryText={i18n.t('QUIZ_THESIS_REP')}
+            />
+          </SelectField>
         </Row>
         <Row>
-          <RadioButtonGroup
-            name="otherOpinion"
-            label={i18n.t('QUIZ_OPINION_OTHER_TYPE')}
-            onChange={handleChangeSwitch('otherOpinion')}
-          />
           <RadioButtonGroup
             name="opinionConector"
             label={i18n.t('QUIZ_OPINION_CONECTOR')}
             onChange={handleChangeSwitch('opinionConector')}
           />
+          <div />
         </Row>
         <Row>
           <RangeInput
@@ -149,12 +169,7 @@ class StructureQuiz extends React.PureComponent {
             label={i18n.t('QUIZ_CONCLUSION')}
             onChange={handleChangeSwitch('conclusion')}
           />
-          <RangeInput
-            style={{marginTop: '-18px'}}
-            label={i18n.t('QUIZ_OTHER_CONECTORS')}
-            onChange={handleChangeSlider('otherConectors')}
-            value={evaluation.otherConectors}
-          />
+          <div />
         </Row>
         <Row fullWidth>
           <TextField

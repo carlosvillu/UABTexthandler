@@ -22,6 +22,14 @@ export default compose(
         }
       }
 
+      if (action.type === 'switch') {
+        let nextState = {...state, [action.field]: action.value}
+        if (action.field === 'endConclusion') {
+          nextState = {...nextState, endTypeConclusion: null}
+        }
+        return nextState
+      }
+
       if (action.type === 'reason') {
         return {
           ...state,
@@ -43,20 +51,21 @@ export default compose(
         {justification: null, types: [null]},
         {justification: null, types: [null]}
       ],
-      extensive: null,
-      synthetic: null,
-      otherOpinion: null,
+      endConclusion: null,
+      endTypeConclusion: null,
       opinionConector: null,
       reasonConectors: 0,
       reasonExplication: 0,
       conclusion: null,
-      otherConectors: 0,
       freeText: ''
     }
   ),
   withHandlers({
     handleChangeSwitch: props => name => (evt, value) => {
       props.dispatch({type: 'switch', field: name, value}, props.onChange)
+    },
+    handleChangeSelect: props => name => (evt, indexOption, value) => {
+      props.dispatch({field: name, value}, props.onChange)
     },
     handleChangeSlider: props => name => (evt, value) => {
       props.dispatch({type: 'slider', field: name, value}, props.onChange)

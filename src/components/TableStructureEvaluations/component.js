@@ -60,16 +60,12 @@ class TableStructureEvaluations extends React.PureComponent {
               accessor: 'expExpansion'
             },
             {
-              Header: i18n.t('TABLEEVALUATIONS_END_EXTENSIVE'),
-              accessor: 'endExtensive'
+              Header: i18n.t('TABLEEVALUATIONS_END_CONCLUSION'),
+              accessor: 'endConclusion'
             },
             {
-              Header: i18n.t('TABLEEVALUATIONS_END_SYNTHETIC'),
-              accessor: 'endSynthetic'
-            },
-            {
-              Header: i18n.t('TABLEEVALUATIONS_END_THESIS'),
-              accessor: 'endThesis'
+              Header: i18n.t('TABLEEVALUATIONS_END_TYPE_CONCLUSION'),
+              accessor: 'endTypeConclusion'
             },
             {
               Header: i18n.t('TABLEEVALUATIONS_CONN_THESIS'),
