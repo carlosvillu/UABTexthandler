@@ -32,6 +32,17 @@ const notNullReasons = evaluation => errors =>
 //     })
 //   ])
 
+const mandatoryTypeOfEndConclusion = evaluation => errors => {
+  if (evaluation.endConclusion === 'YES' && !evaluation.endTypeConclusion) {
+    return [...errors, 'EndTypeConslusion is empty']
+  }
+
+  if (evaluation.endConclusion === 'NO' && evaluation.endTypeConclusion) {
+    return [...errors, 'EndTypeConslusion should be empty']
+  }
+  return errors
+}
+
 const onlyOneTypeOpinion = evaluation => errors => {
   const numberYES = ['extensive', 'synthetic', 'otherOpinion'].reduce(
     (acc, key) => {
@@ -50,14 +61,13 @@ export default class EvaluationTextsRequest {
   static validate = ({evaluation, evaluationTextsErrorFactory}) => {
     const errors = pipe(
       notNull(evaluation)('conclusion'),
-      notNull(evaluation)('extensive'),
       notNull(evaluation)('introduction'),
       notNull(evaluation)('opinion'),
       notNull(evaluation)('opinionConector'),
-      notNull(evaluation)('otherOpinion'),
-      notNull(evaluation)('synthetic'),
+      notNull(evaluation)('endConclusion'),
       onlyOneTypeOpinion(evaluation),
-      notNullReasons(evaluation)
+      notNullReasons(evaluation),
+      mandatoryTypeOfEndConclusion(evaluation)
       // mandatoryTypeOfReason(evaluation)
     )([]).filter(Boolean)
 
@@ -69,22 +79,20 @@ export default class EvaluationTextsRequest {
     introduction,
     opinion,
     reasons,
-    extensive,
-    synthetic,
-    otherOpinion,
     opinionConector,
     reasonConectors,
     reasonExplication,
     conclusion,
+    endConclusion,
+    endTypeConclusion,
     otherConectors,
     freeText
-  } = {}) {
+  }) {
     this._introduction = introduction
     this._opinion = opinion
     this._reasons = reasons
-    this._extensive = extensive
-    this._synthetic = synthetic
-    this._otherOpinion = otherOpinion
+    this._endConclusion = endConclusion
+    this._endTypeConclusion = endTypeConclusion
     this._opinionConector = opinionConector
     this._reasonConectors = reasonConectors
     this._reasonExplication = reasonExplication
@@ -98,14 +106,12 @@ export default class EvaluationTextsRequest {
       introduction: this._introduction,
       opinion: this._opinion,
       reasons: this._reasons,
-      extensive: this._extensive,
-      synthetic: this._synthetic,
-      otherOpinion: this._otherOpinion,
+      endConclusion: this._endConclusion,
+      endTypeConclusion: this._endTypeConclusion,
       opinionConector: this._opinionConector,
       reasonConectors: this._reasonConectors,
       reasonExplication: this._reasonExplication,
       conclusion: this._conclusion,
-      otherConectors: this._otherConectors,
       freeText: this._freeText
     }
   }

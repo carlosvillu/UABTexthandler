@@ -1,5 +1,5 @@
 export default class StructureEvaluationEntityListToStatsValueObjectMapper {
-  constructor({structureStatsValueObjectFactory} = {}) {
+  constructor({structureStatsValueObjectFactory}) {
     this._structureStatsValueObjectFactory = structureStatsValueObjectFactory
   }
   map = evaluations => {
@@ -14,9 +14,8 @@ export default class StructureEvaluationEntityListToStatsValueObjectMapper {
         expExample: evaluation.numberOfExpExample(),
         expExpert: evaluation.numberOfExpExpert(),
         expExpansion: evaluation.numberOfExpOther(),
-        endExtensive: evaluation.extensive(),
-        endSynthetic: evaluation.synthetic(),
-        endThesis: evaluation.otherOpinion(),
+        endConclusion: evaluation.endConclusion(),
+        endTypeConclusion: evaluation.endTypeConclusion(),
         connThesis: evaluation.opinionConnector(),
         connReasons: evaluation.reasonConnectors(),
         connExplanations: evaluation.reasonExplication(),

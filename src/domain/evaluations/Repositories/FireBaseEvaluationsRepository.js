@@ -6,7 +6,7 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     qualityEvaluationEntityFactory,
     skipEvaluationEntityFactory,
     structureEvaluationEntityFactory
-  } = {}) {
+  }) {
     super()
 
     this._config = config
