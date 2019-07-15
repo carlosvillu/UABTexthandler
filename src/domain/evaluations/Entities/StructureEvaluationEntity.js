@@ -17,18 +17,6 @@ export default class StructureEvaluationEntity extends Entity {
     return this._opinion
   }
 
-  extensive() {
-    return this._extensive
-  }
-
-  synthetic() {
-    return this._synthetic
-  }
-
-  otherOpinion() {
-    return this._otherOpinion
-  }
-
   opinionConnector() {
     return this._opinionConector
   }
@@ -43,6 +31,14 @@ export default class StructureEvaluationEntity extends Entity {
 
   conclusion() {
     return this._conclusion
+  }
+
+  endConclusion() {
+    return this._endConclusion
+  }
+
+  endTypeConclusion() {
+    return this._endTypeConclusion
   }
 
   numberOfPositiveReasons() {

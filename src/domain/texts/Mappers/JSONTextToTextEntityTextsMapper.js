@@ -1,5 +1,5 @@
 export default class JSONTextToTextEntityTextsMapper {
-  constructor({textEntityFactory, normalizeMapper} = {}) {
+  constructor({textEntityFactory, normalizeMapper}) {
     this._textEntityFactory = textEntityFactory
     this._normalizeMapper = normalizeMapper
   }
