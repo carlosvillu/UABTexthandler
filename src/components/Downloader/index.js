@@ -12,6 +12,11 @@ import getContext from 'recompose/getContext'
 export default compose(
   withState('stateStructureEvaluations', 'setStateStructureEvaluations', []),
   withState('stateQualityEvaluations', 'setStateQualityEvaluations', []),
+  withState(
+    'stateTextsWhitoutQualityEvaluations',
+    'setStateTextsWhioutQualityEvaluations',
+    []
+  ),
   withState('stateSkipsEvaluations', 'setStateSkipsEvaluations', []),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
@@ -31,6 +36,16 @@ export default compose(
         saveFile(
           new window.Blob([csvQuality], {type: 'text/csv;charset=utf-8'}),
           'evaluations_quality.csv'
+        )
+      }
+
+      if (props.stateTextsWhitoutQualityEvaluations.length !== 0) {
+        const csvQuality = fromEvaluationsToCSV(
+          props.stateTextsWhitoutQualityEvaluations
+        )
+        saveFile(
+          new window.Blob([csvQuality], {type: 'text/csv;charset=utf-8'}),
+          'texts_whitout_evaluations_quality.csv'
         )
       }
 

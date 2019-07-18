@@ -5,11 +5,13 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     config,
     qualityEvaluationEntityFactory,
     skipEvaluationEntityFactory,
-    structureEvaluationEntityFactory
+    structureEvaluationEntityFactory,
+    textEntityFactory
   }) {
     super()
 
     this._config = config
+    this._textEntityFactory = textEntityFactory
     this._qualityEvaluationEntityFactory = qualityEvaluationEntityFactory
     this._skipEvaluationEntityFactory = skipEvaluationEntityFactory
     this._structureEvaluationEntityFactory = structureEvaluationEntityFactory
@@ -57,5 +59,15 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
       idFile: text.idFile(),
       [type.value()]: (entry[type.value()] || 0) + 1
     })
+  }
+
+  async without() {
+    const refsManager = this._config.get('refsManager')
+    const textsRef = refsManager.ref({path: '/texts'})
+    const texts = (await textsRef.once('value')).val() || {}
+    const textEntities = Object.entries(texts)
+      .map(([, text]) => this._textEntityFactory(text))
+      .filter(textEntity => !textEntity.hasQualityEvaluation())
+    return textEntities
   }
 }

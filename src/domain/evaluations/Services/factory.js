@@ -4,6 +4,7 @@ import EvaluationsRepositoriesFactory from '../Repositories/factory'
 import GetStatsQualityEvaluationsService from './GetStatsQualityEvaluationsService'
 import GetStatsSkippedEvaluationsService from './GetStatsSkippedEvaluationsService'
 import GetStatsStructureEvaluationsService from './GetStatsStructureEvaluationsService'
+import GetStatsTextsWithoutQualityEvaluationsService from './GetStatsTextsWithoutQualityEvaluationsService'
 import SkipEvaluationsService from './SkipEvaluationsService'
 
 export default class EvaluationsServicesFactory {
@@ -26,6 +27,14 @@ export default class EvaluationsServicesFactory {
   static getStatsStructureEvaluationsService = ({config}) =>
     new GetStatsStructureEvaluationsService({
       mapper: EvaluationsMappersFactory.structureEvaluationEntityListToStatsValueObjectMapper(),
+      repository: EvaluationsRepositoriesFactory.fireBaseEvaluationsRepository({
+        config
+      })
+    })
+
+  static getStatsTextsWithoutQualityEvaluationsService = ({config}) =>
+    new GetStatsTextsWithoutQualityEvaluationsService({
+      mapper: EvaluationsMappersFactory.textsEntityListToStatsTextsWhitoutQualityEvaluation(),
       repository: EvaluationsRepositoriesFactory.fireBaseEvaluationsRepository({
         config
       })

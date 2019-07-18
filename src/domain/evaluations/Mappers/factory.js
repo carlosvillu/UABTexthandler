@@ -3,6 +3,7 @@ import StatsValueObjectsFactory from '../ValueObjects/factory'
 import QualityEvaluationEntityListToStatsValueObjectMapper from './QualityEvaluationEntityListToStatsValueObjectMapper'
 import SkipEvaluationEntityListToStatsValueObjectMapper from './SkipEvaluationEntityListToStatsValueObjectMapper'
 import StructureEvaluationEntityListToStatsValueObjectMapper from './StructureEvaluationEntityListToStatsValueObjectMapper'
+import TextsEntityListToStatsTextsWhitoutQualityEvaluation from './TextsEntityListToStatsTextsWhitoutQualityEvaluation'
 
 export default class EvaluationsMappersFactory {
   static qualityEvaluationEntityListToStatsValueObjectMapper = () =>
@@ -15,4 +16,7 @@ export default class EvaluationsMappersFactory {
     new StructureEvaluationEntityListToStatsValueObjectMapper({
       statsValueObjectFactory: StatsValueObjectsFactory.statsValueObject
     })
+
+  static textsEntityListToStatsTextsWhitoutQualityEvaluation = () =>
+    new TextsEntityListToStatsTextsWhitoutQualityEvaluation()
 }

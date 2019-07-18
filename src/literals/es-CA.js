@@ -2,7 +2,9 @@ module.exports = {
   ADMINTEXT_TITLE: 'Administrar textos',
   ADMIN_EVALUATION: 'Administrar avaluacions',
   ADMIN_EVALUATIONS_QUALITY_TITLE: 'Avaluacions de la qualitat textual',
+  ADMIN_EVALUATIONS_SKIP_TITLE: 'Textos saltats',
   ADMIN_EVALUATIONS_STUCTURE_TITLE: "Avaluacions de l'estructura dels textos",
+  ADMIN_EVALUATIONS_TEXTS_WITHOUT_QUALITY_TITLE: 'Text sense avaluacions de qualitat', // eslint-disable-line
   ADMIN_TEXTS: 'Administrar textos',
   APP_NAME: 'UABTextHandler',
   CANVASTEXTO_STUDENT: 'Estudiant',
@@ -95,6 +97,11 @@ module.exports = {
   TABLE_QUALITY_EVALUATION_ID_FILE: 'ID Fitxer',
   TABLE_QUALITY_EVALUATION_QUALITY: 'Qualitat',
   TABLE_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas',
+  TABLE_SKIPS_EVALUATIONS_ID_FILE: 'ID fitxer',
+  TABLE_SKIPS_EVALUATIONS_QUALITY: 'Qualitat',
+  TABLE_SKIPS_EVALUATIONS_STRUCTURE: 'Estructura',
+  TABLE_TEXTS_WITHOUT_QUALITY_EVALUATION_ID_FILE: 'ID fitxer',
+  TABLE_TEXTS_WITHOUT_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas', // eslint-disable-line
   UPLOADER_CLAIM: 'Arrossega textos aquí o clica',
   UPLOADER_PROMPT: 'Arrossega consignes aquí o clica',
   UPLOADER_TITLE_MODAL: 'Afegir',

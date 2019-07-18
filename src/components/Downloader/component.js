@@ -10,7 +10,8 @@ export default class Downloader extends React.PureComponent {
     handleClickFlatButton: PropTypes.func,
     setStateQualityEvaluations: PropTypes.func,
     setStateSkipsEvaluations: PropTypes.func,
-    setStateStructureEvaluations: PropTypes.func
+    setStateStructureEvaluations: PropTypes.func,
+    setStateTextsWhioutQualityEvaluations: PropTypes.func
   }
 
   componentDidMount() {
@@ -18,7 +19,8 @@ export default class Downloader extends React.PureComponent {
       domain,
       setStateQualityEvaluations,
       setStateSkipsEvaluations,
-      setStateStructureEvaluations
+      setStateStructureEvaluations,
+      setStateTextsWhioutQualityEvaluations
     } = this.props
     this.getStatsStructureEvaluationsUseCase$ = domain
       .get('get_stats_structure_evaluations_use_case')
@@ -30,6 +32,11 @@ export default class Downloader extends React.PureComponent {
       .$.execute.subscribe(({params, result}) => {
         setStateQualityEvaluations(result)
       })
+    this.getStatsTextsWhitoutQualityEvaluationsUseCase$ = domain
+      .get('get_stats_texts_without_quality_evaluations_use_case')
+      .$.execute.subscribe(({params, result}) => {
+        setStateTextsWhioutQualityEvaluations(result)
+      })
     this.getStatsSkipsEvaluationsUseCase$ = domain
       .get('get_stats_skipped_evaluations_use_case')
       .$.execute.subscribe(({params, result}) => {
@@ -38,9 +45,10 @@ export default class Downloader extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    this.getStatsStructureEvaluationsUseCase$.dispose()
     this.getStatsQualityEvaluationsUseCase$.dispose()
     this.getStatsSkipsEvaluationsUseCase$.dispose()
+    this.getStatsStructureEvaluationsUseCase$.dispose()
+    this.getStatsTextsWhitoutQualityEvaluationsUseCase$.dispose()
   }
 
   render() {
