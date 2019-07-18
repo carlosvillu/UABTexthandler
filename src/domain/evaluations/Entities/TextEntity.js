@@ -8,4 +8,8 @@ export default class TextEntity extends Entity {
   idFile() {
     return this._idFile
   }
+
+  hasQualityEvaluation() {
+    return this._evaluations && this._evaluations.quality
+  }
 }

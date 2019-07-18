@@ -14,4 +14,8 @@ export default class EvaluationsRepository {
   skip() {
     throw Error('[EvaluationsRepository#skip] must be implemented')
   }
+
+  without() {
+    throw Error('[EvaluationsRepository#without] must be implemented')
+  }
 }

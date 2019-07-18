@@ -47,6 +47,10 @@ const useCases = {
     {config}
   ),
 
+  get_stats_texts_without_quality_evaluations_use_case: EvaluationsUseCasesFactory.getStatsTextsWithoutQualityEvaluationsUseCase(
+    {config}
+  ),
+
   skip_evaluations_use_case: EvaluationsUseCasesFactory.skipEvaluationsUseCase({
     config
   })

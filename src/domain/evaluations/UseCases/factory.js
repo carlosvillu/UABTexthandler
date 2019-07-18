@@ -5,6 +5,7 @@ import EvaluationsServicesFactory from '../Services/factory'
 import GetStatsQualityEvaluationsUseCase from './GetStatsQualityEvaluationsUseCase'
 import GetStatsSkippedEvaluationsUseCase from './GetStatsSkippedEvaluationsUseCase'
 import GetStatsStructureEvaluationsUseCase from './GetStatsStructureEvaluationsUseCase'
+import GetStatsTextsWithoutQualityEvaluationsUseCase from './GetStatsTextsWithoutQualityEvaluationsUseCase'
 import SkipEvaluationsUseCase from './SkipEvaluationsUseCase'
 
 export default class EvaluationsUseCasesFactory {
@@ -27,6 +28,13 @@ export default class EvaluationsUseCasesFactory {
       service: EvaluationsServicesFactory.getStatsStructureEvaluationsService({
         config
       })
+    })
+
+  static getStatsTextsWithoutQualityEvaluationsUseCase = ({config}) =>
+    new GetStatsTextsWithoutQualityEvaluationsUseCase({
+      service: EvaluationsServicesFactory.getStatsTextsWithoutQualityEvaluationsService(
+        {config}
+      )
     })
 
   static skipEvaluationsUseCase = ({config}) =>
