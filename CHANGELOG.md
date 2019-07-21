@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.12.0"></a>
+# 1.12.0 (2019-07-21)
+
+
+### Features
+
+* **META:** release after deploy to master ([7b663fc](https://github.com/carlosvillu/UABTexthandler/commit/7b663fc))
+
+
+
 <a name="1.11.0"></a>
-# 1.11.0 (2019-07-21)
+# [1.11.0](https://github.com/carlosvillu/UABTexthandler/compare/1.10.0...1.11.0) (2019-07-21)
 
 
 ### Bug Fixes
@@ -20,7 +30,9 @@ All notable changes to this project will be documented in this file.
 * **components:** adds a splash screen for login users ([06fc6a8](https://github.com/carlosvillu/UABTexthandler/commit/06fc6a8))
 * **components:** adds Footer component ([21fba7d](https://github.com/carlosvillu/UABTexthandler/commit/21fba7d))
 * **components:** adds minor components adjustements ([9d3ff48](https://github.com/carlosvillu/UABTexthandler/commit/9d3ff48))
+* **components:** clean empty fields when it is undefined ([4d7b546](https://github.com/carlosvillu/UABTexthandler/commit/4d7b546))
 * **components:** create TableTextsWithoutQualityEvaluations component ([dd08c2d](https://github.com/carlosvillu/UABTexthandler/commit/dd08c2d))
+* **components:** disabled buttons when skip or save evaluation ([87177f3](https://github.com/carlosvillu/UABTexthandler/commit/87177f3))
 * **components:** fix text when scroll down ([6ae4826](https://github.com/carlosvillu/UABTexthandler/commit/6ae4826))
 * **components:** improves layout and styling for structure and eval sections ([14a9b5e](https://github.com/carlosvillu/UABTexthandler/commit/14a9b5e))
 * **components:** updates toolbar and its drawer bg colors ([4b3354b](https://github.com/carlosvillu/UABTexthandler/commit/4b3354b))
@@ -31,6 +43,7 @@ All notable changes to this project will be documented in this file.
 * **literals:** add new literals for the new fields ([7acb1c6](https://github.com/carlosvillu/UABTexthandler/commit/7acb1c6))
 * **pages:** add table ([a538bcf](https://github.com/carlosvillu/UABTexthandler/commit/a538bcf))
 * **pages:** add TableTextsWithoutQualityEvaluations to stats page ([b582b50](https://github.com/carlosvillu/UABTexthandler/commit/b582b50))
+* **pages:** disable buttons when skip or save ([ddf0bf4](https://github.com/carlosvillu/UABTexthandler/commit/ddf0bf4))
 * **Root:** adds statics deployments ([9a7d232](https://github.com/carlosvillu/UABTexthandler/commit/9a7d232))
 * **styles:** add Skip styles ([1ad4394](https://github.com/carlosvillu/UABTexthandler/commit/1ad4394))
 * **styles:** add TableTextsWithoutQualityEvaluations styles ([f12457e](https://github.com/carlosvillu/UABTexthandler/commit/f12457e))
