@@ -21,8 +21,6 @@ class TableTextsWithoutQualityEvaluations extends React.PureComponent {
     )
   }
 
-  componentWillUnmount() {}
-
   render() {
     const {i18n, stateEvaluations, title} = this.props
 

@@ -19,6 +19,7 @@ class Structure extends React.PureComponent {
     handleInitQuiz: PropTypes.func,
     i18n: PropTypes.object,
     setStateText: PropTypes.func,
+    stateDisableButtons: PropTypes.bool,
     stateText: PropTypes.object
   }
 
@@ -37,6 +38,7 @@ class Structure extends React.PureComponent {
       handleClickRaisedButton,
       handleInitQuiz,
       i18n,
+      stateDisableButtons,
       stateText
     } = this.props
 
@@ -65,12 +67,14 @@ class Structure extends React.PureComponent {
               <div className="Structure-buttons">
                 <FlatButton
                   label="Saltar texto"
+                  disabled={stateDisableButtons}
                   onClick={handleClickFlatButton}
                 />
                 <RaisedButton
                   label="Guardar y seguir"
                   onClick={handleClickRaisedButton}
                   primary
+                  disabled={stateDisableButtons}
                   style={{margin: 12}}
                 />
               </div>
