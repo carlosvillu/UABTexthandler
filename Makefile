@@ -13,6 +13,13 @@ deploy: clean build ## deploy new app
 	surge public/ -d https://text-handler-$(STAGE).surge.sh
 
 release:
+	git pull --unshallow
+	git config --global user.email "carlosvillu@gmail.com"
+	git config --global user.name "carlosvillu"
+	git remote rm origin
+	git remote add origin https://carlosvillu:${GH_TOKEN}@github.com/carlosvillu/UABTexthandler.git > /dev/null 2>&1
+	git checkout master
+	git pull origin master
 	npx sui-mono release
 
 help: ## show help
