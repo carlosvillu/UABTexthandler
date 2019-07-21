@@ -10,6 +10,7 @@ export default compose(
   withState('stateText', 'setStateText'),
   withState('stateEvaluation', 'setStateEvaluation'),
   withState('stateErrors', 'setStateErrors'),
+  withState('stateDisableButtons', 'setStateDisableButtons', false),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
     handleInitQuiz: props => evaluation => props.setStateEvaluation(evaluation),
@@ -19,12 +20,14 @@ export default compose(
     },
     handleClickFlatButton: props => async evt => {
       try {
+        props.setStateDisableButtons(true)
         await props.domain
           .get('skip_evaluations_use_case')
           .execute({text: props.stateText, type: 'structure'})
       } catch (err) {
         window.alert(props.i18n('STRUCTURE_ERROR_SKIP_TEXT_MSG'))
       }
+      props.setStateDisableButtons(false)
       props.router.push({
         pathname: '/structure'
       })
@@ -33,10 +36,12 @@ export default compose(
     handleClickRaisedButton: props => async evt => {
       const {domain, stateText, stateEvaluation, i18n} = props
       try {
+        props.setStateDisableButtons(true)
         const user = await domain.get('current_users_use_case').execute()
         await domain
           .get('save_structure_evaluation_texts_use_case')
           .execute({user, evaluation: stateEvaluation, text: stateText})
+        props.setStateDisableButtons(false)
         props.router.push('/structure')
         window.scrollTo(0, 0)
       } catch (err) {
