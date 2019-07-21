@@ -32,6 +32,7 @@ run:
 - [ ] in the tables of skipped texts,  make it possible to click on the text's ID and show the evaluation screen for that text
 - [x] In the evaluation screen, in the structure evaluation, leave text in the left fixed if you scroll up or down on the right
 - [ ] In all evaluations, add a message that pops up when there are no remaining texts to be evaluated
+
 - [ ] In questions that require a number for an answer, DO NOT LET the number be negative
 
 
