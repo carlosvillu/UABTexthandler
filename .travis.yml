@@ -26,6 +26,9 @@ jobs:
         - make deploy
     - stage: deploy PRO
       if: branch = master AND NOT type = pull_request
+      before_install:
+        - set -e
+        - 'if [ ! -z $(git tag --points-at $TRAVIS_COMMIT) ]; then travis_terminate; fi'
       env:
         - NODE_ENV=production
         - STAGE=production
