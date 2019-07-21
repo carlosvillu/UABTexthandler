@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.13.0"></a>
+# 1.13.0 (2019-07-21)
+
+
+### Features
+
+* **Root:** terminate Travis with Zero ([ed56df3](https://github.com/carlosvillu/UABTexthandler/commit/ed56df3))
+
+
+
 <a name="1.12.0"></a>
-# 1.12.0 (2019-07-21)
+# [1.12.0](https://github.com/carlosvillu/UABTexthandler/compare/1.11.0...1.12.0) (2019-07-21)
 
 
 ### Features
