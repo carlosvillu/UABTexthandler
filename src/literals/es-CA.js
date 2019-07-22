@@ -12,6 +12,7 @@ module.exports = {
   HOME_BUTTON_QUALITY: 'Avaluar qualitat',
   HOME_BUTTON_STRUCTURE: 'Avaluar estructura',
   HOME_LOOKING_TEXTS: 'Buscant text per avaluar',
+  HOME_NO_MORE_TEXTS: 'Ja no hi ha més textos per avaluar',
   HOME_QUESTIONS: 'Qüestionari',
   HOME_TEXT: 'Text',
   LAYOUT_EVALUATION_CANVAS_LOOKING_TEXTS: 'Buscant text per avaluar',

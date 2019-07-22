@@ -12,6 +12,7 @@ module.exports = {
   HOME_BUTTON_QUALITY: 'Evaluar calidad',
   HOME_BUTTON_STRUCTURE: 'Evaluar estructura',
   HOME_LOOKING_TEXTS: 'Buscando texto para evaluar',
+  HOME_NO_MORE_TEXTS: 'No hay más textos para evaluar',
   HOME_QUESTIONS: 'Cuestionario',
   HOME_TEXT: 'Texto',
   LAYOUT_EVALUATION_CANVAS_LOOKING_TEXTS: 'Buscando texto para evaluar',
