@@ -18,8 +18,10 @@ class Structure extends React.PureComponent {
     handleClickRaisedButton: PropTypes.func,
     handleInitQuiz: PropTypes.func,
     i18n: PropTypes.object,
+    setStateNoMoreTexts: PropTypes.func,
     setStateText: PropTypes.func,
     stateDisableButtons: PropTypes.bool,
+    stateNoMoreTexts: PropTypes.bool,
     stateText: PropTypes.object
   }
 
@@ -28,7 +30,9 @@ class Structure extends React.PureComponent {
     const text = await this.props.domain
       .get('get_next_evaluation_texts_use_case')
       .execute({user, type: 'structure'})
+
     this.props.setStateText(text)
+    !text && this.props.setStateNoMoreTexts(true)
   }
 
   render() {
@@ -39,6 +43,7 @@ class Structure extends React.PureComponent {
       handleInitQuiz,
       i18n,
       stateDisableButtons,
+      stateNoMoreTexts,
       stateText
     } = this.props
 
@@ -55,7 +60,13 @@ class Structure extends React.PureComponent {
                 {stateText.normalize}
               </CanvasTexto>
             ) : (
-              <h2>{i18n.t('HOME_LOOKING_TEXTS')}</h2>
+              <h2>
+                {i18n.t(
+                  !stateNoMoreTexts
+                    ? 'HOME_LOOKING_TEXTS'
+                    : 'HOME_NO_MORE_TEXTS'
+                )}
+              </h2>
             )}
           </div>
           <div className="Structure-BodyQuiz">

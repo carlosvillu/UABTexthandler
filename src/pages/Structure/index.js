@@ -8,6 +8,7 @@ import withHandlers from 'recompose/withHandlers'
 
 export default compose(
   withState('stateText', 'setStateText'),
+  withState('stateNoMoreTexts', 'setStateNoMoreTexts', false),
   withState('stateEvaluation', 'setStateEvaluation'),
   withState('stateErrors', 'setStateErrors'),
   withState('stateDisableButtons', 'setStateDisableButtons', false),
@@ -48,6 +49,7 @@ export default compose(
         window.alert(
           `${i18n.t('HOME_ALERT_ERROR_TITLE')}\n\n${err.errors().join(', ')}`
         )
+        props.setStateDisableButtons(false)
       }
     }
   })
