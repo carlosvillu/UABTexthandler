@@ -18,14 +18,13 @@ export default class TextsCollectionValueObject extends ValueObject {
     }
 
     if (type.value() === TypeEvaluationValueObject.QUALITY) {
-      const compliantsTexts = this._texts
-        .filter(text => text.isLevel({level}))
-        .filter(text => {
-          return text.numberOfEvaluations({type}) === maxNumberOfEvaluations
-        })
+      const textsByLevel = this._texts.filter(text => text.isLevel({level}))
+      const compliantsTexts = textsByLevel.filter(text => {
+        return text.numberOfEvaluations({type}) === maxNumberOfEvaluations
+      })
 
       const percentageOfTextsCompliants =
-        (100 * compliantsTexts.length) / this._texts.length
+        (100 * compliantsTexts.length) / textsByLevel.length
 
       return (
         percentageOfTextsCompliants <
