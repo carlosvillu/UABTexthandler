@@ -1,5 +1,5 @@
 class GetNextEvaluationTextsService {
-  constructor({repository} = {}) {
+  constructor({repository}) {
     this._repository = repository
   }
 

@@ -1,14 +1,22 @@
 import TextsRepository from './TextsRepository'
 
 export default class FireBaseTextsRepository extends TextsRepository {
-  constructor({config, textEntityFactory, pickRnd, shuffle, pipe} = {}) {
+  constructor({
+    config,
+    pickRnd,
+    pipe,
+    shuffle,
+    textEntityFactory,
+    textsCollectionValueObjectFactory
+  }) {
     super()
 
     this._config = config
-    this._textEntityFactory = textEntityFactory
     this._pickRnd = pickRnd
-    this._shuffle = shuffle
     this._pipe = pipe
+    this._shuffle = shuffle
+    this._textEntityFactory = textEntityFactory
+    this._textsCollectionValueObjectFactory = textsCollectionValueObjectFactory
   }
 
   upload(textEntity) {
@@ -37,14 +45,22 @@ export default class FireBaseTextsRepository extends TextsRepository {
     const refsManager = this._config.get('refsManager')
     const textsRef = refsManager.ref({path: '/texts'})
     const texts = (await textsRef.once('value')).val() || {}
-    return Object.keys(texts).map(key => this._textEntityFactory(texts[key]))
+    const textsEntities = Object.keys(texts).map(key =>
+      this._textEntityFactory(texts[key])
+    )
+    return this._textsCollectionValueObjectFactory({texts: textsEntities})
   }
 
   async next({user, level, type}) {
     const texts = await this.all()
 
+    if (!texts.shouldHaveNext({type, level})) {
+      return null // return empty text
+    }
+
     const nextText = this._pipe(this._shuffle, this._pickRnd)(
       texts
+        .value()
         .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
     )
