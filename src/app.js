@@ -34,4 +34,3 @@ contextFactory(createClientContextFactoryParams()).then(context => {
     render()
   })
 })
-
