@@ -23,6 +23,16 @@ export default class TextEntity extends Entity {
     return level.value() === this._level
   }
 
+  numberOfEvaluations({type: typeVO}) {
+    if (!this._evaluations || !this._evaluations[typeVO.value()]) {
+      return 0
+    }
+
+    const evaluationsByType = this._evaluations[typeVO.value()] || []
+    const uniqEvaluationsByType = new Set([...Object.values(evaluationsByType)])
+    return uniqEvaluationsByType.size
+  }
+
   isEvaluable({user, type: typeVO}) {
     if (!typeVO.isValid()) {
       return false
@@ -33,11 +43,11 @@ export default class TextEntity extends Entity {
     }
 
     const evaluationsByType = this._evaluations[typeVO.value()]
+    const numberOfEvaluations = this.numberOfEvaluations({type: typeVO})
 
     return (
       !evaluationsByType ||
-      (Object.keys(evaluationsByType).length <
-        TextEntity.MAX_EVALUATIONS_BY_TEXT &&
+      (numberOfEvaluations < typeVO.maxNumberOfEvaluations() &&
         !Object.keys(evaluationsByType).some(
           id => user.id() === evaluationsByType[id]
         ))

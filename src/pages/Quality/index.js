@@ -8,6 +8,7 @@ import withHandlers from 'recompose/withHandlers'
 
 export default compose(
   withState('stateText', 'setStateText'),
+  withState('stateNoMoreTexts', 'setStateNoMoreTexts', false),
   withState('stateQuality', 'setStateQuality'),
   withState(
     'stateGrade',

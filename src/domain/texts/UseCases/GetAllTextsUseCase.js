@@ -1,11 +1,11 @@
 class GetAllTextsUseCase {
-  constructor({service} = {}) {
+  constructor({service}) {
     this._service = service
   }
 
   async execute() {
     const textsEntities = await this._service.execute()
-    return textsEntities.map(entity => entity.toJSON())
+    return textsEntities.value().map(entity => entity.toJSON())
   }
 }
 
