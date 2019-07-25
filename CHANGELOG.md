@@ -2,8 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.14.0"></a>
+# 1.14.0 (2019-07-25)
+
+
+### Bug Fixes
+
+* **domain:** calculate percentage only per level ([218d13f](https://github.com/carlosvillu/UABTexthandler/commit/218d13f))
+
+
+### Features
+
+* **domain:** 20% of quality evaluations with two evaluators ([ccd0278](https://github.com/carlosvillu/UABTexthandler/commit/ccd0278))
+* **literals:** add literal for no more texts ([6e9e8dc](https://github.com/carlosvillu/UABTexthandler/commit/6e9e8dc))
+* **pages:** show no more texts label ([9be6393](https://github.com/carlosvillu/UABTexthandler/commit/9be6393))
+* **Root:** remove register SW ([db0daea](https://github.com/carlosvillu/UABTexthandler/commit/db0daea))
+
+
+
 <a name="1.13.0"></a>
-# 1.13.0 (2019-07-21)
+# [1.13.0](https://github.com/carlosvillu/UABTexthandler/compare/1.12.0...1.13.0) (2019-07-21)
 
 
 ### Features
