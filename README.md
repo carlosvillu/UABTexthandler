@@ -25,7 +25,7 @@ run:
 - [x] Add, for both evaluation types, the prompt that was given
 - [x] make a third type of table that stores the IDs of texts that have been skipped (saltados); there should be one table for skipped-quality texts and one for skipped-structure texts
 - [x] Table of texts without quality evaluations
-- [ ] In the quality evaluation, allow for 20% of texts WITHIN EACH EDUCATIONAL LEVEL to have 2 evaluations
+- [x] In the quality evaluation, allow for 20% of texts WITHIN EACH EDUCATIONAL LEVEL to have 2 evaluations
 - [ ] In both evaluations, add the "free comments" field to the downloadable table
 
 ## Low pri
