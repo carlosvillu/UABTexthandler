@@ -16,9 +16,14 @@ const QualityQuiz = ({
   i18n
 }) => {
   const {grade, genre, quality} = form
-  const {SECOND_ESO, SECOND_PRIMARY, FOURTH_PRIMARY} = domain
-    .get('config')
-    .get('GRADES')
+  const {
+    SECOND_PRIMARY,
+    THIRD_PRIMARY,
+    FOURTH_PRIMARY,
+    FIFTH_PRIMARY,
+    SIXTH_PRIMARY,
+    SECOND_ESO
+  } = domain.get('config').get('GRADES')
   const {OPINION, NARRATIVE} = domain.get('config').get('GENRE')
 
   return (
@@ -34,8 +39,20 @@ const QualityQuiz = ({
             primaryText={i18n.t('QUALITY_QUIZ_OPTION_SECOND_PRIMARY')}
           />
           <MenuItem
+            value={THIRD_PRIMARY}
+            primaryText={i18n.t('QUALITY_QUIZ_OPTION_THIRD_PRIMARY')}
+          />
+          <MenuItem
             value={FOURTH_PRIMARY}
             primaryText={i18n.t('QUALITY_QUIZ_OPTION_FOURTH_PRIMARY')}
+          />
+          <MenuItem
+            value={FIFTH_PRIMARY}
+            primaryText={i18n.t('QUALITY_QUIZ_OPTION_FIFTH_PRIMARY')}
+          />
+          <MenuItem
+            value={SIXTH_PRIMARY}
+            primaryText={i18n.t('QUALITY_QUIZ_OPTION_SIXTH_PRIMARY')}
           />
           <MenuItem
             value={SECOND_ESO}
