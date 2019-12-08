@@ -93,7 +93,7 @@ describe('Normalize texts', () => {
     domain = new Domain()
   })
 
-  it.only('Should have a normalized text with all rules apply', async () => {
+  it('Should have a normalized text with all rules apply', async () => {
     const normalized = await domain
       .get('normalize_texts_use_case')
       .execute({text: original})
