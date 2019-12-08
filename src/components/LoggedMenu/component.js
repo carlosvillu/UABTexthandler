@@ -14,6 +14,7 @@ class LoggedMenu extends React.Component {
     i18n: PropTypes.object,
     ui: PropTypes.object
   }
+
   render() {
     const {ui, i18n} = this.props
     return (

@@ -26,7 +26,7 @@ export default class PrivilegedUserMenu extends React.PureComponent {
   render() {
     const {i18n, stateIsPrivileged} = this.props
     return stateIsPrivileged ? (
-      <React.Fragment>
+      <>
         <Link
           className="PrivilegedUserMenu-link"
           onClick={this.handleClickLink}
@@ -42,7 +42,7 @@ export default class PrivilegedUserMenu extends React.PureComponent {
           <MenuItem primaryText={i18n.t('ADMIN_EVALUATION')} />
         </Link>
         <Divider />
-      </React.Fragment>
+      </>
     ) : null
   }
 

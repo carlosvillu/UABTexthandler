@@ -6,11 +6,15 @@
   flex-direction: column;
 
   &-Body {
-    background: linear-gradient(to bottom, $c-white, $c-white 0%, $c-light-secondary 200%, $c-background);
+    background: linear-gradient(
+      to bottom,
+      $c-white,
+      $c-white 0%,
+      $c-light-secondary 200%,
+      $c-background
+    );
     display: flex;
     min-height: calc(100vh - 104px);
     padding: 0;
   }
 }
-
-

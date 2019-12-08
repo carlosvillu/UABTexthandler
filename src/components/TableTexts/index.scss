@@ -1,10 +1,9 @@
 .TableTexts {
   width: 90% !important;
   margin: 0 auto;
-  &-headerId, &-rowId {
-  }
 
-  &-rowNormalized, &-rowOriginal {
+  &-rowNormalized,
+  &-rowOriginal {
     padding-top: 24px;
   }
 }
