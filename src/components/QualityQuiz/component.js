@@ -11,13 +11,15 @@ const QualityQuiz = ({
   domain,
   form,
   handleChangeQuality,
-  handleChangeSelect,
+  handleChangeSelectGrade,
+  handleChangeSelectGenre,
   i18n
 }) => {
-  const {grade, quality} = form
+  const {grade, genre, quality} = form
   const {SECOND_ESO, SECOND_PRIMARY, FOURTH_PRIMARY} = domain
     .get('config')
     .get('GRADES')
+  const {OPINION, NARRATIVE} = domain.get('config').get('GENRE')
 
   return (
     <div className="QualityQuiz">
@@ -25,7 +27,7 @@ const QualityQuiz = ({
         <SelectField
           floatingLabelText={i18n.t('QUALITY_QUIZ_SELECT_GRADE')}
           value={grade}
-          onChange={handleChangeSelect}
+          onChange={handleChangeSelectGrade}
         >
           <MenuItem
             value={SECOND_PRIMARY}
@@ -38,6 +40,22 @@ const QualityQuiz = ({
           <MenuItem
             value={SECOND_ESO}
             primaryText={i18n.t('QUALITY_QUIZ_OPTION_SECOND_ESO')}
+          />
+        </SelectField>
+      </div>
+      <div className="QualityQuiz-Row">
+        <SelectField
+          floatingLabelText={i18n.t('QUALITY_QUIZ_SELECT_GENRE')}
+          value={genre}
+          onChange={handleChangeSelectGenre}
+        >
+          <MenuItem
+            value={OPINION}
+            primaryText={i18n.t('QUALITY_QUIZ_OPTION_OPINION')}
+          />
+          <MenuItem
+            value={NARRATIVE}
+            primaryText={i18n.t('QUALITY_QUIZ_OPTION_NARRATIVE')}
           />
         </SelectField>
       </div>
@@ -61,7 +79,8 @@ QualityQuiz.propTypes = {
   domain: PropTypes.object,
   form: PropTypes.object,
   handleChangeQuality: PropTypes.func,
-  handleChangeSelect: PropTypes.func,
+  handleChangeSelectGrade: PropTypes.func,
+  handleChangeSelectGenre: PropTypes.func,
   i18n: PropTypes.object
 }
 

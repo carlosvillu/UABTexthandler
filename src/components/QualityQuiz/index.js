@@ -19,6 +19,12 @@ export default compose(
             grade: action.grade,
             quality: null
           }
+        case 'change-genre':
+          return {
+            ...state,
+            genre: action.genre,
+            quality: null
+          }
         case 'change-quality':
           return {
             ...state,
@@ -29,12 +35,18 @@ export default compose(
           return state
       }
     },
-    props => ({grade: props.grade, quality: null})
+    props => ({grade: props.grade, genre: props.genre, quality: null})
   ),
   withHandlers({
-    handleChangeSelect: props => (evt, indexOption, value) => {
+    handleChangeSelectGrade: props => (evt, indexOption, value) => {
       props.dispatch({type: 'change-grade', grade: value}, state => {
         props.onChangeGrade(state.grade)
+        props.onChangeQuality(state.quality)
+      })
+    },
+    handleChangeSelectGenre: props => (evt, indexOption, value) => {
+      props.dispatch({type: 'change-genre', genre: value}, state => {
+        props.onChangeGenre(state.genre)
         props.onChangeQuality(state.quality)
       })
     },
