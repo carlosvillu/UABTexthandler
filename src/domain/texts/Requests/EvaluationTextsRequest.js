@@ -75,6 +75,7 @@ export default class EvaluationTextsRequest {
       throw evaluationTextsErrorFactory({errors})
     }
   }
+
   constructor({
     introduction,
     opinion,

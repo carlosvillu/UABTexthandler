@@ -58,7 +58,10 @@ export default class FireBaseTextsRepository extends TextsRepository {
       return null // return empty text
     }
 
-    const nextText = this._pipe(this._shuffle, this._pickRnd)(
+    const nextText = this._pipe(
+      this._shuffle,
+      this._pickRnd
+    )(
       texts
         .value()
         .filter(text => text.isEvaluable({user, type}))
@@ -124,11 +127,13 @@ export default class FireBaseTextsRepository extends TextsRepository {
   async updatePrompt({text}) {
     const refsManager = this._config.get('refsManager')
     const doc =
-      (await refsManager
-        .ref({path: '/texts'})
-        .orderByChild('idFile')
-        .equalTo(text.idFile())
-        .once('value')).val() || {}
+      (
+        await refsManager
+          .ref({path: '/texts'})
+          .orderByChild('idFile')
+          .equalTo(text.idFile())
+          .once('value')
+      ).val() || {}
 
     if (Object.keys(doc).length) {
       const [id] = Object.keys(doc)

@@ -16,10 +16,12 @@ export default class FireBaseUsersRepository extends UsersRepository {
       return false
     }
 
-    const userDB = (await firebase
-      .database()
-      .ref(`/users/${user.uid}`)
-      .once('value')).val()
+    const userDB = (
+      await firebase
+        .database()
+        .ref(`/users/${user.uid}`)
+        .once('value')
+    ).val()
     return this._userEntityFactory(userDB)
   }
 
@@ -45,10 +47,12 @@ export default class FireBaseUsersRepository extends UsersRepository {
       .auth()
       .signInWithEmailAndPassword(email, password)
 
-    const userDB = (await firebase
-      .database()
-      .ref(`/users/${user.uid}`)
-      .once('value')).val()
+    const userDB = (
+      await firebase
+        .database()
+        .ref(`/users/${user.uid}`)
+        .once('value')
+    ).val()
     return this._userEntityFactory(userDB)
   }
 

@@ -3,6 +3,7 @@ export default class JSONTextToTextEntityTextsMapper {
     this._textEntityFactory = textEntityFactory
     this._normalizeMapper = normalizeMapper
   }
+
   map = ({filename, body}) => {
     const [idFile] = filename.split('.')
     const [, school, level, room, student, time, gender] = filename.match(

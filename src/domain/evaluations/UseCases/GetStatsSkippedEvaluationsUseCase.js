@@ -2,7 +2,7 @@ import {streamify} from '@s-ui/decorators'
 import {UseCase} from '@s-ui/domain'
 
 @streamify('execute')
-export default class GetStatsSkippedEvaluationsUseCase extends UseCase {
+class GetStatsSkippedEvaluationsUseCase extends UseCase {
   constructor({service}) {
     super()
     this._service = service
@@ -12,3 +12,5 @@ export default class GetStatsSkippedEvaluationsUseCase extends UseCase {
     return this._service.execute()
   }
 }
+
+export default GetStatsSkippedEvaluationsUseCase
