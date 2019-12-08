@@ -4,7 +4,13 @@
   margin: 0 auto;
 
   &-Body {
-    background: linear-gradient(to bottom, $c-white, $c-white 0%, $c-light-secondary 200%, $c-background);
+    background: linear-gradient(
+      to bottom,
+      $c-white,
+      $c-white 0%,
+      $c-light-secondary 200%,
+      $c-background
+    );
     display: flex;
     min-height: calc(100vh - 104px);
     padding: 0;
@@ -13,7 +19,7 @@
       flex: 1 1 50%;
       padding: $size-large;
     }
-    
+
     &Quiz {
       background: $c-bg-structure-quiz;
       box-shadow: 1px 0 5px lightgrey;

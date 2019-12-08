@@ -10,10 +10,8 @@ export default compose(
   withState('stateText', 'setStateText'),
   withState('stateNoMoreTexts', 'setStateNoMoreTexts', false),
   withState('stateQuality', 'setStateQuality'),
-  withState(
-    'stateGrade',
-    'setStateGrade',
-    props => (props.location.state ? props.location.state.grade : null)
+  withState('stateGrade', 'setStateGrade', props =>
+    props.location.state ? props.location.state.grade : null
   ),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
