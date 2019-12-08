@@ -4,5 +4,9 @@ export default {
     SECOND_PRIMARY: 2,
     FOURTH_PRIMARY: 4,
     SECOND_ESO: 8
+  },
+  GENRE: {
+    OPINION: 'OP',
+    NARRATIVE: 'NA'
   }
 }

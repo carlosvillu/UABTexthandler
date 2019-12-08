@@ -24,6 +24,7 @@ export default class TextsUseCasesFactory {
       typeEvaluationValueObjectFactory:
         TextsValueObjectsFactory.typeEvaluationValueObject,
       levelValueObjectFactory: TextsValueObjectsFactory.levelValueObject,
+      genreValueObjectFactory: TextsValueObjectsFactory.genreValueObject,
       service: TextsServicesFactory.getNextEvaluationTextsService({config}),
       userEntityFactory: UsersEntitiesFactory.userEntity
     })

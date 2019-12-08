@@ -51,10 +51,10 @@ export default class FireBaseTextsRepository extends TextsRepository {
     return this._textsCollectionValueObjectFactory({texts: textsEntities})
   }
 
-  async next({user, level, type}) {
+  async next({user, level, type, genre}) {
     const texts = await this.all()
 
-    if (!texts.shouldHaveNext({type, level})) {
+    if (!texts.shouldHaveNext({type, level, genre})) {
       return null // return empty text
     }
 
@@ -66,6 +66,7 @@ export default class FireBaseTextsRepository extends TextsRepository {
         .value()
         .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
+        .filter(text => text.isGenre({genre}))
     )
     return nextText
   }
