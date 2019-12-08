@@ -24,7 +24,7 @@ export default class TextEntity extends Entity {
   }
 
   isGenre({genre}) {
-    // an empty level means ANY genre it is OK
+    // an empty genre means ANY genre it is OK
     if (genre.isEmpty()) {
       return true
     }
