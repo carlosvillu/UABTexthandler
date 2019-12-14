@@ -13,6 +13,7 @@ before_install:
 install:
   - npm install -g surge
   - npm install --force-online
+  - npm install --only=dev --force-online
 
 jobs:
   include:
@@ -22,17 +23,25 @@ jobs:
         - NODE_ENV=production
         - STAGE=development
       script:
-        - npm install --only=dev --force-online
         - make deploy
-    - stage: deploy PRO
+
+    - stage: Release
       if: branch = master AND NOT type = pull_request
       before_install:
         - set -e
         - 'if [ ! -z $(git tag --points-at $TRAVIS_COMMIT) ]; then travis_terminate 0; fi'
+      script:
+        - make release
+
+    - stage: Deploy PRO
+      if: branch = master AND NOT type = pull_request
+      before_install:
+        - set -e
+        - 'if [ -z $(git tag --points-at $TRAVIS_COMMIT) ]; then travis_terminate 0; fi'
+      install:
+        - npm ci --dev
       env:
         - NODE_ENV=production
         - STAGE=production
       script:
-        - npm install --only=dev --force-online
         - make deploy
-        - make release

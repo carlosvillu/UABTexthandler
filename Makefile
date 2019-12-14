@@ -20,6 +20,9 @@ release:
 	git remote add origin https://carlosvillu:${GH_TOKEN}@github.com/carlosvillu/UABTexthandler.git > /dev/null 2>&1
 	git checkout master
 	git pull origin master
+	npm install --only pro --package-lock-only --prefer-online --package-lock --progress false --loglevel error --no-bin-links --ignore-scripts --no-audit
+	npm install --only=dev --package-lock-only --prefer-online --package-lock --progress false --loglevel error --no-bin-links --ignore-scripts --no-audit
+	git add package-lock.json
 	npx sui-mono release
 
 help: ## show help
