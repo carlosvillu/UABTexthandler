@@ -38,7 +38,7 @@ program
 
 const [dir = '.'] = program.args
 ;(async () => {
-  let files = await fg([path.join(path.resolve(dir), '*')])
+  const files = await fg([path.join(path.resolve(dir), '*')])
   const textsNormalizes = await Promise.all(
     files
       .map(path => fs.readFileSync(path, 'utf-8'))

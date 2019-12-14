@@ -49,12 +49,14 @@ class Uploader extends React.PureComponent {
           actions={
             [] || [
               <FlatButton
+                key={i18n.t('CANCEL')}
                 label={i18n.t('CANCEL')}
                 onClick={handleDialogClose}
                 primary
               />,
               <FlatButton
                 keyboardFocused
+                key={i18n.t('UPLOAD')}
                 label={i18n.t('UPLOAD')}
                 onClick={handleDialogClose}
                 primary

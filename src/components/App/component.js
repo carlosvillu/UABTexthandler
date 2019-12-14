@@ -44,7 +44,7 @@ export default class App extends React.PureComponent {
             <AppBar
               className="App-toolbar"
               showMenuIconButton={IS_LOGGED}
-              onLeftIconButtonClick={this.handlerClickLeftIcon}
+              onLeftIconButtonClick={this.handleClickLeftIcon}
               style={{position: 'sticky', top: 0, left: 0}}
               title={
                 <Link to="/" className="Logo">
@@ -61,7 +61,7 @@ export default class App extends React.PureComponent {
     )
   }
 
-  handlerClickLeftIcon = () => {
+  handleClickLeftIcon = () => {
     this.props.ui.showMenu(true)
   }
 }

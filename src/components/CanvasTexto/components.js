@@ -8,6 +8,7 @@ class CanvasTexto extends PureComponent {
     prompt: PropTypes.string,
     student: PropTypes.number
   }
+
   static defaultProps = {children: ''}
 
   render() {

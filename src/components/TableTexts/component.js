@@ -10,6 +10,7 @@ class TableTexts extends React.PureComponent {
     i18n: PropTypes.object,
     domain: PropTypes.object
   }
+
   async componentDidMount() {
     const {domain, setStateTexts} = this.props
     const texts = await domain.get('get_all_texts_use_case').execute()

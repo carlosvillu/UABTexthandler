@@ -2,6 +2,7 @@ export default class StructureEvaluationEntityListToStatsValueObjectMapper {
   constructor({structureStatsValueObjectFactory}) {
     this._structureStatsValueObjectFactory = structureStatsValueObjectFactory
   }
+
   map = evaluations => {
     const stats = evaluations.map(evaluation => {
       const stat = {

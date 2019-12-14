@@ -10,10 +10,11 @@ export default compose(
   withState('stateText', 'setStateText'),
   withState('stateNoMoreTexts', 'setStateNoMoreTexts', false),
   withState('stateQuality', 'setStateQuality'),
-  withState(
-    'stateGrade',
-    'setStateGrade',
-    props => (props.location.state ? props.location.state.grade : null)
+  withState('stateGrade', 'setStateGrade', props =>
+    props.location.state ? props.location.state.grade : null
+  ),
+  withState('stateGenre', 'setStateGenre', props =>
+    props.location.state ? props.location.state.genre : null
   ),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
@@ -27,7 +28,7 @@ export default compose(
       }
       props.router.push({
         pathname: '/quality',
-        state: {grade: props.stateGrade}
+        state: {grade: props.stateGrade, genre: props.stateGenre}
       })
       window.scrollTo(0, 0)
     },
@@ -39,7 +40,7 @@ export default compose(
           .execute({text: props.stateText, quality: props.stateQuality, user})
         props.router.push({
           pathname: '/quality',
-          state: {grade: props.stateGrade}
+          state: {grade: props.stateGrade, genre: props.stateGenre}
         })
         window.scrollTo(0, 0)
       } catch (e) {

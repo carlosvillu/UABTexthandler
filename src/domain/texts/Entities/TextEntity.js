@@ -23,6 +23,15 @@ export default class TextEntity extends Entity {
     return level.value() === this._level
   }
 
+  isGenre({genre}) {
+    // an empty genre means ANY genre it is OK
+    if (genre.isEmpty()) {
+      return true
+    }
+
+    return genre.value() === this._gender
+  }
+
   numberOfEvaluations({type: typeVO}) {
     if (!this._evaluations || !this._evaluations[typeVO.value()]) {
       return 0

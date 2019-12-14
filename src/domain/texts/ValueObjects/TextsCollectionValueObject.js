@@ -8,7 +8,7 @@ export default class TextsCollectionValueObject extends ValueObject {
     return this._texts
   }
 
-  shouldHaveNext({type, level}) {
+  shouldHaveNext({type, level, genre}) {
     const maxNumberOfEvaluations = type.maxNumberOfEvaluations()
     if (type.value() === TypeEvaluationValueObject.STRUCTURE) {
       const compliantsTexts = this._texts.filter(
@@ -18,13 +18,15 @@ export default class TextsCollectionValueObject extends ValueObject {
     }
 
     if (type.value() === TypeEvaluationValueObject.QUALITY) {
-      const textsByLevel = this._texts.filter(text => text.isLevel({level}))
-      const compliantsTexts = textsByLevel.filter(text => {
+      const textsByLevelAndGenre = this._texts
+        .filter(text => text.isLevel({level}))
+        .filter(text => text.isGenre({genre}))
+      const compliantsTexts = textsByLevelAndGenre.filter(text => {
         return text.numberOfEvaluations({type}) === maxNumberOfEvaluations
       })
 
       const percentageOfTextsCompliants =
-        (100 * compliantsTexts.length) / textsByLevel.length
+        (100 * compliantsTexts.length) / textsByLevelAndGenre.length
 
       return (
         percentageOfTextsCompliants <

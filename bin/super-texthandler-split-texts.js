@@ -9,7 +9,7 @@ const CSVToJSON = (data, delimiter = ';') => {
     .map(v => {
       const values = v.split(delimiter)
       return titles.reduce(
-        (obj, title, index) => ((obj[title] = values[index]), obj),
+        (obj, title, index) => ((obj[title] = values[index]), obj), // eslint-disable-line
         {}
       )
     })

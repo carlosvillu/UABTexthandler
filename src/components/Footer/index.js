@@ -8,6 +8,7 @@ export const Footer = () => (
         className="App-footer-links"
         href="https://github.com/carlosvillu/UABTexthandler"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Carlos Villuendas
       </a>

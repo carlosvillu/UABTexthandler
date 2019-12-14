@@ -6,10 +6,8 @@
     margin: $size-base 0;
   }
 
-  &-headerId, &-rowId {
-  }
-
-  &-rowNormalized, &-rowOriginal {
+  &-rowNormalized,
+  &-rowOriginal {
     padding-top: 24px;
   }
 }
@@ -23,5 +21,3 @@
     overflow-y: scroll;
   }
 }
-
-

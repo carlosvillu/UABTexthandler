@@ -2,7 +2,7 @@ import {streamify} from '@s-ui/decorators'
 import {UseCase} from '@s-ui/domain'
 
 @streamify('execute')
-export default class GetStatsTextsWithoutQualityEvaluationsUseCase extends UseCase {
+class GetStatsTextsWithoutQualityEvaluationsUseCase extends UseCase {
   constructor({service}) {
     super()
     this._service = service
@@ -12,3 +12,4 @@ export default class GetStatsTextsWithoutQualityEvaluationsUseCase extends UseCa
     return this._service.execute()
   }
 }
+export default GetStatsTextsWithoutQualityEvaluationsUseCase
