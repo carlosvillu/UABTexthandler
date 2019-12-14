@@ -14,7 +14,8 @@
     "lint": "npx sui-lint js && npx sui-lint sass",
     "precommit": "npx sui-precommit run",
     "start": "npx sui-bundler dev",
-    "test": "npx sui-test server"
+    "test": "npx sui-test server",
+    "deploy:local": "NODE_ENV=production STAGE=production make deploy"
   },
   "keywords": [],
   "author": "",
