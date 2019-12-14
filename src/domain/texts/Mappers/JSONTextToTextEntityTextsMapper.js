@@ -5,7 +5,7 @@ export default class JSONTextToTextEntityTextsMapper {
   }
 
   applyTimeToLevel({value, time}) {
-    const [_, delta = 0] = time.split(/SEG/)
+    const [_, delta = 0] = time.split(/SEG/) // eslint-disable-line
     return parseInt(value, 10) + parseInt(delta, 10)
   }
 
