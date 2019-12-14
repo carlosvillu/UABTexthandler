@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.18.0"></a>
+# 1.18.0 (2019-12-14)
+
+
+### Features
+
+* **domain:** apply time to calculate level ([58cbda4](https://github.com/carlosvillu/UABTexthandler/commit/58cbda4))
+
+
+
 <a name="1.17.0"></a>
-# 1.17.0 (2019-12-14)
+# [1.17.0](https://github.com/carlosvillu/UABTexthandler/compare/1.16.0...1.17.0) (2019-12-14)
 
 
 ### Bug Fixes
@@ -29,6 +39,14 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+* **components:** add Genre selector for Quality ([a7d8ba0](https://github.com/carlosvillu/UABTexthandler/commit/a7d8ba0))
+* **components:** add new grades to the select ([1a64d80](https://github.com/carlosvillu/UABTexthandler/commit/1a64d80))
+* **domain:** add new grades ([edb51fd](https://github.com/carlosvillu/UABTexthandler/commit/edb51fd))
+* **domain:** create GenreValueObject ([1cea8e5](https://github.com/carlosvillu/UABTexthandler/commit/1cea8e5))
+* **domain:** next text filter by genre too ([f52a9de](https://github.com/carlosvillu/UABTexthandler/commit/f52a9de))
+* **literals:** add new grades literals ([0200724](https://github.com/carlosvillu/UABTexthandler/commit/0200724))
+* **literals:** add new selector literals ([7c86eff](https://github.com/carlosvillu/UABTexthandler/commit/7c86eff))
+* **pages:** manage genre select in Quality page ([5b93752](https://github.com/carlosvillu/UABTexthandler/commit/5b93752))
 * **Root:** bump version ([e50c2f5](https://github.com/carlosvillu/UABTexthandler/commit/e50c2f5))
 
 
