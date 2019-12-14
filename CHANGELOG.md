@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.19.0"></a>
+# 1.19.0 (2019-12-14)
+
+
+### Features
+
+* **Root:** install surge ([fd97307](https://github.com/carlosvillu/UABTexthandler/commit/fd97307))
+
+
+
 <a name="1.18.0"></a>
-# 1.18.0 (2019-12-14)
+# [1.18.0](https://github.com/carlosvillu/UABTexthandler/compare/1.17.0...1.18.0) (2019-12-14)
 
 
 ### Features
