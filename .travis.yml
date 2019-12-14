@@ -39,7 +39,7 @@ jobs:
         - set -e
         - 'if [ -z $(git tag --points-at $TRAVIS_COMMIT) ]; then travis_terminate 0; fi'
       install:
-        - npm ci --development
+        - npm ci --dev
       env:
         - NODE_ENV=production
         - STAGE=production
