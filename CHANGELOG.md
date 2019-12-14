@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.15.0"></a>
+# 1.15.0 (2019-12-14)
+
+
+### Features
+
+* **Root:** bump version ([e50c2f5](https://github.com/carlosvillu/UABTexthandler/commit/e50c2f5))
+
+
+
 <a name="1.14.0"></a>
-# 1.14.0 (2019-07-25)
+# [1.14.0](https://github.com/carlosvillu/UABTexthandler/compare/1.13.0...1.14.0) (2019-07-25)
 
 
 ### Bug Fixes
