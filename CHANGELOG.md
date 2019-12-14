@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.17.0"></a>
+# 1.17.0 (2019-12-14)
+
+
+### Bug Fixes
+
+* **Root:** fix npm ci install ([1ade1c7](https://github.com/carlosvillu/UABTexthandler/commit/1ade1c7))
+
+
+
 <a name="1.16.0"></a>
-# 1.16.0 (2019-12-14)
+# [1.16.0](https://github.com/carlosvillu/UABTexthandler/compare/1.15.0...1.16.0) (2019-12-14)
 
 
 ### Features
