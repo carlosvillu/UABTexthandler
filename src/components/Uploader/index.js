@@ -7,27 +7,31 @@ import withHandlers from 'recompose/withHandlers'
 import getContext from 'recompose/getContext'
 
 import {reader} from './reader'
+import {executeInChunks} from '../../lib/promises'
+
+const CHUNKS = 20
 
 const uploadTexts = async ({items = [], domain}) => {
   const files = Array.from(items)
   const bodies = await Promise.all(files.map(reader))
-  return Promise.all(
-    Array.from(files).map((file, index) =>
-      domain.get('upload_texts_use_case').execute({
-        filename: file.name,
-        body: bodies[index]
-      })
-    )
-  )
+  return executeInChunks(Array.from(files), CHUNKS, (file, index) => {
+    return domain.get('upload_texts_use_case').execute({
+      filename: file.name,
+      body: bodies[index]
+    })
+  })
 }
 
 const uploadPrompts = async ({items = [], domain}) => {
   const files = Array.from(items)
   const [body] = await Promise.all(files.map(reader))
   const [, ...prompts] = body.split('\n')
-  prompts.map(line => {
+
+  return executeInChunks(prompts, CHUNKS, line => {
     const [filename, prompt] = line.split(',')
-    domain.get('upload_prompt_texts_use_case').execute({filename, prompt})
+    return domain
+      .get('upload_prompt_texts_use_case')
+      .execute({filename, prompt})
   })
 }
 
