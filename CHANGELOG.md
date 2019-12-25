@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.23.0"></a>
+# 1.23.0 (2019-12-25)
+
+
+### Features
+
+* **components:** show spinner when drop files ([f6aedaf](https://github.com/carlosvillu/UABTexthandler/commit/f6aedaf))
+
+
+
 <a name="1.22.0"></a>
-# 1.22.0 (2019-12-25)
+# [1.22.0](https://github.com/carlosvillu/UABTexthandler/compare/1.21.0...1.22.0) (2019-12-25)
 
 
 ### Features
