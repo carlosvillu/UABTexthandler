@@ -12,9 +12,16 @@ export default class TextsCollectionValueObject extends ValueObject {
     const maxNumberOfEvaluations = type.maxNumberOfEvaluations()
     if (type.value() === TypeEvaluationValueObject.STRUCTURE) {
       const compliantsTexts = this._texts.filter(
-        text => text.numberOfEvaluations({type}) < maxNumberOfEvaluations
+        text => text.numberOfEvaluations({type}) === maxNumberOfEvaluations
       )
-      return Boolean(compliantsTexts.length)
+
+      const percentageOfTextsCompliants =
+        (100 * compliantsTexts.length) / this._texts.length
+
+      return (
+        percentageOfTextsCompliants <
+        TextsCollectionValueObject.RELIABILITY_THRESHOLD
+      )
     }
 
     if (type.value() === TypeEvaluationValueObject.QUALITY) {

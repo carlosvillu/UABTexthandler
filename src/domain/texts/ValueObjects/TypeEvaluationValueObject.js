@@ -16,7 +16,7 @@ export default class TypeEvaluationValueObject extends ValueObject {
 
   maxNumberOfEvaluations() {
     if (this._type === TypeEvaluationValueObject.STRUCTURE) {
-      return 1
+      return 2
     }
     if (this._type === TypeEvaluationValueObject.QUALITY) {
       return 2
