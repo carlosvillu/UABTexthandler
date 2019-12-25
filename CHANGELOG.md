@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.21.0"></a>
+# 1.21.0 (2019-12-25)
+
+
+### Features
+
+* **components:** add spinner when upload texts and promps ([d1fed03](https://github.com/carlosvillu/UABTexthandler/commit/d1fed03))
+
+
+
 <a name="1.20.0"></a>
-# 1.20.0 (2019-12-25)
+# [1.20.0](https://github.com/carlosvillu/UABTexthandler/compare/1.19.0...1.20.0) (2019-12-25)
 
 
 ### Features
