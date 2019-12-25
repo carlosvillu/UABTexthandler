@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.20.0"></a>
+# 1.20.0 (2019-12-25)
+
+
+### Features
+
+* **domain:** twenty percentage of double evaluations in strcuture ([b189320](https://github.com/carlosvillu/UABTexthandler/commit/b189320))
+
+
+
 <a name="1.19.0"></a>
-# 1.19.0 (2019-12-14)
+# [1.19.0](https://github.com/carlosvillu/UABTexthandler/compare/1.18.0...1.19.0) (2019-12-14)
 
 
 ### Features
