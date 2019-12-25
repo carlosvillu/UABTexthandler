@@ -1,0 +1,32 @@
+import {chunk} from './array'
+
+export const series = function series(providers) {
+  const ret = Promise.resolve(null)
+  const results = []
+
+  return providers
+    .reduce(function(result, provider, index) {
+      return result.then(function() {
+        return provider().then(function(val) {
+          results[index] = val
+        })
+      })
+    }, ret)
+    .then(function() {
+      return results
+    })
+}
+
+export const executeInChunks = (arr, num = 50, mapFn) => {
+  const tasks = chunk(arr, num)
+  return series(
+    tasks.map(prompts => {
+      return () =>
+        Promise.all(
+          prompts.map((item, index) => {
+            return mapFn(item, index)
+          })
+        )
+    })
+  )
+}
