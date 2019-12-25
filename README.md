@@ -62,6 +62,10 @@ run:
 ```
 {
   "rules": {
+    "skips": {
+      ".read": "auth.uid != null",
+      ".write": "auth.uid != null"
+    },
     "texts": {
       ".indexOn": ["idFile"],
       ".read": "auth.uid != null",
