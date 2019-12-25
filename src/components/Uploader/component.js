@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 
 import Paper from 'material-ui/Paper'
 import Dialog from 'material-ui/Dialog'
@@ -7,6 +8,7 @@ import FlatButton from 'material-ui/FlatButton'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 import FileUpload from 'material-ui/svg-icons/file/file-upload'
+import CircularProgress from 'material-ui/CircularProgress'
 
 class Uploader extends React.PureComponent {
   static propTypes = {
@@ -19,7 +21,8 @@ class Uploader extends React.PureComponent {
     handleDragOverPaperTexts: PropTypes.func,
     handleDragOverPaperPrompts: PropTypes.func,
     i18n: PropTypes.object,
-    stateOpenDialog: PropTypes.bool
+    stateOpenDialog: PropTypes.bool,
+    stateShowSpinner: PropTypes.bool
   }
 
   render() {
@@ -33,10 +36,19 @@ class Uploader extends React.PureComponent {
       handleDragOverPaperTexts,
       handleDragOverPaperPrompts,
       i18n,
-      stateOpenDialog
+      stateOpenDialog,
+      stateShowSpinner
     } = this.props
+
+    const spinnerClass = cx('Uploader-spinner', {
+      'is-hidden': !stateShowSpinner
+    })
+
     return (
       <div className="Uploader">
+        <div className={spinnerClass}>
+          <CircularProgress size={80} thickness={5} />
+        </div>
         <FloatingActionButton
           className="Uploader-addbutton"
           onClick={handleClickFlatButon}
