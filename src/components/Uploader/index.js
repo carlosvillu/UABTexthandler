@@ -44,19 +44,23 @@ export default compose(
       evt.stopPropagation()
       evt.preventDefault()
       props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
       await uploadTexts({
         items: evt.dataTransfer.files,
         domain: props.domain
       })
+      props.setStateShowSpinner(false)
     },
     handleDropPaperPrompts: props => async evt => {
       evt.stopPropagation()
       evt.preventDefault()
       props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
       await uploadPrompts({
         items: evt.dataTransfer.files,
         domain: props.domain
       })
+      props.setStateShowSpinner(false)
     },
     handleDragOverPaperTexts: props => evt => {
       evt.stopPropagation()
