@@ -33,6 +33,7 @@ const uploadPrompts = async ({items = [], domain}) => {
 
 export default compose(
   withState('stateOpenDialog', 'setStateOpenDialog', false),
+  withState('stateShowSpinner', 'setStateShowSpinner', false),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
     handleDropPaperTexts: props => async evt => {
@@ -69,17 +70,21 @@ export default compose(
       setStateOpenDialog(!stateOpenDialog),
     handleInputChangeTexts: props => async evt => {
       props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
       await uploadTexts({
         items: evt.target.files,
         domain: props.domain
       })
+      props.setStateShowSpinner(false)
     },
     handleInputChangePrompts: props => async evt => {
       props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
       await uploadPrompts({
         items: evt.target.files,
         domain: props.domain
       })
+      props.setStateShowSpinner(false)
     }
   })
 )(Uploader)
