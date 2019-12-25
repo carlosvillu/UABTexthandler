@@ -2,8 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.22.0"></a>
+# 1.22.0 (2019-12-25)
+
+
+### Features
+
+* **components:** execute un Chunks upload texts and promps ([a357c7d](https://github.com/carlosvillu/UABTexthandler/commit/a357c7d))
+* **lib:** add functions helpers ([54dfb64](https://github.com/carlosvillu/UABTexthandler/commit/54dfb64))
+
+
+
 <a name="1.21.0"></a>
-# 1.21.0 (2019-12-25)
+# [1.21.0](https://github.com/carlosvillu/UABTexthandler/compare/1.20.0...1.21.0) (2019-12-25)
 
 
 ### Features
