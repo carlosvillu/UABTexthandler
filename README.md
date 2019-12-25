@@ -85,6 +85,15 @@ run:
 }
 ```
 
+```
+{
+ "rules": {
+   ".read": true,
+   ".write": true
+ }
+}
+```
+
 ## Commands:
 
 ```
