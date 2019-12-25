@@ -1,5 +1,6 @@
 import {chunk} from './array'
 
+// https://stackoverflow.com/a/37579083
 export const series = function series(providers) {
   const ret = Promise.resolve(null)
   const results = []
