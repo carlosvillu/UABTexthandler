@@ -7,7 +7,7 @@ const Canvas = ({text, i18n}) => {
   return (
     <div className="LayoutEvaluation-BodyCanvas">
       {text ? (
-        <CanvasTexto student={text.student} prompt={text.prompt}>
+        <CanvasTexto text={text} prompt={text.prompt}>
           {text.normalize}
         </CanvasTexto>
       ) : (

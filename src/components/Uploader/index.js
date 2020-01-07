@@ -14,12 +14,14 @@ const CHUNKS = 20
 const uploadTexts = async ({items = [], domain}) => {
   const files = Array.from(items)
   const bodies = await Promise.all(files.map(reader))
-  return executeInChunks(Array.from(files), CHUNKS, (file, index) => {
-    return domain.get('upload_texts_use_case').execute({
-      filename: file.name,
-      body: bodies[index]
-    })
-  })
+  return Promise.all(
+    Array.from(files).map((file, index) =>
+      domain.get('upload_texts_use_case').execute({
+        filename: file.name,
+        body: bodies[index]
+      })
+    )
+  )
 }
 
 const uploadPrompts = async ({items = [], domain}) => {
