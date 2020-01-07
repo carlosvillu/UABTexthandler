@@ -53,10 +53,7 @@ class Structure extends React.PureComponent {
         <div className="Structure-Body">
           <div className="Structure-BodyCanvas">
             {stateText ? (
-              <CanvasTexto
-                student={stateText.student}
-                prompt={stateText.prompt}
-              >
+              <CanvasTexto text={stateText} prompt={stateText.prompt}>
                 {stateText.normalize}
               </CanvasTexto>
             ) : (
