@@ -34,7 +34,7 @@ class CanvasTexto extends PureComponent {
             {i18n.t('CANVASTEXTO_STUDENT')}:
           </span>
           {stateCurrentUser?.isAdmin && (
-            <span className="CanvasTexto-number">{`${text.idText}-${text.time}-${text.gender}(${text.level})`}</span>
+            <span className="CanvasTexto-number">{`${text.idText}-${text.time}-${text.gender.genre}(${text.level})`}</span>
           )}
           {!stateCurrentUser?.isAdmin && (
             <span className="CanvasTexto-number">{text.student}</span>
