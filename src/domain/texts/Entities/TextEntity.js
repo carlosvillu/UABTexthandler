@@ -1,5 +1,7 @@
 import Entity from '@s-ui/domain/lib/Entity'
 
+import GenreValueObject from '../ValueObjects/GenreValueObject'
+
 export default class TextEntity extends Entity {
   static MAX_EVALUATIONS_BY_TEXT = 1
   id() {
@@ -29,7 +31,7 @@ export default class TextEntity extends Entity {
       return true
     }
 
-    return this._gender.isEqual({genre})
+    return genre.value() === this._gender
   }
 
   numberOfEvaluations({type: typeVO}) {
@@ -47,7 +49,7 @@ export default class TextEntity extends Entity {
       return false
     }
 
-    if (typeVO.isStructure() && this._gender.isNarrative()) {
+    if (typeVO.isStructure() && this._gender === GenreValueObject.NARRATIVE) {
       return false
     }
 

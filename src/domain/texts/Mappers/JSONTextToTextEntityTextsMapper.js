@@ -24,7 +24,7 @@ export default class JSONTextToTextEntityTextsMapper {
       normalize: this._normalizeMapper.map(body),
       time: time.toUpperCase(),
       idFile: idFile.toUpperCase(),
-      gender: {genre: gender.toUpperCase()},
+      gender: gender.toUpperCase(),
       evaluations: {},
       prompt: ''
     })
