@@ -41,7 +41,7 @@ class TableTexts extends React.PureComponent {
             {Header: i18n.t('TABLETEXTS_SCHOOL'), accessor: 'school'},
             {Header: i18n.t('TABLETEXTS_LEVEL'), accessor: 'level'},
             {Header: i18n.t('TABLETEXTS_ROOM'), accessor: 'room'},
-            {Header: i18n.t('TABLETEXTS_GENDER'), accessor: 'gender.genre'},
+            {Header: i18n.t('TABLETEXTS_GENDER'), accessor: 'gender'},
             {Header: i18n.t('TABLETEXTS_TIME'), accessor: 'time'},
             {
               Header: i18n.t('TABLETEXT_EVALUATIONS'),
