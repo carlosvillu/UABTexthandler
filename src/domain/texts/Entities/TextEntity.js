@@ -29,7 +29,7 @@ export default class TextEntity extends Entity {
       return true
     }
 
-    return genre.value() === this._gender
+    return this._gender.isEqual({genre})
   }
 
   numberOfEvaluations({type: typeVO}) {
@@ -44,6 +44,10 @@ export default class TextEntity extends Entity {
 
   isEvaluable({user, type: typeVO}) {
     if (!typeVO.isValid()) {
+      return false
+    }
+
+    if (typeVO.isStructure() && this._gender.isNarrative()) {
       return false
     }
 

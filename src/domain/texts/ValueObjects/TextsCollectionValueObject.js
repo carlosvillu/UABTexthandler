@@ -1,5 +1,4 @@
 import {ValueObject} from '@s-ui/domain'
-import TypeEvaluationValueObject from './TypeEvaluationValueObject'
 
 export default class TextsCollectionValueObject extends ValueObject {
   static RELIABILITY_THRESHOLD = 20 // %
@@ -10,7 +9,7 @@ export default class TextsCollectionValueObject extends ValueObject {
 
   shouldHaveNext({type, level, genre}) {
     const maxNumberOfEvaluations = type.maxNumberOfEvaluations()
-    if (type.value() === TypeEvaluationValueObject.STRUCTURE) {
+    if (type.isStructure()) {
       const compliantsTexts = this._texts.filter(
         text => text.numberOfEvaluations({type}) === maxNumberOfEvaluations
       )
@@ -24,7 +23,7 @@ export default class TextsCollectionValueObject extends ValueObject {
       )
     }
 
-    if (type.value() === TypeEvaluationValueObject.QUALITY) {
+    if (type.isQuality()) {
       const textsByLevelAndGenre = this._texts
         .filter(text => text.isLevel({level}))
         .filter(text => text.isGenre({genre}))
