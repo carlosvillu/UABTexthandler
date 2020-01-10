@@ -27,9 +27,10 @@ class Structure extends React.PureComponent {
 
   async componentDidMount() {
     const user = await this.props.domain.get('current_users_use_case').execute()
+    const {STRUCTURE} = this.props.domain.get('config').get('TYPE_EVALUATIONS')
     const text = await this.props.domain
       .get('get_next_evaluation_texts_use_case')
-      .execute({user, type: 'structure'})
+      .execute({user, type: STRUCTURE})
 
     this.props.setStateText(text)
     !text && this.props.setStateNoMoreTexts(true)
