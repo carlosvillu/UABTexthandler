@@ -10,6 +10,14 @@ export default class TypeEvaluationValueObject extends ValueObject {
     )
   }
 
+  isQuality() {
+    return this._type === TypeEvaluationValueObject.QUALITY
+  }
+
+  isStructure() {
+    return this._type === TypeEvaluationValueObject.STRUCTURE
+  }
+
   value() {
     return this._type
   }

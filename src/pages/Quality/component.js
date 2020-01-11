@@ -24,13 +24,14 @@ class Quality extends React.Component {
       const user = await this.props.domain
         .get('current_users_use_case')
         .execute()
+      const {QUALITY} = this.props.domain.get('config').get('TYPE_EVALUATIONS')
       const text = await this.props.domain
         .get('get_next_evaluation_texts_use_case')
         .execute({
           user,
           grade: this.props.stateGrade,
           genre: this.props.stateGenre,
-          type: 'quality'
+          type: QUALITY
         })
       this.props.setStateText(text)
     }
@@ -48,13 +49,14 @@ class Quality extends React.Component {
         .get('current_users_use_case')
         .execute()
 
+      const {QUALITY} = this.props.domain.get('config').get('TYPE_EVALUATIONS')
       const text = await this.props.domain
         .get('get_next_evaluation_texts_use_case')
         .execute({
           user,
           grade: this.props.stateGrade,
           genre: this.props.stateGenre,
-          type: 'quality'
+          type: QUALITY
         })
       this.props.setStateText(text)
     }

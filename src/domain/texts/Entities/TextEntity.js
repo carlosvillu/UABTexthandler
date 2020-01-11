@@ -1,5 +1,7 @@
 import Entity from '@s-ui/domain/lib/Entity'
 
+import GenreValueObject from '../ValueObjects/GenreValueObject'
+
 export default class TextEntity extends Entity {
   static MAX_EVALUATIONS_BY_TEXT = 1
   id() {
@@ -44,6 +46,10 @@ export default class TextEntity extends Entity {
 
   isEvaluable({user, type: typeVO}) {
     if (!typeVO.isValid()) {
+      return false
+    }
+
+    if (typeVO.isStructure() && this._gender === GenreValueObject.NARRATIVE) {
       return false
     }
 

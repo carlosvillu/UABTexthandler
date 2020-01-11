@@ -1,3 +1,6 @@
+import GenreValueObject from '../texts/ValueObjects/GenreValueObject'
+import TypeEvaluationValueObject from '../texts/ValueObjects/TypeEvaluationValueObject'
+
 export default {
   API_HOST: 'localhost:3001',
   GRADES: {
@@ -9,7 +12,11 @@ export default {
     SECOND_ESO: 8
   },
   GENRE: {
-    OPINION: 'OP',
-    NARRATIVE: 'NA'
+    OPINION: GenreValueObject.OPINION,
+    NARRATIVE: GenreValueObject.NARRATIVE
+  },
+  TYPE_EVALUATIONS: {
+    QUALITY: TypeEvaluationValueObject.QUALITY,
+    STRUCTURE: TypeEvaluationValueObject.STRUCTURE
   }
 }
