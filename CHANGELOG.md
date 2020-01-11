@@ -2,8 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.24.0"></a>
+# 1.24.0 (2020-01-11)
+
+
+### Bug Fixes
+
+* **components:** remove Queu to upload texts (mix texts and identificators) ([df5ceae](https://github.com/carlosvillu/UABTexthandler/commit/df5ceae))
+* **domain:** Remove genre as VO inside TextEntity ([5fba1a3](https://github.com/carlosvillu/UABTexthandler/commit/5fba1a3))
+
+
+### Features
+
+* **components:** remove genre as VO inside TextEntity ([b078191](https://github.com/carlosvillu/UABTexthandler/commit/b078191))
+* **domain:** genre is a GenreValueObject inside TextEntity for Texts context ([415fa03](https://github.com/carlosvillu/UABTexthandler/commit/415fa03))
+* **pages:** pass to the canvas the whole text and not only the student for structure ([46248ed](https://github.com/carlosvillu/UABTexthandler/commit/46248ed))
+* **pages:** use config to avoid magig strings ([6e599e8](https://github.com/carlosvillu/UABTexthandler/commit/6e599e8))
+
+
+
 <a name="1.23.0"></a>
-# 1.23.0 (2019-12-25)
+# [1.23.0](https://github.com/carlosvillu/UABTexthandler/compare/1.22.0...1.23.0) (2019-12-25)
 
 
 ### Features
