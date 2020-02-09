@@ -1,8 +1,8 @@
 import {ValueObject} from '@s-ui/domain'
 
 export default class TextsCollectionValueObject extends ValueObject {
-  static RELIABILITY_THRESHOLD_STRUCTURE = 20 // %
-  static RELIABILITY_THRESHOLD_QUALITY = 100 // %
+  static RELIABILITY_THRESHOLD = 20 // %
+  static RELIABILITY_THRESHOLD_FULL = 100 // %
 
   value() {
     return this._texts
@@ -20,7 +20,7 @@ export default class TextsCollectionValueObject extends ValueObject {
 
       return (
         percentageOfTextsCompliants <
-        TextsCollectionValueObject.RELIABILITY_THRESHOLD_STRUCTURE
+        TextsCollectionValueObject.RELIABILITY_THRESHOLD
       )
     }
 
@@ -37,7 +37,9 @@ export default class TextsCollectionValueObject extends ValueObject {
 
       return (
         percentageOfTextsCompliants <
-        TextsCollectionValueObject.RELIABILITY_THRESHOLD_QUALITY
+        (genre.isOpinion()
+          ? TextsCollectionValueObject.RELIABILITY_THRESHOLD_FULL
+          : TextsCollectionValueObject.RELIABILITY_THRESHOLD)
       )
     }
 

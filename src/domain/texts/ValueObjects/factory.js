@@ -5,6 +5,7 @@ import GenreValueObject from './GenreValueObject'
 import QualityValueObject from './QualityValueObject'
 import TextsCollectionValueObject from './TextsCollectionValueObject'
 import TypeEvaluationValueObject from './TypeEvaluationValueObject'
+import TimeValueObject from './TimeValueObject'
 
 export default class TextsValueObjectsFactory {
   static levelValueObject = ({level}) => new LevelValueObject({level})
@@ -23,4 +24,6 @@ export default class TextsValueObjectsFactory {
 
   static typeEvaluationValueObject = ({type}) =>
     new TypeEvaluationValueObject({type})
+
+  static timeValueObject = ({time}) => new TimeValueObject({time})
 }

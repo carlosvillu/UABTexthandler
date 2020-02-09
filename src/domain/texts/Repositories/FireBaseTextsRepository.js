@@ -7,6 +7,9 @@ export default class FireBaseTextsRepository extends TextsRepository {
     pipe,
     shuffle,
     textEntityFactory,
+    genreValueObjectFactory,
+    levelValueObjectFactory,
+    timeValueObjectFactory,
     textsCollectionValueObjectFactory
   }) {
     super()
@@ -16,6 +19,9 @@ export default class FireBaseTextsRepository extends TextsRepository {
     this._pipe = pipe
     this._shuffle = shuffle
     this._textEntityFactory = textEntityFactory
+    this._genreValueObjectFactory = genreValueObjectFactory
+    this._levelValueObjectFactory = levelValueObjectFactory
+    this._timeValueObjectFactory = timeValueObjectFactory
     this._textsCollectionValueObjectFactory = textsCollectionValueObjectFactory
   }
 
@@ -67,6 +73,30 @@ export default class FireBaseTextsRepository extends TextsRepository {
         .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
         .filter(text => text.isGenre({genre}))
+        .filter(text => {
+          const opinionGenre = this._genreValueObjectFactory({
+            genre: this._config.get('GENRE').OPINION
+          })
+          if (!text.isGenre({genre: opinionGenre})) return true
+
+          return !text.isLevel({
+            level: this._levelValueObjectFactory({
+              level: this._config.get('GRADES').SECOND_ESO
+            })
+          })
+        })
+        .filter(text => {
+          const opinionGenre = this._genreValueObjectFactory({
+            genre: this._config.get('GENRE').OPINION
+          })
+          if (!text.isGenre({genre: opinionGenre})) return true
+
+          return !text.isTime({
+            time: this._timeValueObjectFactory({
+              time: this._config.get('TIME').MANT
+            })
+          })
+        })
     )
     return nextText
   }

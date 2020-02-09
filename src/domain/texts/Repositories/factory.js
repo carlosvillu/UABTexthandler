@@ -14,6 +14,9 @@ export default class TextsRepositoriesFactory {
       shuffle,
       pipe,
       textEntityFactory: TextEntitiesFactory.textEntity,
+      genreValueObjectFactory: TextsValueObjectsFactory.genreValueObject,
+      levelValueObjectFactory: TextsValueObjectsFactory.levelValueObject,
+      timeValueObjectFactory: TextsValueObjectsFactory.timeValueObject,
       textsCollectionValueObjectFactory:
         TextsValueObjectsFactory.textsCollectionValueObject
     })
