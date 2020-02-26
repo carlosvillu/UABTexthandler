@@ -25,6 +25,10 @@ export default class TextEntity extends Entity {
     return level.value() === this._level
   }
 
+  isTime({time}) {
+    return time.value() === this._time
+  }
+
   isGenre({genre}) {
     // an empty genre means ANY genre it is OK
     if (genre.isEmpty()) {

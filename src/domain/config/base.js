@@ -1,5 +1,6 @@
 import GenreValueObject from '../texts/ValueObjects/GenreValueObject'
 import TypeEvaluationValueObject from '../texts/ValueObjects/TypeEvaluationValueObject'
+import TimeValueObject from '../texts/ValueObjects/TimeValueObject'
 
 export default {
   API_HOST: 'localhost:3001',
@@ -18,5 +19,8 @@ export default {
   TYPE_EVALUATIONS: {
     QUALITY: TypeEvaluationValueObject.QUALITY,
     STRUCTURE: TypeEvaluationValueObject.STRUCTURE
+  },
+  TIME: {
+    MANT: TimeValueObject.MANT
   }
 }
