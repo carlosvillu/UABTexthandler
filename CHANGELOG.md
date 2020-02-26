@@ -2,8 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.25.0"></a>
+# 1.25.0 (2020-02-26)
+
+
+### Features
+
+* **domain:** 100% of realiability in quality ([18021b6](https://github.com/carlosvillu/UABTexthandler/commit/18021b6))
+* **domain:** forbidden texts (MANT / 8º) and change Reliability for Quality + Opinion ([b58bc5e](https://github.com/carlosvillu/UABTexthandler/commit/b58bc5e))
+
+
+
 <a name="1.24.0"></a>
-# 1.24.0 (2020-01-11)
+# [1.24.0](https://github.com/carlosvillu/UABTexthandler/compare/1.23.0...1.24.0) (2020-01-11)
 
 
 ### Bug Fixes
