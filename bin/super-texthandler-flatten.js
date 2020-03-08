@@ -22,7 +22,9 @@ program
     console.log('')
     console.log('  Examples:')
     console.log('')
-    console.log('    $ super-texthandler normalize')
+    console.log(
+      '    $ super-texthandler flatten -O -P /path/to/data.csv - S ";" > /tmp/output.csv'
+    )
     console.log('')
   })
   .parse(process.argv)
