@@ -9,18 +9,21 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 import FileUpload from 'material-ui/svg-icons/file/file-upload'
 import CircularProgress from 'material-ui/CircularProgress'
+import Snackbar from 'material-ui/Snackbar'
 
 class Uploader extends React.PureComponent {
   static propTypes = {
     handleClickFlatButon: PropTypes.func,
+    handleCloseSnackbar: PropTypes.func,
     handleDialogClose: PropTypes.func,
-    handleDropPaperTexts: PropTypes.func,
-    handleDropPaperPrompts: PropTypes.func,
-    handleInputChangeTexts: PropTypes.func,
-    handleInputChangePrompts: PropTypes.func,
-    handleDragOverPaperTexts: PropTypes.func,
     handleDragOverPaperPrompts: PropTypes.func,
+    handleDragOverPaperTexts: PropTypes.func,
+    handleDropPaperPrompts: PropTypes.func,
+    handleDropPaperTexts: PropTypes.func,
+    handleInputChangePrompts: PropTypes.func,
+    handleInputChangeTexts: PropTypes.func,
     i18n: PropTypes.object,
+    stateConfirmationMSG: PropTypes.string,
     stateOpenDialog: PropTypes.bool,
     stateShowSpinner: PropTypes.bool
   }
@@ -28,14 +31,16 @@ class Uploader extends React.PureComponent {
   render() {
     const {
       handleClickFlatButon,
+      handleCloseSnackbar,
       handleDialogClose,
-      handleDropPaperTexts,
-      handleDropPaperPrompts,
-      handleInputChangeTexts,
-      handleInputChangePrompts,
-      handleDragOverPaperTexts,
       handleDragOverPaperPrompts,
+      handleDragOverPaperTexts,
+      handleDropPaperPrompts,
+      handleDropPaperTexts,
+      handleInputChangePrompts,
+      handleInputChangeTexts,
       i18n,
+      stateConfirmationMSG,
       stateOpenDialog,
       stateShowSpinner
     } = this.props
@@ -118,6 +123,13 @@ class Uploader extends React.PureComponent {
             />
           </div>
         </Dialog>
+
+        <Snackbar
+          open={Boolean(stateConfirmationMSG)}
+          message={stateConfirmationMSG}
+          autoHideDuration={4000}
+          onRequestClose={handleCloseSnackbar}
+        />
       </div>
     )
   }
