@@ -15,6 +15,7 @@ module.exports = {
   HOME_NO_MORE_TEXTS: 'No hay más textos para evaluar',
   HOME_QUESTIONS: 'Cuestionario',
   HOME_TEXT: 'Texto',
+  LAYOUT_EVALUATION_CANVAS_NO_MORE_TEXTS: 'No hay mas textos para evaluar',
   LAYOUT_EVALUATION_CANVAS_LOOKING_TEXTS: 'Buscando texto para evaluar',
   LAYOUT_EVALUATION_QUIZ_BUTTON_SAVE: 'Guardar y seguir',
   LAYOUT_EVALUATION_QUIZ_BUTTON_SKIP: 'Saltar texto',
@@ -110,6 +111,7 @@ module.exports = {
   TABLE_TEXTS_WITHOUT_QUALITY_EVALUATION_ID_FILE: 'id fichero',
   TABLE_TEXTS_WITHOUT_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas', // eslint-disable-line
   UPLOADER_CLAIM: 'Arrastra textos aquí o clíca',
+  UPLOADER_FILES_CONFIRMATE: 'Fichero subidos',
   UPLOADER_PROMPT: 'Arrastra consignas aquí o clíca',
   UPLOADER_TITLE_MODAL: 'Agregar',
   UPLOADTEXT_TITLE: 'Subir textos para normalizar'
