@@ -6,3 +6,4 @@ diagrama.pdf
 node_modules
 .tern-port
 .COMMAND
+backup_db.json
