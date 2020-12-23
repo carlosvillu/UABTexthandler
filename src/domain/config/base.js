@@ -21,6 +21,8 @@ export default {
     STRUCTURE: TypeEvaluationValueObject.STRUCTURE
   },
   TIME: {
-    MANT: TimeValueObject.MANT
+    MANT: TimeValueObject.MANT,
+    SEG1: TimeValueObject.SEG1,
+    SEG2: TimeValueObject.SEG2
   }
 }
