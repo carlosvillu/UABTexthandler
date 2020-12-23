@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
-# 1.26.0 (2020-12-23)
+# 1.27.0 (2020-12-23)
+
+
+### Features
+
+* **domain:** avoid evaluate opinion and structure and (SEG1 or SEG2) ([976a256](https://github.com/carlosvillu/UABTexthandler/commit/976a256d97a80c2ecebebb0a9ff2dfdaaa9057a2)), closes [#38](https://github.com/carlosvillu/UABTexthandler/issues/38)
+
+
+
+# [1.26.0](https://github.com/carlosvillu/UABTexthandler/compare/1.25.0...1.26.0) (2020-12-23)
 
 
 ### Features
