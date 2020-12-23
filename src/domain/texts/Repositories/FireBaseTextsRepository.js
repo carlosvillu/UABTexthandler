@@ -73,6 +73,33 @@ export default class FireBaseTextsRepository extends TextsRepository {
         .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
         .filter(text => text.isGenre({genre}))
+        .filter(text => {
+          const opinionGenre = this._genreValueObjectFactory({
+            genre: this._config.get('GENRE').OPINION
+          })
+
+          const isSEG1ORSEG2 =
+            text.isTime({
+              time: this._timeValueObjectFactory({
+                time: this._config.get('TIME').SEG1
+              })
+            }) ||
+            text.isTime({
+              time: this._timeValueObjectFactory({
+                time: this._config.get('TIME').SEG2
+              })
+            })
+
+          // (Opinion && Estructura && (SEG1 || SEG2)) Estos no deben aparecer
+          if (
+            text.isGenre({genre: opinionGenre}) &&
+            type.isStructure() &&
+            isSEG1ORSEG2
+          ) {
+            return false
+          }
+          return true
+        })
 
       //
       // this code avoided displaying certain texts according to their grade level
