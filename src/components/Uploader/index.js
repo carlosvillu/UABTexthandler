@@ -40,8 +40,12 @@ const uploadPrompts = async ({items = [], domain}) => {
 export default compose(
   withState('stateOpenDialog', 'setStateOpenDialog', false),
   withState('stateShowSpinner', 'setStateShowSpinner', false),
+  withState('stateConfirmationMSG', 'setStateConfirmationMSG', ''),
   getContext({domain: PropTypes.object, i18n: PropTypes.object}),
   withHandlers({
+    handleCloseSnackbar: props => () => {
+      props.setStateConfirmationMSG('')
+    },
     handleDropPaperTexts: props => async evt => {
       evt.stopPropagation()
       evt.preventDefault()
@@ -51,6 +55,7 @@ export default compose(
         items: evt.dataTransfer.files,
         domain: props.domain
       })
+
       props.setStateShowSpinner(false)
     },
     handleDropPaperPrompts: props => async evt => {
@@ -58,11 +63,14 @@ export default compose(
       evt.preventDefault()
       props.setStateOpenDialog(false)
       props.setStateShowSpinner(true)
-      await uploadPrompts({
+      const files = await uploadPrompts({
         items: evt.dataTransfer.files,
         domain: props.domain
       })
       props.setStateShowSpinner(false)
+      props.setStateConfirmationMSG(
+        `${props.i18n.t('UPLOADER_FILES_CONFIRMATE')}: ${files.length}`
+      )
     },
     handleDragOverPaperTexts: props => evt => {
       evt.stopPropagation()
@@ -81,11 +89,14 @@ export default compose(
     handleInputChangeTexts: props => async evt => {
       props.setStateOpenDialog(false)
       props.setStateShowSpinner(true)
-      await uploadTexts({
+      const files = await uploadTexts({
         items: evt.target.files,
         domain: props.domain
       })
       props.setStateShowSpinner(false)
+      props.setStateConfirmationMSG(
+        `${props.i18n.t('UPLOADER_FILES_CONFIRMATE')}: ${files.length}`
+      )
     },
     handleInputChangePrompts: props => async evt => {
       props.setStateOpenDialog(false)
