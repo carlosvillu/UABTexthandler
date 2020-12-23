@@ -73,36 +73,41 @@ export default class FireBaseTextsRepository extends TextsRepository {
         .filter(text => text.isEvaluable({user, type}))
         .filter(text => text.isLevel({level}))
         .filter(text => text.isGenre({genre}))
-        .filter(text => {
-          const opinionGenre = this._genreValueObjectFactory({
-            genre: this._config.get('GENRE').OPINION
-          })
-          if (!text.isGenre({genre: opinionGenre})) return true
 
-          return !text.isLevel({
-            level: this._levelValueObjectFactory({
-              level: this._config.get('GRADES').SECOND_ESO
-            })
-          })
-        })
-        .filter(text => {
-          const opinionGenre = this._genreValueObjectFactory({
-            genre: this._config.get('GENRE').OPINION
-          })
-          if (!text.isGenre({genre: opinionGenre})) return true
+      //
+      // this code avoided displaying certain texts according to their grade level
+      // or time point (e.g., do NOT show texts by 8th graders)
+      //
+      // .filter(text => {
+      //  const opinionGenre = this._genreValueObjectFactory({
+      //    genre: this._config.get('GENRE').OPINION
+      //  })
+      //  if (!text.isGenre({genre: opinionGenre})) return true
 
-          return !text.isTime({
-            time: this._timeValueObjectFactory({
-              time: this._config.get('TIME').MANT
-            })
-          })
-        })
+      //  return !text.isLevel({
+      //    level: this._levelValueObjectFactory({
+      //      level: this._config.get('GRADES').SECOND_ESO
+      //    })
+      //  })
+      // })
+      // .filter(text => {
+      //  const opinionGenre = this._genreValueObjectFactory({
+      //    genre: this._config.get('GENRE').OPINION
+      //  })
+      //  if (!text.isGenre({genre: opinionGenre})) return true
+
+      //  return !text.isTime({
+      //    time: this._timeValueObjectFactory({
+      //      time: this._config.get('TIME').MANT
+      //    })
+      //  })
+      // })
     )
     return nextText
   }
 
   async saveEvaluationStructure({evaluation, text, user}) {
-    // TODO: Mode this part to the evaluation context
+    // TODO: Move this part to the evaluation context
     const refsManager = this._config.get('refsManager')
     const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const id = evaluationsRef.push().key
@@ -129,7 +134,7 @@ export default class FireBaseTextsRepository extends TextsRepository {
   }
 
   async saveEvaluationQuality({quality, text, user}) {
-    // TODO: Mode this part to the evaluation context
+    // TODO: Move this part to the evaluation context
     const refsManager = this._config.get('refsManager')
     const evaluationsRef = refsManager.ref({path: '/evaluations/quality'})
     const id = evaluationsRef.push().key

@@ -13,8 +13,10 @@ class Quality extends React.Component {
     setStateGrade: PropTypes.object,
     setStateGenre: PropTypes.object,
     setStateText: PropTypes.func,
-    stateGrade: PropTypes.number,
+    setStateNoMoreTexts: PropTypes.func,
     stateGenre: PropTypes.number,
+    stateGrade: PropTypes.number,
+    stateNoMoreTexts: PropTypes.bool,
     stateText: PropTypes.object
   }
 
@@ -34,6 +36,7 @@ class Quality extends React.Component {
           type: QUALITY
         })
       this.props.setStateText(text)
+      !text && this.props.setStateNoMoreTexts(true)
     }
   }
 
@@ -59,6 +62,7 @@ class Quality extends React.Component {
           type: QUALITY
         })
       this.props.setStateText(text)
+      !text && this.props.setStateNoMoreTexts(true)
     }
   }
 
@@ -71,12 +75,13 @@ class Quality extends React.Component {
       setStateGenre,
       stateGrade,
       stateGenre,
+      stateNoMoreTexts,
       stateText
     } = this.props
 
     return (
       <LayoutEvaluation text={stateText}>
-        <LayoutEvaluation.Canvas />
+        <LayoutEvaluation.Canvas noMoreTexts={stateNoMoreTexts} />
         <LayoutEvaluation.Quiz
           onClickSave={handleClickSaveButton}
           onClickSkip={handleClickSkipButton}

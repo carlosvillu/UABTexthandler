@@ -37,9 +37,7 @@ export default class TextsCollectionValueObject extends ValueObject {
 
       return (
         percentageOfTextsCompliants <
-        (genre.isOpinion()
-          ? TextsCollectionValueObject.RELIABILITY_THRESHOLD_FULL
-          : TextsCollectionValueObject.RELIABILITY_THRESHOLD)
+        TextsCollectionValueObject.RELIABILITY_THRESHOLD_FULL
       )
     }
 

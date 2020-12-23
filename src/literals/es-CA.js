@@ -15,6 +15,7 @@ module.exports = {
   HOME_NO_MORE_TEXTS: 'Ja no hi ha més textos per avaluar',
   HOME_QUESTIONS: 'Qüestionari',
   HOME_TEXT: 'Text',
+  LAYOUT_EVALUATION_CANVAS_NO_MORE_TEXTS: 'Ja no hi ha més textos per avaluar',
   LAYOUT_EVALUATION_CANVAS_LOOKING_TEXTS: 'Buscant text per avaluar',
   LAYOUT_EVALUATION_QUIZ_BUTTON_SAVE: 'Desar + següent',
   LAYOUT_EVALUATION_QUIZ_BUTTON_SKIP: 'Saltar text',
@@ -109,6 +110,7 @@ module.exports = {
   TABLE_SKIPS_EVALUATIONS_STRUCTURE: 'Estructura',
   TABLE_TEXTS_WITHOUT_QUALITY_EVALUATION_ID_FILE: 'ID fitxer',
   TABLE_TEXTS_WITHOUT_QUALITY_TIP: 'Consejo: pulsa mayúsculas to ordenar dos columnas', // eslint-disable-line
+  UPLOADER_FILES_CONFIRMATE: 'fitxers pujats',
   UPLOADER_CLAIM: 'Arrossega textos aquí o clica',
   UPLOADER_PROMPT: 'Arrossega consignes aquí o clica',
   UPLOADER_TITLE_MODAL: 'Afegir',
