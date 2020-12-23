@@ -24,7 +24,7 @@
     "@s-ui/lint": "3",
     "@s-ui/mono": "1",
     "@s-ui/precommit": "2",
-    "@s-ui/test": "2",
+    "@s-ui/test": "4",
     "chai": "4.1.2",
     "husky": "4.2.5"
   },
