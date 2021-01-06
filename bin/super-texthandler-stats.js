@@ -7,6 +7,7 @@ program
   .option('-D, --debug', 'Show extra metrics')
   .option('-P, --path <path>', 'Where is the full DB JSON file')
   .option('-T, --type <type>', 'Type os evaluation "structure" or "quality"')
+  .option('-L, --level', 'Split by level')
   .on('--help', () => {
     console.log('  Description:')
     console.log('')
@@ -26,7 +27,7 @@ program
   })
   .parse(process.argv)
 
-const {type, path, debug} = program
+const {type, path, debug, level: splitByLevel} = program
 
 if (!['structure', 'quality'].includes(type)) {
   console.error(`Type ${type} not allowed. Use "structure" or "quality"`)
@@ -38,7 +39,11 @@ const db = require(path)
 const texts = db.texts
 
 const stats = Object.values(texts).reduce((acc, text) => {
-  const id = text.idFile.slice(8).trim()
+  let id = text.idFile.slice(8).trim()
+  const level = text.level
+  if (splitByLevel) {
+    id = `${id}__${level}`
+  }
   const evaluations = text.evaluations || {}
   const numberOfEvaluationsByType = Object.keys(evaluations[type] || {}).length
   acc[id] = acc[id] || {total: 0, counts: [0, 0, 0, 0, 0, 0, 0]} // Sadly there are texts with more than 2 evaluations. But this is taken into account in the platform
