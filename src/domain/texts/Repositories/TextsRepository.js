@@ -20,6 +20,10 @@ export default class TextsRepository {
   }
 
   updatePrompt() {
-    throw Error('[TextsRepository#updatePrompupdatePrompt] must be implemented')
+    throw Error('[TextsRepository#updatePromp] must be implemented')
+  }
+
+  createStudent() {
+    throw Error('[TextsRepository#createStudent] must be implemented')
   }
 }

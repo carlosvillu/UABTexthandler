@@ -6,15 +6,35 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     qualityEvaluationEntityFactory,
     skipEvaluationEntityFactory,
     structureEvaluationEntityFactory,
-    textEntityFactory
+    textEntityFactory,
+    studentEntityFactory
   }) {
     super()
 
     this._config = config
     this._textEntityFactory = textEntityFactory
+    this._studentEntityFactory = studentEntityFactory
     this._qualityEvaluationEntityFactory = qualityEvaluationEntityFactory
     this._skipEvaluationEntityFactory = skipEvaluationEntityFactory
     this._structureEvaluationEntityFactory = structureEvaluationEntityFactory
+  }
+
+  async allTexts() {
+    const refsManager = this._config.get('refsManager')
+    const textsRef = refsManager.ref({path: '/texts'})
+    const texts = (await textsRef.once('value')).val() || {}
+    return Object.keys(texts).map(key =>
+      this._textEntityFactory({id: key, ...texts[key]})
+    )
+  }
+
+  async allStudents() {
+    const refsManager = this._config.get('refsManager')
+    const studentsRef = refsManager.ref({path: '/students'})
+    const students = (await studentsRef.once('value')).val() || {}
+    return Object.keys(students).map(key => {
+      return this._studentEntityFactory({studentID: students[key].id})
+    })
   }
 
   async allStructure() {
@@ -22,7 +42,7 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     const evaluationsRef = refsManager.ref({path: '/evaluations/structure'})
     const evaluations = (await evaluationsRef.once('value')).val() || {}
     return Object.keys(evaluations).map(key =>
-      this._structureEvaluationEntityFactory(evaluations[key])
+      this._structureEvaluationEntityFactory({id: key, ...evaluations[key]})
     )
   }
 
@@ -33,7 +53,8 @@ export default class FireBaseEvaluationsRepository extends EvaluationsRepository
     return Object.keys(evaluations).map(key =>
       this._qualityEvaluationEntityFactory({
         ...evaluations[key],
-        evaluator: evaluations[key].userEmail
+        evaluator: evaluations[key].userEmail,
+        id: key
       })
     )
   }

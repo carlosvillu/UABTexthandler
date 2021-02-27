@@ -7,8 +7,20 @@ import GetStatsSkippedEvaluationsUseCase from './GetStatsSkippedEvaluationsUseCa
 import GetStatsStructureEvaluationsUseCase from './GetStatsStructureEvaluationsUseCase'
 import GetStatsTextsWithoutQualityEvaluationsUseCase from './GetStatsTextsWithoutQualityEvaluationsUseCase'
 import SkipEvaluationsUseCase from './SkipEvaluationsUseCase'
+import GetCSVStatsFilteredEvaluationsUseCase from './GetCSVStatsFilteredEvaluationsUseCase'
 
 export default class EvaluationsUseCasesFactory {
+  static getCSVStatsFilteredEvaluationsUseCase = ({config}) =>
+    new GetCSVStatsFilteredEvaluationsUseCase({
+      filtersValueObjectFactory:
+        ValueObjectsEvaluationsFactory.filtersValueObject,
+      service: EvaluationsServicesFactory.getCSVStatsFilteredEvaluationsService(
+        {
+          config
+        }
+      )
+    })
+
   static getStatsQualityEvaluationsUseCase = ({config}) =>
     new GetStatsQualityEvaluationsUseCase({
       service: EvaluationsServicesFactory.getStatsQualityEvaluationsService({

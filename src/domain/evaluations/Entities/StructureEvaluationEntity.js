@@ -5,6 +5,10 @@ export default class StructureEvaluationEntity extends Entity {
     return this._userEmail
   }
 
+  id() {
+    return this._id
+  }
+
   idFile() {
     return this._idFile
   }

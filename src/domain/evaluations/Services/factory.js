@@ -1,6 +1,8 @@
+import EvaluationsValueObjectsFactory from '../ValueObjects/factory'
 import EvaluationsMappersFactory from '../Mappers/factory'
 import EvaluationsRepositoriesFactory from '../Repositories/factory'
 
+import GetCSVStatsFilteredEvaluationsService from './GetCSVStatsFilteredEvaluationsService'
 import GetStatsQualityEvaluationsService from './GetStatsQualityEvaluationsService'
 import GetStatsSkippedEvaluationsService from './GetStatsSkippedEvaluationsService'
 import GetStatsStructureEvaluationsService from './GetStatsStructureEvaluationsService'
@@ -8,6 +10,15 @@ import GetStatsTextsWithoutQualityEvaluationsService from './GetStatsTextsWithou
 import SkipEvaluationsService from './SkipEvaluationsService'
 
 export default class EvaluationsServicesFactory {
+  static getCSVStatsFilteredEvaluationsService = ({config}) =>
+    new GetCSVStatsFilteredEvaluationsService({
+      filteredEvaluationsValueObjectFactory:
+        EvaluationsValueObjectsFactory.filteredEvaluationsValueObject,
+      repository: EvaluationsRepositoriesFactory.fireBaseEvaluationsRepository({
+        config
+      })
+    })
+
   static getStatsQualityEvaluationsService = ({config}) =>
     new GetStatsQualityEvaluationsService({
       mapper: EvaluationsMappersFactory.qualityEvaluationEntityListToStatsValueObjectMapper(),

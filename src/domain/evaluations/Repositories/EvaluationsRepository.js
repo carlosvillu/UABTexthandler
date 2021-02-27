@@ -1,4 +1,12 @@
 export default class EvaluationsRepository {
+  allStudents() {
+    throw Error('[EvaluationsRepository#allStudents] must be implemented')
+  }
+
+  allTexts() {
+    throw Error('[EvaluationsRepository#allTexts] must be implemented')
+  }
+
   allStructure() {
     throw Error('[EvaluationsRepository#allStructure] must be implemented')
   }
