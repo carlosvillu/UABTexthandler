@@ -1,0 +1,24 @@
+.TableCSV {
+  width: 90% !important;
+  margin: 0 auto;
+
+  &-Title {
+    margin: $size-base 0;
+  }
+
+  &-rowNormalized,
+  &-rowOriginal {
+    padding-top: 24px;
+  }
+}
+
+.ReactTable {
+  & .-pagination .-btn {
+    height: 50px;
+  }
+
+  & .rt-thead {
+    overflow-y: scroll;
+  }
+}
+

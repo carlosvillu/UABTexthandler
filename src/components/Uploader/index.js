@@ -37,6 +37,19 @@ const uploadPrompts = async ({items = [], domain}) => {
   })
 }
 
+const uploadStudents = async ({items = [], domain}) => {
+  const files = Array.from(items)
+  const [body] = await Promise.all(files.map(reader))
+  const [, ...students] = body.split('\n')
+
+  return executeInChunks(students.filter(Boolean), CHUNKS, line => {
+    const [studentID] = line.split(',')
+    return domain
+      .get('upload_student_texts_use_case')
+      .execute({id: studentID.replace(/\r/, '')})
+  })
+}
+
 export default compose(
   withState('stateOpenDialog', 'setStateOpenDialog', false),
   withState('stateShowSpinner', 'setStateShowSpinner', false),
@@ -72,12 +85,31 @@ export default compose(
         `${props.i18n.t('UPLOADER_FILES_CONFIRMATE')}: ${files.length}`
       )
     },
+    handleDropPaperStudents: props => async evt => {
+      evt.stopPropagation()
+      evt.preventDefault()
+      props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
+      const files = await uploadStudents({
+        items: evt.dataTransfer.files,
+        domain: props.domain
+      })
+      props.setStateShowSpinner(false)
+      props.setStateConfirmationMSG(
+        `${props.i18n.t('UPLOADER_FILES_CONFIRMATE')}: ${files.length}`
+      )
+    },
     handleDragOverPaperTexts: props => evt => {
       evt.stopPropagation()
       evt.preventDefault()
       evt.dataTransfer.dropEffect = 'copy'
     },
     handleDragOverPaperPrompts: props => evt => {
+      evt.stopPropagation()
+      evt.preventDefault()
+      evt.dataTransfer.dropEffect = 'copy'
+    },
+    handleDragOverPaperStudents: props => evt => {
       evt.stopPropagation()
       evt.preventDefault()
       evt.dataTransfer.dropEffect = 'copy'
@@ -102,6 +134,15 @@ export default compose(
       props.setStateOpenDialog(false)
       props.setStateShowSpinner(true)
       await uploadPrompts({
+        items: evt.target.files,
+        domain: props.domain
+      })
+      props.setStateShowSpinner(false)
+    },
+    handleInputChangeStudents: props => async evt => {
+      props.setStateOpenDialog(false)
+      props.setStateShowSpinner(true)
+      await uploadStudents({
         items: evt.target.files,
         domain: props.domain
       })

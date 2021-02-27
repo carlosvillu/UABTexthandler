@@ -17,10 +17,13 @@ class Uploader extends React.PureComponent {
     handleCloseSnackbar: PropTypes.func,
     handleDialogClose: PropTypes.func,
     handleDragOverPaperPrompts: PropTypes.func,
+    handleDragOverPaperStudents: PropTypes.func,
     handleDragOverPaperTexts: PropTypes.func,
     handleDropPaperPrompts: PropTypes.func,
+    handleDropPaperStudents: PropTypes.func,
     handleDropPaperTexts: PropTypes.func,
     handleInputChangePrompts: PropTypes.func,
+    handleInputChangeStudents: PropTypes.func,
     handleInputChangeTexts: PropTypes.func,
     i18n: PropTypes.object,
     stateConfirmationMSG: PropTypes.string,
@@ -34,10 +37,13 @@ class Uploader extends React.PureComponent {
       handleCloseSnackbar,
       handleDialogClose,
       handleDragOverPaperPrompts,
+      handleDragOverPaperStudents,
       handleDragOverPaperTexts,
       handleDropPaperPrompts,
+      handleDropPaperStudents,
       handleDropPaperTexts,
       handleInputChangePrompts,
+      handleInputChangeStudents,
       handleInputChangeTexts,
       i18n,
       stateConfirmationMSG,
@@ -119,6 +125,25 @@ class Uploader extends React.PureComponent {
               id="prompt"
               multiple
               onChange={handleInputChangePrompts}
+              type="file"
+            />
+
+            <label className="Uploader-label" htmlFor="students">
+              <Paper
+                onDrop={handleDropPaperStudents}
+                onDragOver={handleDragOverPaperStudents}
+                className="Uploader-paper"
+              >
+                <FileUpload />
+                <p className="Uploader-claim">{i18n.t('UPLOADER_STUDENTS')}</p>
+              </Paper>
+            </label>
+            <input
+              accept="text/*"
+              className="Uploader-input"
+              id="students"
+              multiple
+              onChange={handleInputChangeStudents}
               type="file"
             />
           </div>
