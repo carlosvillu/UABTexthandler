@@ -35,6 +35,10 @@ const loadAdminEvaliationsPage = loadPage(contextFactory, () =>
   import(/* webpackChunkName: "AdminText" */ './pages/AdminEvaluations')
 )
 
+const loadAdminDashboardsPage = loadPage(contextFactory, () =>
+  import(/* webpackChunkName: "AdminDashboards" */ './pages/AdminDashboards')
+)
+
 const requireAuth = async (nextState, replace, cb) => {
   const user = await domain.get('current_users_use_case').execute()
   if (!user) {
@@ -83,6 +87,7 @@ export default (
         <Route path="admin" onEnter={requireAdmin}>
           <Route path="text" getComponent={loadAdminTextPage} />
           <Route path="evaluations" getComponent={loadAdminEvaliationsPage} />
+          <Route path="dashboard" getComponent={loadAdminDashboardsPage} />
         </Route>
         <Route
           getComponent={loadSigninPage}
