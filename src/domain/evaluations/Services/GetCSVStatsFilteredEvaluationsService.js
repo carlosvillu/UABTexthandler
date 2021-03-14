@@ -9,14 +9,14 @@ export default class GetCVSStatsFilteredEvaluationsService extends Service {
 
   async execute({filters}) {
     const students = await this._repository.allStudents()
-    const stuctures = await this._repository.allStructure()
+    const structures = await this._repository.allStructure()
     const qualities = await this._repository.allQuality()
     const texts = await this._repository.allTexts()
 
     return this._filteredEvaluationsValueObjectFactory({
       filters,
       students,
-      stuctures,
+      structures,
       qualities,
       texts
     })

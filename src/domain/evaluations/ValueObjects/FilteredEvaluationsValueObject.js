@@ -50,7 +50,8 @@ export default class FilteredEvaluationsValueObject extends ValueObject {
       .map(text => text.toJSON()) // From here we are going to work as plain JSON
       // Replace the evaluations object with an array order by `createdAt` file with only the evaluation by type (Qualit or structure)
       .map(text => {
-        text.evaluations = Object.keys(text.evaluations[this._filters.type()])
+        const evalutationsByType = text.evaluations[this._filters.type()] ?? {}
+        text.evaluations = Object.keys(evalutationsByType)
           .map(evaluationID => {
             return this.evaluationsByType()
               .find(evaluation => evaluation.id() === evaluationID)
