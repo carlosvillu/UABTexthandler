@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import SelectorDashboard from '../../components/SelectorDashboard'
 import TableCSV from '../../components/TableCSV'
+import DownloaderCSV from '../../components/DownloaderCSV'
 
 const AdminDashboard = ({
   i18n,
@@ -11,6 +12,7 @@ const AdminDashboard = ({
   setStateCSV,
   setStateFilters
 }) => {
+  const title = Object.values(statefilters).join('_')
   return (
     <div className="AdminDashboard">
       <div className="AdminDashboard-selectors">
@@ -26,9 +28,14 @@ const AdminDashboard = ({
           numberOfResults={csv => csv.filter(row => row.fileID !== '').length}
           findHeaderProto={csv => csv.find(row => row.fileID !== '')}
           csv={stateCSV}
-          title={Object.values(statefilters).join('_')}
+          title={title}
         />
       </div>
+      <DownloaderCSV
+        findHeaderProto={csv => csv.find(row => row.fileID !== '')}
+        csv={stateCSV}
+        filename={title}
+      />
     </div>
   )
 }
