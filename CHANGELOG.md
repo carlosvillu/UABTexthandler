@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-# 1.27.0 (2020-12-23)
+# 1.28.0 (2021-03-15)
+
+
+### Features
+
+* **components:** create DonwloadCSV component ([16a7dd4](https://github.com/carlosvillu/UABTexthandler/commit/16a7dd42aafeaddbdc1290e2637766b4e82b0315))
+* **components:** create DonwloadCSV component ([b1074fe](https://github.com/carlosvillu/UABTexthandler/commit/b1074feed18f0acae797c8dfbffd76e5f871bcd4))
+* **domain:** add GetCSVStatsEvaluationUseCase ([3befa79](https://github.com/carlosvillu/UABTexthandler/commit/3befa79cb121a9ded99ba2452e080c7c91419f44))
+* **domain:** add GetCSVStatsEvaluationUseCase ([c1cb394](https://github.com/carlosvillu/UABTexthandler/commit/c1cb394128027318a5e8d3ee6a7aa10d638a96b1))
+* **domain:** fix structure generation ([a5afd22](https://github.com/carlosvillu/UABTexthandler/commit/a5afd22a36aa82c90712f79fc1c551cc8a30428e))
+* **literals:** add new dashboard page ([e507468](https://github.com/carlosvillu/UABTexthandler/commit/e5074683ccd274dcf105a8cd5f7bd71d256e5c68))
+* **pages:** add donwloader to the dashboard page ([9e2ccbe](https://github.com/carlosvillu/UABTexthandler/commit/9e2ccbe553243a025fe79c549771be4eda833bad))
+* **pages:** Create Dashboard page ([78f3639](https://github.com/carlosvillu/UABTexthandler/commit/78f3639d05f1fc1d34aff416d8dd5640dc017ed4))
+* **styles:** add Dashboard and Page styles ([bdd6f75](https://github.com/carlosvillu/UABTexthandler/commit/bdd6f75a4d99a7bb87e93c12b3b52ce1aee6692f))
+* **styles:** add DownloaderCSV styles ([f8920b9](https://github.com/carlosvillu/UABTexthandler/commit/f8920b94facbf6314a04a9fecfc8b25086c82b5b))
+
+
+
+# [1.27.0](https://github.com/carlosvillu/UABTexthandler/compare/1.26.0...1.27.0) (2020-12-23)
 
 
 ### Features
