@@ -205,4 +205,23 @@ export default class FireBaseTextsRepository extends TextsRepository {
         .update({prompt: text.prompt()})
     }
   }
+
+  /**
+   * @param {object} params
+   * @param {import("../Entities/StudentEntity").default} params.student
+   * */
+  async createStudent({student}) {
+    const refsManager = this._config.get('refsManager')
+
+    return new Promise((resolve, reject) => {
+      refsManager
+        .ref({path: `/students/${student.id()}`})
+        .set(student.toJSON(), error => {
+          if (error) {
+            return reject(error)
+          }
+          resolve(student)
+        })
+    })
+  }
 }

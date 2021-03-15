@@ -41,6 +41,13 @@ export default class PrivilegedUserMenu extends React.PureComponent {
         >
           <MenuItem primaryText={i18n.t('ADMIN_EVALUATION')} />
         </Link>
+        <Link
+          className="PrivilegedUserMenu-link"
+          onClick={this.handleClickLink}
+          to="/admin/dashboard"
+        >
+          <MenuItem primaryText={i18n.t('ADMIN_DASHBOARD')} />
+        </Link>
         <Divider />
       </>
     ) : null

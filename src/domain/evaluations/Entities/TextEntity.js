@@ -9,6 +9,14 @@ export default class TextEntity extends Entity {
     return this._idFile
   }
 
+  genre() {
+    return this._gender
+  }
+
+  time() {
+    return this._time
+  }
+
   hasQualityEvaluation() {
     return this._evaluations && this._evaluations.quality
   }

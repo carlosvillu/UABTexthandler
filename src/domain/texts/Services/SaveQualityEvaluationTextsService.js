@@ -1,5 +1,5 @@
 class SaveQualityEvaluationTextsService {
-  constructor({repository, mapper} = {}) {
+  constructor({repository} = {}) {
     this._repository = repository
   }
 

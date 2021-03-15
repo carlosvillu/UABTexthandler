@@ -18,6 +18,11 @@ export const series = function series(providers) {
     })
 }
 
+/**
+ * @param {Array<string>} arr
+ * @param {number} num=50
+ * @param {(line: string, index: number) => string} mapFn
+ * */
 export const executeInChunks = (arr, num = 50, mapFn) => {
   const tasks = chunk(arr, num)
   return series(

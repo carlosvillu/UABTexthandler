@@ -21,6 +21,8 @@ export default {
     STRUCTURE: TypeEvaluationValueObject.STRUCTURE
   },
   TIME: {
+    PRE: TimeValueObject.PRE,
+    POST: TimeValueObject.POST,
     MANT: TimeValueObject.MANT,
     SEG1: TimeValueObject.SEG1,
     SEG2: TimeValueObject.SEG2

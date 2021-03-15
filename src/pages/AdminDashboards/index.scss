@@ -1,0 +1,16 @@
+.AdminDashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:  column;
+
+  &-selectors {
+    width: 75%;
+  }
+
+  &-table {
+    margin-top: 25px;
+    text-align: center;
+    width: 100%;
+  }
+}

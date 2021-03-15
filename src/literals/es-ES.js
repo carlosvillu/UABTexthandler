@@ -114,5 +114,31 @@ module.exports = {
   UPLOADER_FILES_CONFIRMATE: 'Fichero subidos',
   UPLOADER_PROMPT: 'Arrastra consignas aquí o clíca',
   UPLOADER_TITLE_MODAL: 'Agregar',
-  UPLOADTEXT_TITLE: 'Subir textos para normalizar'
+  UPLOADTEXT_TITLE: 'Subir textos para normalizar',
+
+  TableCSV_WAITING_CSV: 'Esperando CSV',
+  TableCSV_NO_RESULTS: 'Sin resultados',
+
+  SELECTOR_DASHBOARD_TYPE: 'Selecciona tipo',
+  SELECTOR_DASHBOARD_QUALITY: 'Calidad',
+  SELECTOR_DASHBOARD_STRUCTURE: 'Estructura',
+  SELECTOR_DASHBOARD_GENRE: 'Selecciona genero',
+  SELECTOR_DASHBOARD_OPINION: 'Opinion',
+  SELECTOR_DASHBOARD_NARRATIVE: 'Narrativo',
+  SELECTOR_DASHBOARD_TIME: 'Selecciona periodo',
+  SELECTOR_DASHBOARD_TIME_PRE: 'Pre',
+  SELECTOR_DASHBOARD_TIME_POST: 'Post',
+  SELECTOR_DASHBOARD_TIME_MANT: 'Mantenimiento',
+  SELECTOR_DASHBOARD_TIME_SEG1: 'SEG1',
+  SELECTOR_DASHBOARD_TIME_SEG2: 'SEG2',
+
+  SELECTOR_DASHBOARD_ORDER: 'Selecciona evaluación',
+  SELECTOR_DASHBOARD_ORDER_FIRST: 'Primera',
+  SELECTOR_DASHBOARD_ORDER_SECOND: 'Segunda',
+  SELECTOR_DASHBOARD_ORDER_THIRD: 'Tercera',
+  SELECTOR_DASHBOARD_ORDER_FOURTH: 'Cuarta',
+
+  SELECTOR_DASHBOARD_GENERATE: 'Generar CSV',
+
+  ADMIN_DASHBOARD: 'Administrar Dashboard'
 }
