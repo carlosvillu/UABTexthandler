@@ -2,8 +2,16 @@ const _pipe = (f, g) => (...args) => g(f(...args))
 const pipe = (...fns) => fns.reduce(_pipe)
 
 export default class PlanTextToPlainTextNormalizedMapper {
+  removeOccurencesSquareBrackets(src) {
+    return src.replace(/\[.*\]/g, '')
+  }
+
   removeAtO(src) {
     return src.replace(/@o/g, '')
+  }
+
+  removeAtH(src) {
+    return src.replace(/@h/g, '')
   }
 
   removeAtS(src) {
@@ -34,17 +42,24 @@ export default class PlanTextToPlainTextNormalizedMapper {
     return src.replace(/\s\[% AP\]\s?/g, '\n\n')
   }
 
-  map = text => {
-    const normalizeText = pipe(
-      this.removeAtO,
-      this.removeAtS,
-      this.replaceSpaceDotNewLine,
-      this.replaceQuestionMark,
-      this.replaceExclamationMark,
-      this.replaceEllipsis,
-      this.replacePeriodAndNewLine,
-      this.replacePeriod
-    )(text).trim()
+  map = (text, corpusAnalytics) => {
+    const normalizeText = pipe
+      .apply(
+        undefined,
+        [
+          corpusAnalytics && this.removeOccurencesSquareBrackets,
+          this.removeAtO,
+          this.removeAtH,
+          this.removeAtS,
+          this.replaceSpaceDotNewLine,
+          this.replaceQuestionMark,
+          this.replaceExclamationMark,
+          this.replaceEllipsis,
+          this.replacePeriodAndNewLine,
+          this.replacePeriod
+        ].filter(Boolean)
+      )(text)
+      .trim()
     return normalizeText
   }
 }

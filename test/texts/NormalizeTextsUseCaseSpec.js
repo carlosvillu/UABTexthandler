@@ -3,6 +3,24 @@ import {expect} from 'chai'
 import Domain from '../../src/domain'
 
 let domain
+describe('Normalize Corpus TexCorpus Text', () => {
+  beforeEach(() => {
+    domain = new Domain()
+  })
+
+  afterEach(() => {
+    domain = null
+  })
+
+  it('Remove any ocurrencies of [WHAT_EVER] in the text', async function() {
+    const input = 'perquè@h los@s nens [% CULO] juguin@h un poc@h [% punt AP] .'
+    const normalized = await domain
+      .get('normalize_texts_use_case')
+      .execute({text: input, corpusAnalytics: true})
+    return expect(normalized.indexOf('[% CULO]')).to.equal(-1)
+  })
+})
+
 describe('Normalize rules', () => {
   beforeEach(() => {
     domain = new Domain()
@@ -10,6 +28,14 @@ describe('Normalize rules', () => {
 
   it('Should remove all @o ocurrencies', async () => {
     const input = 'perquè@o los@s nens juguin@o un poc@o [% punt AP] .'
+    const normalized = await domain
+      .get('normalize_texts_use_case')
+      .execute({text: input})
+    return expect(normalized.indexOf('@o')).to.equal(-1)
+  })
+
+  it('Should remove all @h ocurrencies', async () => {
+    const input = 'perquè@h los@s nens juguin@h un poc@h [% punt AP] .'
     const normalized = await domain
       .get('normalize_texts_use_case')
       .execute({text: input})
