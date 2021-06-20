@@ -3,8 +3,8 @@ class NormalizeTextsService {
     this._mapper = mapper
   }
 
-  execute({text}) {
-    return this._mapper.map(text)
+  execute({text, corpusAnalytics}) {
+    return this._mapper.map(text, corpusAnalytics)
   }
 }
 
