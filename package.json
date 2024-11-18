@@ -38,7 +38,7 @@
     "@s-ui/react-initial-props": "2",
     "commander": "4.1.1",
     "fast-glob": "3.2.2",
-    "firebase": "7.10.0",
+    "firebase": "10.9.0",
     "fs-extra": "8.1.0",
     "material-ui": "0.20.2",
     "react-table": "6.8.6",
